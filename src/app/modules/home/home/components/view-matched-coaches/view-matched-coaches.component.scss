@@ -1,0 +1,155 @@
+.profile-view-new {
+    display: flex;
+    padding: 10px;
+}
+
+.profile-view h3 {
+    margin-top: 12px;
+    margin-left: 0px;
+    font-size: 14.8px;
+}
+
+.profile-view img {
+    width: 104px;
+}
+
+.main-view-match {
+    background: #dbf1f5;
+    color: #000;
+    margin-bottom: 30px;
+}
+
+.profile-view-cn li {
+    margin-top: 41px;
+}
+
+.profile-view {
+    display: flex;
+    justify-content: space-between;
+    width: 26%;
+    align-items: center;
+    padding: 3px;
+}
+
+.spacil-new {
+    display: flex;
+    justify-content: space-between;
+    width: 73%;
+    align-items: center;
+}
+
+.profile-view-main {
+    margin-left: 81px;
+    margin-top: 14px;
+}
+
+.profile-view-main li {
+    padding-bottom: 27px;
+}
+
+.profile-view-nit {
+    margin-top: 15px;
+}
+
+.profile-view-nit li {
+    margin-bottom: 27px;
+}
+
+.main-view-match-new {
+    background: #dbf1f5;
+    color: #000;
+    margin-bottom: 24px;
+}
+
+.print-button {
+    text-align: end;
+    position: relative;
+}
+
+.print-button button:hover {
+    box-shadow: 0 0 5px 3px rgb(0 0 0 / 42%);
+}
+
+.career-top {
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    // top: 5px;
+}
+
+.print-button button {
+    font-size: 30px;
+    width: 50px;
+    margin-right: 20px;
+    margin-top: -8px;
+    margin-bottom: 21px;
+    border-radius: 25px;
+    background: #18164d;
+    color: #fff;
+    transition: all 0.5s;
+}
+
+@media screen and (max-width: 1400px) {
+    .profile-view-main {
+        margin-left: 26px;
+    }
+    .profile-view img {
+        width: 78px;
+    }
+    .profile-view h3 {
+        font-size: 12.8px;
+    }
+    .career-top h3 {
+        font-size: 20px;
+    }
+    .career-top {
+        top: 4px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .profile-view {
+        width: 33%;
+    }
+    .career-top h3 {
+        font-size: 19px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .profile-view {
+        width: 43%;
+    }
+    .profile-view-main {
+        margin-left: 34px;
+        margin-top: 0px;
+    }
+    .profile-view-main li {
+        padding-bottom: 20px;
+        font-size: 14px;
+    }
+    .profile-view-cn li {
+        margin-top: 23px;
+        font-size: 14px;
+    }
+    .profile-view-nit li {
+        margin-bottom: 18px;
+        font-size: 14px;
+    }
+    .profile-view-nit {
+        margin-top: 0px;
+    }
+    .career-top h3 {
+        font-size: 18px;
+    }
+    .career-top {
+        top: 3px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    // .view-match-new {
+    //     margin-top: -38px;
+    // }
+}

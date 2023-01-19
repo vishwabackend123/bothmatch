@@ -1,0 +1,1265 @@
+<section class="job-match-insite" (window:resize)="showHideMobilePopup($event)">
+    <div id="topbobs" class="container">
+        <h2 class="wow fadeIn top-job-color" data-wow-duration="1s" data-wow-delay="0.4s">{{federalJobHeading}}</h2>
+        <p class="job-pos wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">{{federalJobSubHeading}}
+        </p>
+        <div id="tabarea" class="pt-5 ">
+            <ul class="nav nav-pills mb-3 nav-fill" id="pills-tab" role="tablist" *ngIf="showJobMatchesSteps">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link  tab-size" [ngClass]="{'active': tabIndex === 0}" (click)="tabChange(0)" role="tab" aria-controls="pills-home" aria-selected="true">Step 1 - Start Matching</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link tab-size" [ngClass]="{'active': tabIndex === 1}" (click)="tabChange(1)" role="tab" aria-controls="pills-profile" aria-selected="false">Step 2 - Review & Edit </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link tab-size" [ngClass]="{'active': tabIndex === 2}" (click)="tabChange(2)" role="tab" aria-controls="pills-contact" aria-selected="false">Step 3 - Additional Input</a>
+                </li>
+                <li class="nav-item" role="presentation" *ngIf="showSelectAndPay">
+                    <a class="nav-link tab-size" [ngClass]="{'active': tabIndex === 3}" (click)="tabChange(3)" role="tab" aria-controls="pills-contact" aria-selected="false">Step 4 - Select & Pay</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link tab-size" [ngClass]="{'active': tabIndex === 4}" (click)="tabChange(4)" role="tab" aria-controls="pills-contact" aria-selected="false">Step {{step}} - Curated
+                        Report</a>
+                </li>
+            </ul>
+            <!--START Professionals Version2.docx -->
+            <ul class="nav nav-pills mb-3 nav-fill" id="pills-tab" role="tablist" *ngIf="!showJobMatchesSteps">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link tab-size" [ngClass]="{'active': tabIndex === 5}" (click)="tabChange(5)" role="tab" aria-controls="pills-contact" aria-selected="false">Step 1 - CAREER ADVANCEMENT</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link tab-size" [ngClass]="{'active': tabIndex === 6}" (click)="tabChange(6)" role="tab" aria-controls="pills-contact" aria-selected="false">Step 2 - CANDIDATE-COACH
+                        MATCH</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link tab-size" [ngClass]="{'active': tabIndex === 7}" (click)="tabChange(7)" role="tab" aria-controls="pills-contact" aria-selected="false">Step 3 - VIEW MATCHED COACHES</a>
+                </li>
+                <!--END Professionals Version2.docx -->
+            </ul>
+            <div class="tab-content " [ngSwitch]="tabIndex">
+                <ng-container *ngSwitchCase="0">
+                    <div class="tab-pane  active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <div class="first-tab-sec">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-12 no-paading">
+                                <div class="table-selector">
+                                    <div class="tab-pane active" id="pills-home-main" role="tabpanel" aria-labelledby="pills-home-tab">
+                                        <div class="first-tab-sec one">
+                                            <div class="container">
+
+                                                <form>
+                                                    <!--<div *ngIf="!cars[0] && !include[0]" class="upload-check-box">-->
+                                                    <div class="upload-check-box match-box">
+                                                        <div class="checkbox-list disable-upload box-align">
+                                                            <h5 class="start-here">START HERE</h5>
+                                                            <h5>Select Match Type:</h5>
+                                                            <div class="first-box">
+                                                                <div class="search-check">
+                                                                    <input type="radio" name="radio" id="freedemo" (click)="setSearchType('free')" [checked]="isFreeDemo ? true : false">
+                                                                    <label for="freedemo" class="checkmark-label-new">
+                                                                    Private Sector Matching Demo <div class="div-contain"><span class="free">Free !</span></div></label>
+                                                                </div>
+                                                                <div class="search-check blue-bg">
+                                                                    <input type="radio" name="radio" id="private" (click)="setSearchType('paid')" [checked]="isPrivate ? true : false">
+                                                                    <label class="checkmark-label-new" for="private">Top USA
+                                                                    Private Sector Jobs <div class="div-contain"><span class="paid">$20 / Match</span></div></label>
+                                                                </div>
+                                                                <div class="search-check">
+                                                                    <input type="radio" name="radio" id="companyMatch" (click)="setSearchType('companyMatch')" [checked]="isCompanyMatch ? true : false">
+                                                                    <label for="companyMatch" class="checkmark-label-new">Individual USA Company
+                                                                    Match <div class="div-contain"><span class="free">Free !</span></div></label>
+                                                                </div>
+                                                                <div class="search-check">
+                                                                    <input type="radio" name="radio" id="freematch" (click)="setSearchType('freeGovt')" [checked]="isFreeGovt ? true : false">
+                                                                    <label class="checkmark-label-class" for="freematch">Top
+                                                                    Government Jobs Match <div class="div-contain"><span class="free">Free !</span></div></label>
+                                                                </div>
+                                                                <div class="search-check">
+                                                                    <input type="radio" name="radio" id="careerprofessionalmatch" (click)="setSearchType('careerProfessionalMatch')" [checked]="isCareerProfessionalMatch ? true : false">
+                                                                    <label for="careerprofessionalmatch" class="checkmark-label-class">Career Professional
+                                                                    Match <div class="div-contain"><span class="free">Free !</span></div></label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="second-box">
+                                                                <div class="search-check blue-bg second">
+                                                                    <input type="radio" name="radio" id="topCandidatesForEmployers" (click)="setSearchType('topCandidatesForEmployers')" [checked]="isTopCandidatesForEmployers ? true : false">
+                                                                    <label for="topCandidatesForEmployers" class="checkmark-label-new">Top Candidates for Employers <div class="div-contain"><span class="paid">$50 / Match</span></div></label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="third-box">
+                                                                <div class="search-check">
+                                                                    <input type="radio" name="radio" id="jobrepcommunity" (click)="setSearchType('jobRepCommunity')" [checked]="isJobRepCommunity ? true : false">
+                                                                    <label for="jobrepcommunity" class="checkmark-label-class">JobRep Network (Summer
+                                                                    2022)</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="main-content-upload disable-upload" [ngStyle]="{'pointer-events': pointerEvents}">
+                                                            <!--<div *ngIf="!cars[0] && !include[0]" class="upload-cv"> pointer-events: none-->
+                                                            <div class="upload-cv">
+                                                                <!-- 
+                                                                <div class="overview-hadding">
+                                                                    <h3>For a quick overview of Curate Matching</h3>
+                                                                    <p>click on Steps 1-5 tab demo screens</p>
+
+                                                                </div> -->
+
+                                                                <div id="uploadDoc" *ngIf="showJobMatchesSteps && !showJobRepComm &&!showCareerPro" class="upload-new">
+                                                                    <div class="overview-hadding after-upload">
+                                                                        <h3 *ngIf="showDemo && !showCompanyMatch && !showGovt">
+                                                                            For a quick overview of Curate Matching</h3>
+                                                                        <p *ngIf="showDemo && !showCompanyMatch && !showGovt">
+                                                                            Click on Steps 1-5 demo screens above</p>
+
+                                                                        <div class="private-job-new">
+                                                                            <h3 *ngIf="!showDemo && !showCompanyMatch && !showGovt && !showTopCandidate">
+                                                                                Match candidate profile with millions of private sector<br> jobs in the USA using Deep AI Match and human input. </h3>
+                                                                            <p *ngIf="!showDemo && !showCompanyMatch && !showGovt && !showTopCandidate">
+                                                                                Pay only when top match meets candidate's requirement.</p>
+                                                                        </div>
+                                                                        <div class="individual-job-new">
+                                                                            <h3 *ngIf="!showDemo && showCompanyMatch && !showGovt && !showTopCandidate">
+                                                                                Match candidate profile with all open jobs at a specific<br> company using Deep AI Match and human input.<br> Then apply from the top ten matches.</h3>
+                                                                        </div>
+
+                                                                        <div class="millions-job-new">
+                                                                            <h3 *ngIf="!showDemo && !showCompanyMatch && showGovt && !showTopCandidate">
+                                                                                Match candidate profile with millions of federal jobs<br> in the USA using Deep AI Match and human input.<br>Then apply from the top ten matches.</h3>
+                                                                        </div>
+                                                                        <div class="individual-job-new">
+                                                                            <h3 *ngIf="!showDemo && !showCompanyMatch && !showGovt && showTopCandidate">
+                                                                                Match job postings with millions of candidate profiles<br> in the USA using Deep AI Match and human input.<br>Then select from the top ten candidates matches.</h3>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div *ngIf="isfileUploading" class="loading"> <img src="assets/images/loading.gif">
+                                                                    </div>
+                                                                    <img class="after-upload" src="assets/images/uploads.png" alt="" style="display: block;">
+                                                                    <span class="after-upload" *ngIf="showDemo">(no
+                                                                        resume upload needed for demo)</span>
+                                                                    <span class="after-upload" *ngIf="!showDemo && !showTopCandidate" style="color: #444;">Drag & Drop Your Resume
+                                                                        Here</span>
+                                                                    <span class="after-upload" *ngIf="!showDemo && showTopCandidate" style="color: #444;">Drag & Drop Job Posting Here</span>
+                                                                    <button class="after-upload" *ngIf="!showDemo" type="button">Or Upload File</button>
+                                                                    <button *ngIf="showDemo" type="button" (click)="fileUploadDemo()" class="click-here-new after-upload">CLICK
+                                                                        HERE</button>
+                                                                    <p class="after-upload" *ngIf="!showDemo">(.pdf, .doc, .docx, .rtf)</p>
+
+                                                                    <input *ngIf="!showDemo" type="file" accept=".pdf" id="fileid" value="name" multiple (change)="fileUpload($event)">
+                                                                </div>
+
+                                                                <div id="defaultDoc" *ngIf="showJobMatchesSteps && showJobRepComm &&!showCareerPro" class="upload-new-class">
+
+                                                                    <div *ngIf="isfileUploading" class="loading"> <img src="assets/images/loading.gif">
+                                                                    </div>
+
+                                                                    <img class="after-upload" src="assets/images/JRN.PNG" alt="" style="display: block;transform: scale(0.7);">
+                                                                    <!-- 
+                                                                    <span class="after-upload" style="color: #444;">Drag
+                                                                        & Drop Your Resume Here</span>
+                                                                    <button class="after-upload" type="button">Or Upload
+                                                                        File</button>
+                                                                    <p class="after-upload">(.pdf, .doc, .docx, .rtf)
+                                                                    </p> -->
+
+                                                                    <input class="after-upload" type="file" accept=".pdf" id="fileid" value="name" multiple (change)="fileUpload($event)">
+                                                                </div>
+
+                                                                <div *ngIf=" showCareerPro && !showJobMatchesSteps && !showJobRepComm">
+                                                                    <div class="candidate-new">
+                                                                        <h3>Candidates Matched with<br> Career Professionals
+                                                                        </h3>
+                                                                        <p>When candidates need to improve their resume before they use the Curate Job Match portal or need help with additional career advancement services, they now have a better opportunity
+                                                                            to find the right curated career professionals (JobReps).
+                                                                            <br><br> Curate Match helps connect the candidate and their ideal curated career professional to help advance employement opportunities and fit.
+                                                                        </p>
+
+                                                                    </div>
+                                                                    <div class="next-new-button">
+                                                                        <button type="button" (click)="tabChange(5)">NEXT</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--<div *ngIf="cars[0] || include[0]" id="exsearch">-->
+                                    <!--    <div class="row" style="margin-top: 25px;margin-bottom: 25px;">-->
+                                    <!--        <div class="col-xl-3 col-lg-3 col-md-12 col-12">-->
+                                    <!--            <h3>Exclude from Matching</h3>-->
+                                    <!--            <div class="list">-->
+                                    <!-- <select name="cars" id="cars" multiple > -->
+                                    <!--                <li (click)="selector(item,0)" [class.selected]="item.selected"-->
+                                    <!--                    *ngFor="let item of cars" value="item">{{item.name}}</li>-->
+                                    <!-- <option value="hiking">123 Any Address</option>
+                                    <!--                <option value="travaling">Fishing</option>-->
+                                    <!--                <option value="fishing">Harvard University</option>-->
+                                    <!--                <option value="123 any street">Hiking</option>-->
+                                    <!--                <option value="traveeles">Jane Doe</option> -->
+                                    <!-- <option value="may,1,2005">jane-doe.com</option>
+                                    <!--                <option value="collage">joedoe@gmail.com</option>-->
+                                    <!--                <option value="hight school">LinkedIn.com/janedoe</option>-->
+                                    <!--                <option value="(860) 123-4567">Painting</option>-->
+                                    <!--                <option value="name@gmail.com">Photography</option>-->
+                                    <!--                <option value="name@gmail.com">Traveling</option> -->
+                                    <!-- </select> -->
+                                    <!--            </div>-->
+                                    <!--        </div>-->
+                                    <!--        <div class="col-xl-1 col-lg-1 col-md-12 col-12">-->
+                                    <!--            <div class="arrow-box arrow-box1">-->
+                                    <!-- <button class="review-btn"><svg class="arw-ex" id="_x31_px"
+                                    <!--                        enable-background="new 0 0 24 24" fill="#ffffff" height="30"-->
+                                    <!--                        viewBox="0 0 24 24" width="30"-->
+                                    <!--                        xmlns="http://www.w3.org/2000/svg">-->
+                                    <!--                        <path-->
+                                    <!--                            d="m5.5 13c-.13 0-.258-.051-.354-.146l-5-5c-.195-.195-.195-.512 0-.707l5-5c.144-.144.358-.187.545-.109.187.077.309.26.309.462v2.5h10c.551 0 1 .449 1 1v3c0 .551-.449 1-1 1h-10v2.5c0 .202-.122.385-.309.462-.062.026-.127.038-.191.038zm-4.293-5.5 3.793 3.793v-1.793c0-.276.224-.5.5-.5h10.5v-3h-10.5c-.276 0-.5-.224-.5-.5v-1.793z" />-->
+                                    <!--                        <path-->
+                                    <!--                            d="m18.5 22c-.064 0-.129-.012-.191-.038-.187-.077-.309-.26-.309-.462v-2.5h-10c-.551 0-1-.449-1-1v-3c0-.551.449-1 1-1h10v-2.5c0-.202.122-.385.309-.462.188-.077.402-.035.545.108l5 5c.195.195.195.512 0 .707l-5 5c-.096.096-.224.147-.354.147zm-10.5-7v3h10.5c.276 0 .5.224.5.5v1.793l3.793-3.793-3.793-3.793v1.793c0 .276-.224.5-.5.5z" />-->
+                                    <!--                    </svg>-->
+                                    <!--                </button> -->
+
+                                    <!--                <button [disabled]="!carsSelect" [class.disabled]="!carsSelect"-->
+                                    <!--                    (click)="includeKey('include')" class="review-btn">-->
+                                    <!--                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="30"-->
+                                    <!--                        viewBox="0 0 768 768" class="arw-ex">-->
+                                    <!--                        <title></title>-->
+                                    <!--                        <g id="icomoon-ignore">-->
+                                    <!--                        </g>-->
+                                    <!--                        <path fill="#fff"-->
+                                    <!--                            d="M384 672c-25.632 0-49.76-9.984-67.872-28.128s-28.16-42.272-28.128-67.936c0-23.872 8.672-31.936 24.448-63.936h-154.752c-52.928 0-96-43.104-96-96 0-52.928 43.072-96 96-96h154.752c-15.808-32-24.448-40.16-24.448-64.032 0.032-25.664 9.984-49.728 28.16-67.872 36.224-36.224 99.456-36.256 135.712 0.032l227.872 227.872-227.872 227.872c-18.112 18.144-42.24 28.128-67.872 28.128zM157.696 384c-17.664 0-32 14.368-32 32s14.336 32 32 32h309.056l-105.376 105.376c-6.048 6.048-9.376 14.048-9.376 22.592 0 8.608 3.328 16.608 9.376 22.656 12.128 12.096 33.12 12.096 45.248 0l182.624-182.624-182.624-182.624c-12.128-12.096-33.12-12.096-45.248 0-6.048 6.048-9.376 14.048-9.376 22.592 0 8.576 3.328 16.608 9.376 22.656l105.376 105.376h-309.056z">-->
+                                    <!--                        </path>-->
+                                    <!--                    </svg>-->
+                                    <!--                </button>-->
+
+                                    <!--                <button [disabled]="!includeSelect"-->
+                                    <!--                    [class.disabled]="!includeSelect"-->
+                                    <!--                    (click)="includeKey('exclude')" class="review-btn">-->
+                                    <!--                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="30"-->
+                                    <!--                        viewBox="0 0 768 768" class="arw-ex">-->
+                                    <!--                        <title></title>-->
+                                    <!--                        <g id="icomoon-ignore">-->
+                                    <!--                        </g>-->
+                                    <!--                        <path fill="#fff"-->
+                                    <!--                            d="M349.696 672c-25.632 0-49.76-9.984-67.872-28.128l-227.872-227.872 227.872-227.872c36.256-36.288 99.488-36.288 135.744 0 18.112 18.048 28.128 42.144 28.128 67.808 0 23.872-8.64 46.432-24.448 64.064h154.752c52.928 0 96 43.072 96 96s-43.072 96-96 96h-154.752c15.776 17.568 24.448 40.064 24.448 63.936 0.064 25.664-9.984 49.824-28.128 67.968-18.144 18.112-42.24 28.096-67.872 28.096zM144.448 416l182.624 182.624c12.128 12.096 33.12 12.096 45.248 0 6.048-6.048 9.376-14.112 9.376-22.656s-3.328-16.544-9.312-22.56l-105.44-105.408h309.056c17.664 0 32-14.368 32-32s-14.336-32-32-32h-309.056l105.376-105.376c6.048-6.048 9.376-14.112 9.376-22.656s-3.328-16.544-9.344-22.56c-12.192-12.16-33.152-12.128-45.28-0.032l-182.624 182.624z">-->
+                                    <!--                        </path>-->
+                                    <!--                    </svg>-->
+                                    <!--                </button>-->
+
+                                    <!--                <button [disabled]="!includeSelect||!carsSelect"-->
+                                    <!--                    [class.disabled]="!includeSelect||!carsSelect"-->
+                                    <!--                    class="review-btn"-->
+                                    <!--                    (click)="includeKey('include');includeKey('exclude')"><svg-->
+                                    <!--                        class="arw-ex" id="_x31_px"-->
+                                    <!--                        enable-background="new 0 0 24 24" fill="#ffffff" height="30"-->
+                                    <!--                        viewBox="0 0 24 24" width="30"-->
+                                    <!--                        xmlns="http://www.w3.org/2000/svg">-->
+                                    <!--                        <path-->
+                                    <!--                            d="m5.5 13c-.13 0-.258-.051-.354-.146l-5-5c-.195-.195-.195-.512 0-.707l5-5c.144-.144.358-.187.545-.109.187.077.309.26.309.462v2.5h10c.551 0 1 .449 1 1v3c0 .551-.449 1-1 1h-10v2.5c0 .202-.122.385-.309.462-.062.026-.127.038-.191.038zm-4.293-5.5 3.793 3.793v-1.793c0-.276.224-.5.5-.5h10.5v-3h-10.5c-.276 0-.5-.224-.5-.5v-1.793z" />-->
+                                    <!--                        <path-->
+                                    <!--                            d="m18.5 22c-.064 0-.129-.012-.191-.038-.187-.077-.309-.26-.309-.462v-2.5h-10c-.551 0-1-.449-1-1v-3c0-.551.449-1 1-1h10v-2.5c0-.202.122-.385.309-.462.188-.077.402-.035.545.108l5 5c.195.195.195.512 0 .707l-5 5c-.096.096-.224.147-.354.147zm-10.5-7v3h10.5c.276 0 .5.224.5.5v1.793l3.793-3.793-3.793-3.793v1.793c0 .276-.224.5-.5.5z" />-->
+                                    <!--                    </svg>-->
+                                    <!--                </button>-->
+                                    <!-- <button class="review-btn"><ion-icon name="chevron-forward-circle-outline"></ion-icon></button> -->
+
+
+                                    <!--            </div>-->
+                                    <!--        </div>-->
+                                    <!--        <div class="col-xl-3 col-lg-3 col-md-12 col-12">-->
+                                    <!--            <h3>Include In Matching</h3>-->
+                                    <!--            <div class="list">-->
+                                    <!--                <li *ngFor="let item of include" (click)="selector(item,1)"-->
+                                    <!--                    [class.selected]="item.selected" value="Tom Smith">{{item.name}}-->
+                                    <!--                </li>-->
+                                    <!-- <option value="leadership">Accounting</option>
+                                    <!--                <option value="management">Analysis</option>-->
+                                    <!--                <option value="leadership">CPA</option>-->
+                                    <!--                <option value="Tom Smith">Insurance</option>-->
+                                    <!--                <option value="transformation">Investments</option>-->
+                                    <!--                <option value="management">Leadership</option>-->
+                                    <!--                <option value="transformation">Management</option> -->
+                                    <!-- <option value="hiking">Microsoft Access</option>
+                                    <!--                <option value="travaling">Outsourcing</option>-->
+                                    <!--                <option value="sccounting">Project Manager</option>-->
+                                    <!--                <option value="analysis">Python</option>-->
+                                    <!--                <option value="projectmanager">SQL</option>-->
+                                    <!--                <option value="fishing">Transformation</option> -->
+                                    <!--            </div>-->
+                                    <!--        </div>-->
+                                    <!--        <div class="col-xl-1 col-lg-1 col-md-12 col-12">-->
+                                    <!--            <div class="arrow-box arrow-box2">-->
+
+                                    <!--            </div>-->
+                                    <!--        </div>-->
+                                    <!--        <div class="col-xl-4 col-lg-3 col-md-12 col-12">-->
+
+                                    <!--            <ul class="stepbox">-->
+                                    <!--                <h2 class="cur-head">Curate Job Matching Steps:</h2>-->
+                                    <!--                <li><span class="steps">Step 1:</span> Resume data is saved,-->
+                                    <!--                    processed-->
+                                    <!--                    and skills to be used-->
+                                    <!--                    in the job match are presented.-->
+                                    <!--                </li>-->
+                                    <!--                <li><span class="steps">Step 2:</span> Candidates can then-->
+                                    <!--                    categorize-->
+                                    <!--                    the skills into three-->
+                                    <!--                    Boolean search groups (NOT/OR/AND) to-->
+                                    <!--                    achieve a higher level of match. We recommend making adjustments-->
+                                    <!--                    to-->
+                                    <!--                    the keywords as-->
+                                    <!--                    necessary in case you get too many or too few matches.-->
+                                    <!--                </li>-->
+                                    <!--                <li><span class="steps">Step 3:</span> Additional custom criteria-->
+                                    <!--                    can be-->
+                                    <!--                    added to further-->
+                                    <!--                    refine the job match.</li>-->
+                                    <!--            </ul>-->
+                                    <!--        </div>-->
+                                    <!--    </div>-->
+                                    <!--</div>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+                <ng-container *ngSwitchCase="1">
+                    <div class="tab-hadding">
+                        <h4>To move the keywords between the boxes, use the arrows or drag and drop </h4>
+                    </div>
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <div class="row step-two" style="margin-top: 25px;margin-bottom: 25px;">
+                            <div class="col-xl-3 col-lg-3 col-md-12 col-12" droppable (onDrop)="itemDropFromMatchAny($event)">
+                                <div class="table-selector">
+                                    <h3>EXCLUDE these keywords</h3>
+                                    <div class="list">
+                                        <li draggable (click)="selector(item,1)" *ngFor="let item of include" [dragData]="item" [class.selected]="item.selected" value="Tom Smith">
+                                            {{item.name}}</li>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-1 col-lg-1 col-md-12 col-12">
+                                <div class="arrow-box arrow-box2">
+                                    <!-- <button class="review-btn"><svg class="arw-ex" id="_x31_px"
+                                            enable-background="new 0 0 24 24" fill="#ffffff" height="30"
+                                            viewBox="0 0 24 24" width="30" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="m5.5 13c-.13 0-.258-.051-.354-.146l-5-5c-.195-.195-.195-.512 0-.707l5-5c.144-.144.358-.187.545-.109.187.077.309.26.309.462v2.5h10c.551 0 1 .449 1 1v3c0 .551-.449 1-1 1h-10v2.5c0 .202-.122.385-.309.462-.062.026-.127.038-.191.038zm-4.293-5.5 3.793 3.793v-1.793c0-.276.224-.5.5-.5h10.5v-3h-10.5c-.276 0-.5-.224-.5-.5v-1.793z" />
+                                            <path
+                                                d="m18.5 22c-.064 0-.129-.012-.191-.038-.187-.077-.309-.26-.309-.462v-2.5h-10c-.551 0-1-.449-1-1v-3c0-.551.449-1 1-1h10v-2.5c0-.202.122-.385.309-.462.188-.077.402-.035.545.108l5 5c.195.195.195.512 0 .707l-5 5c-.096.096-.224.147-.354.147zm-10.5-7v3h10.5c.276 0 .5.224.5.5v1.793l3.793-3.793-3.793-3.793v1.793c0 .276-.224.5-.5.5z" />
+                                        </svg>
+                                    </button> -->
+                                    <button [disabled]="!includeSelect" [class.disabled]="!includeSelect" (click)="includeKey('matchanyKey')" class="review-btn">
+                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="30"
+                                            viewBox="0 0 768 768" class="arw-ex">
+                                            <title></title>
+                                            <g id="icomoon-ignore">
+                                            </g>
+                                            <path fill="#fff"
+                                                d="M384 672c-25.632 0-49.76-9.984-67.872-28.128s-28.16-42.272-28.128-67.936c0-23.872 8.672-31.936 24.448-63.936h-154.752c-52.928 0-96-43.104-96-96 0-52.928 43.072-96 96-96h154.752c-15.808-32-24.448-40.16-24.448-64.032 0.032-25.664 9.984-49.728 28.16-67.872 36.224-36.224 99.456-36.256 135.712 0.032l227.872 227.872-227.872 227.872c-18.112 18.144-42.24 28.128-67.872 28.128zM157.696 384c-17.664 0-32 14.368-32 32s14.336 32 32 32h309.056l-105.376 105.376c-6.048 6.048-9.376 14.048-9.376 22.592 0 8.608 3.328 16.608 9.376 22.656 12.128 12.096 33.12 12.096 45.248 0l182.624-182.624-182.624-182.624c-12.128-12.096-33.12-12.096-45.248 0-6.048 6.048-9.376 14.048-9.376 22.592 0 8.576 3.328 16.608 9.376 22.656l105.376 105.376h-309.056z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                    <button [disabled]="!matchAnySelect" [class.disabled]="!matchAnySelect" (click)="includeKey('excludeAny')" class="review-btn">
+                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="30"
+                                            viewBox="0 0 768 768" class="arw-ex">
+                                            <title></title>
+                                            <g id="icomoon-ignore">
+                                            </g>
+                                            <path fill="#fff"
+                                                d="M349.696 672c-25.632 0-49.76-9.984-67.872-28.128l-227.872-227.872 227.872-227.872c36.256-36.288 99.488-36.288 135.744 0 18.112 18.048 28.128 42.144 28.128 67.808 0 23.872-8.64 46.432-24.448 64.064h154.752c52.928 0 96 43.072 96 96s-43.072 96-96 96h-154.752c15.776 17.568 24.448 40.064 24.448 63.936 0.064 25.664-9.984 49.824-28.128 67.968-18.144 18.112-42.24 28.096-67.872 28.096zM144.448 416l182.624 182.624c12.128 12.096 33.12 12.096 45.248 0 6.048-6.048 9.376-14.112 9.376-22.656s-3.328-16.544-9.312-22.56l-105.44-105.408h309.056c17.664 0 32-14.368 32-32s-14.336-32-32-32h-309.056l105.376-105.376c6.048-6.048 9.376-14.112 9.376-22.656s-3.328-16.544-9.344-22.56c-12.192-12.16-33.152-12.128-45.28-0.032l-182.624 182.624z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                    <button [disabled]="!matchAnySelect||!includeSelect" [class.disabled]="!includeSelect||!matchAnySelect" (click)="includeKey('matchanyKey');includeKey('excludeAny')" class="review-btn"><svg class="arw-ex" id="_x31_px"
+                                            enable-background="new 0 0 24 24" fill="#ffffff" height="30"
+                                            viewBox="0 0 24 24" width="30" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="m5.5 13c-.13 0-.258-.051-.354-.146l-5-5c-.195-.195-.195-.512 0-.707l5-5c.144-.144.358-.187.545-.109.187.077.309.26.309.462v2.5h10c.551 0 1 .449 1 1v3c0 .551-.449 1-1 1h-10v2.5c0 .202-.122.385-.309.462-.062.026-.127.038-.191.038zm-4.293-5.5 3.793 3.793v-1.793c0-.276.224-.5.5-.5h10.5v-3h-10.5c-.276 0-.5-.224-.5-.5v-1.793z" />
+                                            <path
+                                                d="m18.5 22c-.064 0-.129-.012-.191-.038-.187-.077-.309-.26-.309-.462v-2.5h-10c-.551 0-1-.449-1-1v-3c0-.551.449-1 1-1h10v-2.5c0-.202.122-.385.309-.462.188-.077.402-.035.545.108l5 5c.195.195.195.512 0 .707l-5 5c-.096.096-.224.147-.354.147zm-10.5-7v3h10.5c.276 0 .5.224.5.5v1.793l3.793-3.793-3.793-3.793v1.793c0 .276-.224.5-.5.5z" />
+                                        </svg>
+                                    </button>
+                                    <!-- <button class="review-btn"><ion-icon name="chevron-forward-circle-outline"></ion-icon></button> -->
+
+
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-3 col-md-12 col-12" droppable (onDrop)="itemDropFromInclude($event)">
+                                <div class="table-selector">
+                                    <h3>Match ANY of these keywords</h3>
+                                    <div class="list">
+                                        <li draggable (click)="selector(item,2)" *ngFor="let item of matchAny" [dragData]="item" [class.selected]="item.selected" value="Tom Smith">
+                                            {{item.name}}</li>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-1 col-lg-1 col-md-12 col-12">
+                                <div class="arrow-box arrow-box2">
+                                    <!-- <button class="review-btn"><svg class="arw-ex" id="_x31_px"
+                                            enable-background="new 0 0 24 24" fill="#ffffff" height="30"
+                                            viewBox="0 0 24 24" width="30" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="m5.5 13c-.13 0-.258-.051-.354-.146l-5-5c-.195-.195-.195-.512 0-.707l5-5c.144-.144.358-.187.545-.109.187.077.309.26.309.462v2.5h10c.551 0 1 .449 1 1v3c0 .551-.449 1-1 1h-10v2.5c0 .202-.122.385-.309.462-.062.026-.127.038-.191.038zm-4.293-5.5 3.793 3.793v-1.793c0-.276.224-.5.5-.5h10.5v-3h-10.5c-.276 0-.5-.224-.5-.5v-1.793z" />
+                                            <path
+                                                d="m18.5 22c-.064 0-.129-.012-.191-.038-.187-.077-.309-.26-.309-.462v-2.5h-10c-.551 0-1-.449-1-1v-3c0-.551.449-1 1-1h10v-2.5c0-.202.122-.385.309-.462.188-.077.402-.035.545.108l5 5c.195.195.195.512 0 .707l-5 5c-.096.096-.224.147-.354.147zm-10.5-7v3h10.5c.276 0 .5.224.5.5v1.793l3.793-3.793-3.793-3.793v1.793c0 .276-.224.5-.5.5z" />
+                                        </svg>
+                                    </button> -->
+                                    <button [disabled]="!matchAnySelect" [class.disabled]="!matchAnySelect" (click)="includeKey('matchallKey')" class="review-btn">
+                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="30"
+                                            viewBox="0 0 768 768" class="arw-ex">
+                                            <title></title>
+                                            <g id="icomoon-ignore">
+                                            </g>
+                                            <path fill="#fff"
+                                                d="M384 672c-25.632 0-49.76-9.984-67.872-28.128s-28.16-42.272-28.128-67.936c0-23.872 8.672-31.936 24.448-63.936h-154.752c-52.928 0-96-43.104-96-96 0-52.928 43.072-96 96-96h154.752c-15.808-32-24.448-40.16-24.448-64.032 0.032-25.664 9.984-49.728 28.16-67.872 36.224-36.224 99.456-36.256 135.712 0.032l227.872 227.872-227.872 227.872c-18.112 18.144-42.24 28.128-67.872 28.128zM157.696 384c-17.664 0-32 14.368-32 32s14.336 32 32 32h309.056l-105.376 105.376c-6.048 6.048-9.376 14.048-9.376 22.592 0 8.608 3.328 16.608 9.376 22.656 12.128 12.096 33.12 12.096 45.248 0l182.624-182.624-182.624-182.624c-12.128-12.096-33.12-12.096-45.248 0-6.048 6.048-9.376 14.048-9.376 22.592 0 8.576 3.328 16.608 9.376 22.656l105.376 105.376h-309.056z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                    <button [disabled]="!matchAllSelect" [class.disabled]="!matchAllSelect" (click)="includeKey('excludeAll')" class="review-btn">
+                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="30"
+                                            viewBox="0 0 768 768" class="arw-ex">
+                                            <title></title>
+                                            <g id="icomoon-ignore">
+                                            </g>
+                                            <path fill="#fff"
+                                                d="M349.696 672c-25.632 0-49.76-9.984-67.872-28.128l-227.872-227.872 227.872-227.872c36.256-36.288 99.488-36.288 135.744 0 18.112 18.048 28.128 42.144 28.128 67.808 0 23.872-8.64 46.432-24.448 64.064h154.752c52.928 0 96 43.072 96 96s-43.072 96-96 96h-154.752c15.776 17.568 24.448 40.064 24.448 63.936 0.064 25.664-9.984 49.824-28.128 67.968-18.144 18.112-42.24 28.096-67.872 28.096zM144.448 416l182.624 182.624c12.128 12.096 33.12 12.096 45.248 0 6.048-6.048 9.376-14.112 9.376-22.656s-3.328-16.544-9.312-22.56l-105.44-105.408h309.056c17.664 0 32-14.368 32-32s-14.336-32-32-32h-309.056l105.376-105.376c6.048-6.048 9.376-14.112 9.376-22.656s-3.328-16.544-9.344-22.56c-12.192-12.16-33.152-12.128-45.28-0.032l-182.624 182.624z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                    <button [disabled]="!matchAnySelect||!matchAllSelect" [class.disabled]="!matchAnySelect||!matchAllSelect" (click)="includeKey('matchallKey');includeKey('excludeAll')" class="review-btn"><svg class="arw-ex" id="_x31_px"
+                                            enable-background="new 0 0 24 24" fill="#ffffff" height="30"
+                                            viewBox="0 0 24 24" width="30" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="m5.5 13c-.13 0-.258-.051-.354-.146l-5-5c-.195-.195-.195-.512 0-.707l5-5c.144-.144.358-.187.545-.109.187.077.309.26.309.462v2.5h10c.551 0 1 .449 1 1v3c0 .551-.449 1-1 1h-10v2.5c0 .202-.122.385-.309.462-.062.026-.127.038-.191.038zm-4.293-5.5 3.793 3.793v-1.793c0-.276.224-.5.5-.5h10.5v-3h-10.5c-.276 0-.5-.224-.5-.5v-1.793z" />
+                                            <path
+                                                d="m18.5 22c-.064 0-.129-.012-.191-.038-.187-.077-.309-.26-.309-.462v-2.5h-10c-.551 0-1-.449-1-1v-3c0-.551.449-1 1-1h10v-2.5c0-.202.122-.385.309-.462.188-.077.402-.035.545.108l5 5c.195.195.195.512 0 .707l-5 5c-.096.096-.224.147-.354.147zm-10.5-7v3h10.5c.276 0 .5.224.5.5v1.793l3.793-3.793-3.793-3.793v1.793c0 .276-.224.5-.5.5z" />
+                                        </svg>
+                                    </button>
+                                    <!-- <button class="review-btn"><ion-icon name="chevron-forward-circle-outline"></ion-icon></button> -->
+
+
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-3 col-md-12 col-12" droppable (onDrop)="itemDropOnMatchAll($event)">
+                                <div class="table-selector">
+                                    <h3>MUST Match keywords</h3>
+                                    <div class="list">
+                                        <li draggable (click)="selector(item,3)" *ngFor="let item of matchAll" [dragData]="item" [class.selected]="item.selected" value="Tom Smith">
+                                            {{item.name}}</li>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div  *ngIf = "showNextBtn" class="button-next">-->
+                    <div class="row step-two" style="margin-bottom: 25px;">
+                        <div class="col-xl-3 col-lg-3 col-md-12 col-12">
+
+                            <div class="keyword-box">
+                                <img src="assets/images/Group_2.png" />
+                                <h4 class="keyword-both" style="padding-top: 13px">Keywords potentially <span class="underline-mode">not
+                                        required</span> by both candidate and employer</h4>
+                            </div>
+                        </div>
+                        <div class="col-xl-1 col-lg-1 col-md-12 col-12"></div>
+                        <div class="col-xl-3 col-lg-3 col-md-12 col-12">
+                            <div class="keyword-box">
+                                <img src="assets/images/Group_1.png" />
+                                <h4 style="padding-top: 13px">Keywords potentially <span class="underline-mode">relevant</span> to both candidate and employer</h4>
+                            </div>
+                        </div>
+                        <div class="col-xl-1 col-lg-1 col-md-12 col-12"></div>
+                        <div class="col-xl-3 col-lg-3 col-md-12 col-12">
+                            <div class="keyword-box">
+                                <img src="assets/images/Group_3.png" />
+                                <h4 style="padding-top: 13px">Must have keywords <span class="underline-mode">required</span> by both candidate and employer</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="making-hadding">
+                        <h4>Recommend making adjustments to the keyword selection criteria based on level of matches
+                        </h4>
+                    </div>
+                    <div class="button-next mt-2" style="padding: 40px 0;">
+                        <a style="cursor:pointer" (click)="tabChange(2)">
+                            NEXT
+                        </a>
+                    </div>
+                </ng-container>
+                <ng-container *ngSwitchCase="2">
+
+                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                        <div *ngIf="!showPrivateForm  && !showCompanyMatch">
+                            <form [formGroup]="frmDetails">
+                                <div class="row">
+
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+                                        <label for="fname">Field / industry</label> <br>
+                                        <input type="text" id="txtIndustry" name="fname" value="" formControlName="field">
+                                        <div *ngIf="getControls.field.invalid" class="alert alert-danger">
+                                            <div *ngIf="(getControls.field.errors?.required && getControls.field.touched) || isInvalid">
+                                                Field / industry is required.
+                                            </div>
+                                            <div *ngIf="getControls.field.errors?.pattern">
+                                                Invalid Field / industry.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+                                        <label for="fname">City-State</label> <br>
+                                        <input type="text" id="txtCityState" name="fname" value="" formControlName="location">
+                                        <div *ngIf="getControls.location.invalid" class="alert alert-danger">
+                                            <div *ngIf="(getControls.location.errors?.required && getControls.location.touched) || isInvalid">
+                                                City-State is required.
+                                            </div>
+                                            <div *ngIf="getControls.location.errors?.pattern">
+                                                Invalid City-State.
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+                                        <label for="fname">Job Category</label> <br>
+                                        <input type="text" id="txtJobCategory" name="fname" value="" formControlName="jobCategory">
+                                        <div *ngIf="getControls.jobCategory.invalid" class="alert alert-danger">
+                                            <div *ngIf="(getControls.jobCategory.errors?.required && getControls.jobCategory.touched) || isInvalid">
+                                                Job Category is required.
+                                            </div>
+                                            <div *ngIf="getControls.jobCategory.errors?.pattern">
+                                                Invalid Job Category.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+                                        <label for="fname">Radius</label> <br>
+                                        <input type="text" id="txtRadius" name="fname" value="" formControlName="radius">
+
+                                        <div *ngIf="getControls.radius.invalid" class="alert alert-danger">
+                                            <div *ngIf="(getControls.radius.errors?.required && getControls.radius.touched) || isInvalid">
+                                                Radius is required.
+                                            </div>
+                                            <div *ngIf="getControls.radius.errors?.pattern">
+                                                Invalid Radius.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+                                        <label for="fname">Job grade</label> <br>
+                                        <input type="text" id="txtJobGrade" name="fname" value="" formControlName="jobGrade">
+                                        <div *ngIf="getControls.jobGrade.invalid" class="alert alert-danger">
+                                            <div *ngIf="(getControls.jobGrade.errors?.required && getControls.jobGrade.touched) || isInvalid">
+                                                Job grade is required.
+                                            </div>
+                                            <div *ngIf="getControls.jobGrade.errors?.pattern">
+                                                Invalid Job grade.
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+                                        <label for="fname">Salary Min</label> <br>
+                                        <input type="text" id="txtSalaryMin" name="fname" value="" formControlName="salaryMin">
+
+                                        <div *ngIf="getControls.salaryMin.invalid" class="alert alert-danger">
+                                            <div *ngIf="(getControls.salaryMin.errors?.required && getControls.salaryMin.touched) || isInvalid">
+                                                Salary Min is required.
+                                            </div>
+                                            <div *ngIf="getControls.salaryMin.errors?.pattern">
+                                                Invalid Salary Min.
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+                                        <label for="fname">Job Department</label> <br>
+                                        <input type="text" id="txtJobDepartment" name="fname" value="" formControlName="jobDepartment">
+
+                                        <div *ngIf="getControls.jobDepartment.invalid" class="alert alert-danger">
+                                            <div *ngIf="(getControls.jobDepartment.errors?.required && getControls.jobDepartment.touched) || isInvalid">
+                                                Job Department is required.
+                                            </div>
+                                            <div *ngIf="getControls.jobDepartment.errors?.pattern">
+                                                Invalid Job Department.
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+                                        <label for="fname">Salary Max</label> <br>
+                                        <input type="text" id="txtSalaryMax" name="fname" value="" formControlName="salaryMax">
+
+                                        <div *ngIf="getControls.salaryMax.invalid" class="alert alert-danger">
+                                            <div *ngIf="(getControls.salaryMax.errors?.required && getControls.salaryMax.touched) || isInvalid">
+                                                Salary Max is required.
+                                            </div>
+                                            <div *ngIf="getControls.salaryMax.errors?.pattern">
+                                                Invalid Salary Max.
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+                                        <label for="fname">Job title</label> <br>
+                                        <input type="text" id="txtJobTitle" name="fname" value="" formControlName="jobTitle">
+
+                                        <div *ngIf="getControls.jobTitle.invalid" class="alert alert-danger">
+                                            <div *ngIf="(getControls.jobTitle.errors?.required && getControls.jobTitle.touched)|| isInvalid">
+                                                Job title is required.
+                                            </div>
+                                            <div *ngIf="getControls.jobTitle.errors?.pattern">
+                                                Invalid Job title.
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+                                        <label for="fname">Custom Tags</label> <br>
+                                        <input type="text" id="txtCustomTags" name="fname" value="" formControlName="customTags">
+
+                                        <div *ngIf="getControls.customTags.invalid" class="alert alert-danger">
+                                            <div *ngIf="(getControls.customTags.errors?.required && getControls.customTags.touched) || isInvalid">
+                                                Custom Tags is required.
+                                            </div>
+                                            <div *ngIf="getControls.customTags.errors?.pattern">
+                                                Invalid Custom Tags.
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+                                        <label for="fname">Job type</label> <br>
+                                        <input type="text" id="txtJobType" name="fname" value="" formControlName="jobType">
+
+                                        <div *ngIf="getControls.jobType.invalid" class="alert alert-danger">
+                                            <div *ngIf="(getControls.jobType.errors?.required && getControls.jobType.touched) || isInvalid">
+                                                Job type is required.
+                                            </div>
+                                            <div *ngIf="getControls.jobType.errors?.pattern">
+                                                Invalid Job type.
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="captcha-btn">
+                                        <div class="form-recaptcha-size-new">
+                                            <ngx-recaptcha2 #captchaElem [siteKey]="siteKey" formControlName="recaptcha">
+                                            </ngx-recaptcha2>
+                                            <div *ngIf="getControls.recaptcha.invalid" class="alert alert-danger">
+                                                <!-- <div *ngIf="(getControls.recaptcha.errors?.required && getControls.recaptcha.touched) || isInvalid">
+                                                    Captcha is required.
+                                                </div> -->
+                                            </div>
+                                        </div>
+
+
+                                        <div class="button-wrap-tab-select">
+                                            <a style="cursor:pointer" (click)="submitForm()">
+                                                VIEW MATCHES
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                        <div *ngIf="showPrivateForm  && !showCompanyMatch" class="container1">
+                            <form [formGroup]="privateJobForm">
+                                <h2 class="column-heading pink-clr">
+                                    <span>STAGE 1:</span>
+                                    <span>Candidate Personal Criteria</span>
+                                </h2>
+                                <div class="wd-50 first-child">
+                                    <div class="col-50 new-size">
+                                        <div class="wd-s-50">
+                                            <p>COMPANY SIZE</p>
+                                            <input type="text" class="input-cls">
+                                        </div>
+                                        <div class="wd-s-50">
+                                            <p>JOB LEVEL</p>
+                                            <input type="text" class="input-cls">
+                                        </div>
+                                    </div>
+                                    <div class="col-50">
+                                        <div class="wd-s-50">
+                                            <p>JOB CATEGORY</p>
+                                            <input type="text" class="input-cls">
+                                        </div>
+                                        <div class="wd-s-50">
+                                            <p>JOB TYPE</p>
+                                            <input type="text" class="input-cls">
+                                        </div>
+                                    </div>
+                                    <div class="col-50 new-location">
+                                        <div class="wd-s-50">
+                                            <p>LOCATION</p>
+                                            <input type="text" class="input-cls">
+                                        </div>
+                                        <div class="wd-s-50">
+                                            <p>TRAVEL REQUIREMENT</p>
+                                            <input type="text" class="input-cls">
+                                        </div>
+                                    </div>
+                                    <div class="col-50">
+                                        <div class="wd-s-50">
+                                            <p>CITY STATE</p>
+                                            <input type="text" class="input-cls">
+                                        </div>
+                                        <div class="wd-s-50">
+                                            <p>VACCINE REQUIREMENT</p>
+                                            <input type="text" class="input-cls">
+                                        </div>
+                                    </div>
+                                    <div class="col-50">
+                                        <div class="wd-s-50">
+                                            <p>JOB RADIUS</p>
+                                            <input type="text" class="input-cls">
+                                        </div>
+                                        <div class="wd-s-50">
+                                            <p>LANGUAGE REQUIREMENT</p>
+                                            <input type="text" class="input-cls">
+                                        </div>
+                                    </div>
+                                    <div class="col-50">
+                                        <div class="wd-s-50">
+                                            <p>LEARNING + TRAINING</p>
+                                            <input type="text" class="input-cls">
+                                        </div>
+                                        <div class="wd-s-50">
+                                            <p>FLEXIBLE HOURS</p>
+                                            <input type="text" class="input-cls">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-50">
+                                        <div class="table-scroll">
+                                            <div class="table-heading">
+                                                <h4 class="stage2">STAGE2: <span>Select Criteria Order & Rank
+                                                        Importance</span></h4>
+                                            </div>
+                                            <table class="coach-selection">
+
+                                                <tr>
+                                                    <th class="new-table-class criteria-class" style="color:#a70063;background:#dbded8;border-left:1px solid #afabab;border-top:1px solid #afabab;" rowspan="2">Criteria</th>
+                                                    <th class="new-table-class" style="color:#a70063;background:#dbded8;border-left:1px solid #afabab;border-top:1px solid #afabab;" rowspan="2">Not<br>Ranked</th>
+                                                    <th class="level-new" style="color: #000;background-color: #b5c5e5;border: 1px solid #afabab;" colspan="12">Rank (1 = Low, 5 = High)</th>
+                                                </tr>
+                                                <tr class="level-new">
+                                                    <th style="color:black;background-color: #b5c5e5;border-left:1px solid #afabab;">
+                                                        1</th>
+                                                    <th style="color:black;background-color: #b5c5e5;border-left:1px solid #afabab;">
+                                                        2</th>
+                                                    <th style="color:black;background-color: #b5c5e5;border-left:1px solid #afabab;">
+                                                        3</th>
+                                                    <th style="color:black;background-color: #b5c5e5;border-left:1px solid #afabab;">
+                                                        4</th>
+                                                    <th style="color:black;background-color: #b5c5e5;border-left:1px solid #afabab;">
+                                                        5</th>
+                                                    <!-- <th style="color:black;background-color: #b5c5e5;border-left:1px solid #afabab;">6</th>
+                          <th style="color:black;background-color: #b5c5e5;border-left:1px solid #afabab;">7</th>
+                          <th style="color:black;background-color: #b5c5e5;border-left:1px solid #afabab;">8</th>
+                          <th style="color:black;background-color: #b5c5e5;border-left:1px solid #afabab;">9</th>
+                          <th style="color:black;background-color: #b5c5e5;border-left:1px solid #afabab;">10</th> -->
+                                                </tr>
+                                                <tr *ngFor="let row of services; index as i">
+                                                    <td class="branches">{{row.name}}</td>
+                                                    <td class="not-ranked-td"> <input class="jobrep-radio not-ranked" type="radio" name="radio{{i}}" [checked]="true"></td>
+                                                    <td> <input class="jobrep-radio" type="radio" name="radio{{i}}">
+                                                    </td>
+                                                    <td> <input class="jobrep-radio" type="radio" name="radio{{i}}">
+                                                    </td>
+                                                    <td> <input class="jobrep-radio" type="radio" name="radio{{i}}">
+                                                    </td>
+                                                    <td> <input class="jobrep-radio" type="radio" name="radio{{i}}">
+                                                    </td>
+                                                    <td> <input class="jobrep-radio" type="radio" name="radio{{i}}">
+                                                    </td>
+                                                    <!-- <td> <input class="jobrep-radio" type="radio" name="radio{{i}}"></td>
+                          <td> <input class="jobrep-radio" type="radio" name="radio{{i}}"></td>
+                          <td> <input class="jobrep-radio" type="radio" name="radio{{i}}"></td>
+                          <td> <input class="jobrep-radio" type="radio" name="radio{{i}}"></td>
+                          <td> <input class="jobrep-radio" type="radio" name="radio{{i}}"></td> -->
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="note" style="display: flex;">
+                                            <p>Note:</p>
+                                            <div class="note-para">
+                                                <p><span> a)</span> Make adjustments to the selection criteria based on level of matches</p>
+                                                <p><span> b)</span> Skip order and rank based on personal preference
+                                                </p>
+                                                <p><span> c)</span> Prefrences will be matched and ranked based on available data in job postings
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="wd-50 second-child">
+                                    <div class="col-50">
+                                        <div class="wd-s-50">
+                                            <p>INDUSTRY SUGGESTIONS BASED ON RESUME + SKILLS</p>
+                                            <textarea rows="5" cols="40"></textarea>
+                                        </div>
+                                        <div class="wd-s-50">
+                                            <p>JOB TITLE SUGGESTIONS BASED ON RESUME + SKILLS</p>
+                                            <textarea rows="5" cols="40"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-50">
+                                        <div class="wd-s-50">
+                                            <p>SELECT PREFFERED INDUSTRY BASED ON ABOVE</p>
+                                            <input type="text" class="input-cls">
+                                        </div>
+                                        <div class="wd-s-50 title-new">
+                                            <p>SELECT PREFFERED TITLE BASED ON ABOVE</p>
+                                            <input type="text" class="input-cls">
+                                        </div>
+                                    </div>
+                                    <div class="col-50">
+                                        <div class="wd-s-50">
+                                            <p>SALARY-MINIMUM</p>
+                                            <input type="text" class="input-cls">
+                                        </div>
+                                        <div class="wd-s-50">
+                                            <p>SALARY-MAXIMUM</p>
+                                            <input type="text" class="input-cls">
+                                        </div>
+                                    </div>
+                                    <div class="col-50">
+                                        <div class="wd-s-50 col-12">
+                                            <p>EDUCATION</p>
+                                            <input type="text" class="input-cls">
+                                        </div>
+
+                                    </div>
+                                    <div class="col-50">
+                                        <div class="wd-s-50 col-12">
+                                            <p>CERTIFICATION</p>
+                                            <input type="text" class="input-cls">
+                                        </div>
+                                    </div>
+                                    <div class="col-50 mt-50 separate">
+                                        <div class="wd-s-50 col-12">
+                                            <p>BENEFITS (SEPARATE BY COMMA)</p>
+                                            <textarea rows="5" cols="40"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-50">
+                                        <div class="wd-s-50 col-12">
+                                            <p>CUSTOM TAGS (SEPARATE BY COMMA)</p>
+                                            <textarea rows="5" cols="40"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-50 mt-50">
+                                        <div class="wd-s-50">
+                                            <p class="pink-clr">APPLICATION DEADLINE</p>
+                                            <!--<input type="date" placeholder="mm/dd/yyyy" class="input-cls min-input">-->
+                                            <input type="text" class="input-cls min-input">
+                                        </div>
+                                        <div class="wd-s-50">
+                                            <div class="range-date">
+                                                <h4>JOB POST DATE RANGE</h4>
+                                            </div>
+                                            <div class="date wd-s-50 text-center">
+                                                <p class="pink-clr">START DATE</p>
+                                                <!--<input type="date"  placeholder="mm/dd/yyyy" class="input-cls">-->
+                                                <input type="text" class="input-cls">
+                                            </div>
+                                            <div class="date wd-s-50 text-center">
+                                                <p class="pink-clr">END DATE</p>
+                                                <!--<input type="date" placeholder="mm/dd/yyyy" class="input-cls">-->
+                                                <input type="text" class="input-cls">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-50 mt-50">
+                                        <div class="wd-s-50">
+
+                                            <div class="">
+                                                <ngx-recaptcha2 #captchaElem [siteKey]="siteKey" formControlName="recaptcha">
+                                                </ngx-recaptcha2>
+                                                <div *ngIf="getControls.recaptcha.invalid" class="alert alert-danger">
+                                                    <div *ngIf="(getControls.recaptcha.errors?.required && getControls.recaptcha.touched) || isInvalid">
+                                                        Captcha is required.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="wd-s-50">
+                                            <button type="submit" class="view" (click)="submitForm()">VIEW
+                                                MATCHES</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <us-company-match-step3-form *ngIf="!showPrivateForm  && showCompanyMatch">
+                        </us-company-match-step3-form>
+                    </div>
+                </ng-container>
+                <ng-container *ngSwitchCase="3">
+                    <div *ngIf="blurRows.length > 0 && !noDataFound" class="drag-boundary" [ngClass]="{ 'top-b': !edge?.top, 'bottom-b': !edge?.bottom, 'left-b': !edge?.left, 'right-b': !edge?.right }" #myBounds>
+                        <div class="main-box-blur new-blur">
+                            <table id="jobsInitialTbl">
+                                <tr>
+                                    <th>Select</th>
+                                    <th *ngFor="let column of blurHeaders">
+                                        {{column}}
+                                    </th>
+                                </tr>
+                                <tr *ngFor="let row of blurRows">
+                                    <td><input id="saveUserNameCheckBox" type="checkbox" (change)="selectJobs($event,row.MatchedObjectId)" [checked]="isSelected(row.MatchedObjectId)" /></td>
+                                    <td *ngFor="let column of blurHeaders let i = index" [ngClass]="{'blur-td':i >1,'align-center':i ==0}">
+                                        {{row[column]}}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div *ngIf="showPaymentDiv" ngDraggable class="drag-block" (edge)="checkEdge($event)" [bounds]="myBounds" [inBounds]="inBounds">
+                            <div *ngIf="!isShowMobilePopup" id="mymodal" class="modal-popup right payment-popup-curate fade">
+                                <div class="modal-dialogs  modal-dialog-centereds">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <form id="payment-form" [formGroup]="addressForm">
+                                                <div class="ProductSummary-info">
+                                                    <p>Total Items selected
+                                                        <span><strong>{{selectedJobs.length}}</strong></span>
+                                                    </p>
+                                                    <p>Price per match <span><strong>$20</strong></span></p>
+                                                    <p class="total-area">Total
+                                                        <span><strong>${{totalPrice}}</strong></span>
+                                                    </p>
+                                                </div>
+                                                <div class="card-strip-box">
+                                                    <div class="underline-list">
+                                                        <div class="powered">
+                                                            <img width="160" src="assets/images/stripe-water.svg" />
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="main-stripe">
+                                                        <ul>
+                                                            <li><img src="assets/images/visa-card-v2.png" /></li>
+                                                            <li><img src="assets/images/master-card-v2.png" /></li>
+                                                            <li><img src="assets/images/american-express-card-v2.png" />
+                                                            </li>
+                                                            <li><img src="assets/images/discover-card-v2.png" /></li>
+                                                        </ul>
+                                                        <div *ngIf="!showDemo" id="card-number" class="strip-input-field">
+                                                            <!--a Stripe Element will be inserted. -->
+                                                        </div>
+                                                        <div *ngIf="!showDemo" id="card-expiry" class="strip-input-field">
+                                                            <!--a Stripe Element will be inserted. -->
+                                                        </div>
+                                                        <div *ngIf="!showDemo" id="card-cvc" class="strip-input-field" style="background-image: url(assets/images/cvv-card-v2.png);">
+                                                            <!--a Stripe Element will be inserted. -->
+                                                        </div>
+
+
+                                                        <!--given inputs will show only when user selets demo -->
+
+                                                        <div *ngIf="showDemo" class="card-dummy-number">
+                                                            <input type="text" id="number" name="number" formControlName="numbertxt" placeholder="1234 1234 1234" mask="0000 0000 0000 0000">
+                                                        </div>
+
+                                                        <div *ngIf="showDemo" class="card-dummy-input">
+                                                            <div>
+                                                                <input type="text" id="expiry" name="expiry" formControlName="expiry" placeholder="MM/YY" mask="00/00">
+                                                            </div>
+                                                            <div style="background-image: url(assets/images/cvv-card-v2.png);">
+                                                                <input type="number" id="cvc" name="cvc" formControlName="cvc" placeholder="CVC" mask="000">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card-dummy-number">
+                                                            <input type="text" id="address" name="address" placeholder="Address*" value="" formControlName="address">
+                                                            <div *ngIf="getAddressControls.address.invalid" class="alert1 alert-danger">
+                                                                <div *ngIf="(getAddressControls.address.errors?.required && getAddressControls.address.touched) && !showDemo || isAddessInvalid">
+                                                                    Address is required.
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="City-number">
+                                                            <input type="text" id="city" name="city" placeholder="City*" formControlName="city">
+                                                            <div *ngIf="getAddressControls.city.invalid" class="alert1 alert-danger">
+                                                                <div *ngIf="(getAddressControls.city.errors?.required && getAddressControls.city.touched) && !showDemo || isAddessInvalid">
+                                                                    City is required.
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="new-input-feild">
+                                                            <div class="state-input">
+                                                                <input type="text" id="state" name="state" placeholder="State*" formControlName="state">
+                                                                <div *ngIf="getAddressControls.state.invalid" class="alert1 alert-danger">
+                                                                    <div *ngIf="(getAddressControls.state.errors?.required && getAddressControls.state.touched)  && !showDemo || isAddessInvalid">
+                                                                        State is required.
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="state-input-right">
+                                                                <input type="text" id="zip" name="zip" placeholder="ZIP*" formControlName="zip">
+                                                                <div *ngIf="getAddressControls.zip.invalid" class="alert1 alert-danger">
+                                                                    <div *ngIf="(getAddressControls.zip.errors?.required && getAddressControls.zip.touched) && !showDemo || isAddessInvalid">
+                                                                        Zip is required.
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="state-input-country">
+                                                                <input type="text" id="country" name="country" [readonly]="true" value="USA" placeholder="USA">
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div *ngIf="!showDemo" class="submit-button-bx">
+                                                        <button id="submit" (click)="payWithCard()">
+                                                            <span id="button-text">Pay ${{totalPrice}}</span>
+                                                            <span class="buttonload hidden" id="spinner"><i
+                                                                    class="fa fa-spinner fa-spin"></i>Loading</span>
+                                                        </button>
+                                                    </div>
+                                                    <div *ngIf="showDemo" class="submit-button-bx">
+                                                        <button id="submit" (click)="submitDemoPayment()">
+                                                            <span id="button-text">Pay ${{totalPrice}}</span>
+                                                            <span class="buttonload hidden" id="spinner"><i
+                                                                    class="fa fa-spinner fa-spin"></i>Loading</span>
+                                                        </button>
+                                                    </div>
+                                                    <div id="card-error" role="alert"></div>
+                                                    <p>Digital sale is <span class="underline-mode">non
+                                                            refundable</span> due to costs with each match
+                                                    </p>
+                                                    <p>Payment data is <span class="underline-mode">not</span> stored on Both Match</p>
+                                                    <p>Billing processed by <span class="underline-mode">JobRep Network
+                                                            LLC</span></p>
+
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="isShowMobilePopup" id="mobliePaymentModal" class="modal-popup new-popup modal fade">
+                            <div class="modal-dialogs">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <div class="mark-icon" (click)="ShowMobilePopup('hide')">
+                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                        </div>
+                                        <form id="payment-form" [formGroup]="addressForm">
+                                            <div class="ProductSummary-info">
+                                                <p>Total Items selected
+                                                    <span><strong>{{selectedJobs.length}}</strong></span>
+                                                </p>
+                                                <p>Price per match <span><strong>$20</strong></span></p>
+                                                <p class="total-area">Total
+                                                    <span><strong>${{totalPrice}}</strong></span>
+                                                </p>
+                                            </div>
+                                            <div class="card-strip-box">
+                                                <div class="underline-list">
+                                                    <div class="powered">
+                                                        <img width="160" src="assets/images/stripe-water.svg" />
+                                                    </div>
+
+                                                </div>
+                                                <div class="main-stripe">
+                                                    <ul>
+                                                        <li><img src="assets/images/visa-card-v2.png" /></li>
+                                                        <li><img src="assets/images/master-card-v2.png" /></li>
+                                                        <li><img src="assets/images/american-express-card-v2.png" />
+                                                        </li>
+                                                        <li><img src="assets/images/discover-card-v2.png" /></li>
+                                                    </ul>
+                                                    <div *ngIf="!showDemo" id="card-number" class="strip-input-field">
+                                                    </div>
+                                                    <div *ngIf="!showDemo" id="card-expiry" class="strip-input-field">
+                                                    </div>
+                                                    <div *ngIf="!showDemo" id="card-cvc" class="strip-input-field" style="background-image: url(assets/images/cvv-card-v2.png);">
+                                                    </div>
+
+                                                    <div *ngIf="showDemo" class="card-dummy-number">
+                                                        <input type="text" id="number" name="number" formControlName="numbertxt" placeholder="1234 1234 1234" mask="0000 0000 0000 0000">
+                                                    </div>
+
+                                                    <div *ngIf="showDemo" class="card-dummy-input">
+                                                        <div>
+                                                            <input type="text" id="expiry" name="expiry" formControlName="expiry" placeholder="MM/YY" mask="00/00">
+                                                        </div>
+                                                        <div style="background-image: url(assets/images/cvv-card-v2.png);">
+                                                            <input type="number" id="cvc" name="cvc" formControlName="cvc" placeholder="CVC" mask="000">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="card-dummy-number">
+                                                        <input type="text" id="address" name="address" placeholder="Address*" value="" formControlName="address">
+                                                        <div *ngIf="getAddressControls.address.invalid" class="alert1 alert-danger">
+                                                            <div *ngIf="(getAddressControls.address.errors?.required && getAddressControls.address.touched) && !showDemo || isAddessInvalid">
+                                                                Address is required.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="City-number">
+                                                        <input type="text" id="city" name="city" placeholder="City*" formControlName="city">
+                                                        <div *ngIf="getAddressControls.city.invalid" class="alert1 alert-danger">
+                                                            <div *ngIf="(getAddressControls.city.errors?.required && getAddressControls.city.touched) && !showDemo || isAddessInvalid">
+                                                                City is required.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="new-input-feild">
+                                                        <div class="state-input">
+                                                            <input type="text" id="state" name="state" placeholder="State*" formControlName="state">
+                                                            <div *ngIf="getAddressControls.state.invalid" class="alert1 alert-danger">
+                                                                <div *ngIf="(getAddressControls.state.errors?.required && getAddressControls.state.touched)  && !showDemo || isAddessInvalid">
+                                                                    State is required.
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="state-input-right">
+                                                            <input type="text" id="zip" name="zip" placeholder="ZIP*" formControlName="zip">
+                                                            <div *ngIf="getAddressControls.zip.invalid" class="alert1 alert-danger">
+                                                                <div *ngIf="(getAddressControls.zip.errors?.required && getAddressControls.zip.touched) && !showDemo || isAddessInvalid">
+                                                                    Zip is required.
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="state-input-country">
+                                                            <input type="text" id="country" name="country" [readonly]="true" value="USA" placeholder="USA">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div *ngIf="!showDemo" class="submit-button-bx">
+                                                    <button id="submit" (click)="payWithCard()">
+                                                        <span id="button-text">Pay ${{totalPrice}}</span>
+                                                        <span class="buttonload hidden" id="spinner"><i
+                                                                class="fa fa-spinner fa-spin"></i>Loading</span>
+                                                    </button>
+                                                </div>
+                                                <div *ngIf="showDemo" class="submit-button-bx">
+                                                    <button id="submit" (click)="submitDemoPayment()">
+                                                        <span id="button-text">Pay ${{totalPrice}}</span>
+                                                        <span class="buttonload hidden" id="spinner"><i
+                                                                class="fa fa-spinner fa-spin"></i>Loading</span>
+                                                    </button>
+                                                </div>
+
+
+                                                <div id="card-error" role="alert"></div>
+                                                <p>Digital sale is <span class="underline-mode">non refundable</span> due to costs with each sale
+                                                </p>
+                                                <p>Payment data is <span class="underline-mode">not</span> stored on Both Match</p>
+                                                <p>Billing processed by <span class="underline-mode">JobRep Network
+                                                        LLC</span></p>
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div *ngIf="isShowMobilePopup && totalPrice > 0" class="button-next mt-2" style="padding: 40px 0;">
+                            <a (click)="ShowMobilePopup('show')">
+                                Pay : ${{totalPrice}}
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <div *ngIf="noDataFound && blurRows.length == 0">
+                        <h4>No Data Found</h4>
+                    </div>
+                    <div *ngIf="rows.length > 0" class="button-next mt-2" style="padding: 40px 0;">
+                        <a style="cursor:pointer" (click)="submitDemoPayment()">
+                            NEXT
+                        </a>
+                    </div>
+                </ng-container>
+                <ng-container *ngSwitchCase="4">
+                    <div *ngIf="rows.length > 0 && !noDataFound">
+
+                        <div class="print-class-download">
+                            <h4>{{tableHeading}}</h4>
+                            <div class="print-button">
+                                <button [useExistingCss]="true" class="btn-new" printSectionId="print_area" ngxPrint><i
+                                        class="fa fa-print" aria-hidden="true"></i></button>
+                                <button (click)="downloadAsPdf()"><i class="fa fa-download"
+                                        aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+
+                        <div id="print_area">
+                            <div id="print_header" class="curate">
+                                <div class="main-curate">
+                                    <div class="curate-image">
+                                        <img src="assets/images/creditcard-logo.jpg" />
+                                        <h3>Your Selection</h3>
+                                    </div>
+                                    <h4 class="table-heading">{{tableHeading}}</h4>
+                                    <div class="main-text">
+                                        <h4>Generated On:</h4>
+                                        <p> {{printGeneratedon}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <table id="jobsTbl">
+                                <tr>
+
+                                    <th *ngFor="let column of headers">
+                                        {{column}}
+                                    </th>
+                                </tr>
+                                <tr *ngFor="let row of rows">
+                                    <td *ngFor="let column of headers let i = index" [ngClass]="{'align-center':i ==0}">
+                                        <span *ngIf="i!=2"> {{row[column]}}</span>
+                                        <span id="hiddenlink" *ngIf="i==2"> {{row[column]}}</span>
+                                        <a id="showlink" *ngIf="i==2" target="_blank" href={{row[column]}} style="position: relative;"><span class="hide-link">{{row[column]}}
+                                            </span><span class="hover-tooltip">{{row[column]}}</span></a>
+
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div *ngIf="noDataFound && rows.length == 0">
+                        <h4>No Data Found</h4>
+                    </div>
+                </ng-container>
+                <ng-container *ngSwitchCase="5">
+                    <app-career-advancement (changeTab)="changeTabByChild($event)"></app-career-advancement>
+                </ng-container>
+                <ng-container *ngSwitchCase="6">
+                    <app-candidate-coach-match (changeTab)="changeTabByChild($event)"></app-candidate-coach-match>
+                </ng-container>
+                <ng-container *ngSwitchCase="7">
+                    <app-view-matched-coaches></app-view-matched-coaches>
+                </ng-container>
+
+            </div>
+        </div>
+        <div class="blue block">
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

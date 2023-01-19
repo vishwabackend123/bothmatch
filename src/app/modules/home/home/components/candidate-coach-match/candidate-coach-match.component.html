@@ -1,0 +1,181 @@
+<!-- <p>Candidate Coach Match works!</p> -->
+<div class="mani-new-cotch">
+    <div class="candidate-text-new">
+        <h3>Select Needed Career Professional Services</h3>
+    </div>
+    <div class="main-coach-match">
+        <div class="coach-match-new">
+            <div class="tab-hadding">
+                <h4>To move the services between the boxes, use the arrows or drag and drop </h4>
+            </div>
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                <div class="row step-two" style="margin-top: 8px;margin-bottom: 25px;">
+                    <div class="col-xl-3 col-lg-3 col-md-12 col-12" droppable (onDrop)="itemDropFromMatchAny($event)">
+                        <div class="table-selector">
+                            <h3>EXCLUDE these services</h3>
+                            <div class="list">
+                                <li draggable (click)="selector(item,1)" *ngFor="let item of include" [dragData]="item" [class.selected]="item.selected" value="Tom Smith">{{item.name}}</li>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-1 col-lg-1 col-md-12 col-12">
+                        <div class="arrow-box arrow-box2">
+                            <button [disabled]="!includeSelect" [class.disabled]="!includeSelect" (click)="includeKey('matchanyKey')" class="review-btn">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="30" viewBox="0 0 768 768"
+                                class="arw-ex">
+                                <title></title>
+                                <g id="icomoon-ignore">
+                                </g>
+                                <path fill="#fff"
+                                    d="M384 672c-25.632 0-49.76-9.984-67.872-28.128s-28.16-42.272-28.128-67.936c0-23.872 8.672-31.936 24.448-63.936h-154.752c-52.928 0-96-43.104-96-96 0-52.928 43.072-96 96-96h154.752c-15.808-32-24.448-40.16-24.448-64.032 0.032-25.664 9.984-49.728 28.16-67.872 36.224-36.224 99.456-36.256 135.712 0.032l227.872 227.872-227.872 227.872c-18.112 18.144-42.24 28.128-67.872 28.128zM157.696 384c-17.664 0-32 14.368-32 32s14.336 32 32 32h309.056l-105.376 105.376c-6.048 6.048-9.376 14.048-9.376 22.592 0 8.608 3.328 16.608 9.376 22.656 12.128 12.096 33.12 12.096 45.248 0l182.624-182.624-182.624-182.624c-12.128-12.096-33.12-12.096-45.248 0-6.048 6.048-9.376 14.048-9.376 22.592 0 8.576 3.328 16.608 9.376 22.656l105.376 105.376h-309.056z">
+                                </path>
+                            </svg>
+                        </button>
+                            <button [disabled]="!matchAnySelect" [class.disabled]="!matchAnySelect" (click)="includeKey('excludeAny')" class="review-btn">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="30" viewBox="0 0 768 768"
+                                class="arw-ex">
+                                <title></title>
+                                <g id="icomoon-ignore">
+                                </g>
+                                <path fill="#fff"
+                                    d="M349.696 672c-25.632 0-49.76-9.984-67.872-28.128l-227.872-227.872 227.872-227.872c36.256-36.288 99.488-36.288 135.744 0 18.112 18.048 28.128 42.144 28.128 67.808 0 23.872-8.64 46.432-24.448 64.064h154.752c52.928 0 96 43.072 96 96s-43.072 96-96 96h-154.752c15.776 17.568 24.448 40.064 24.448 63.936 0.064 25.664-9.984 49.824-28.128 67.968-18.144 18.112-42.24 28.096-67.872 28.096zM144.448 416l182.624 182.624c12.128 12.096 33.12 12.096 45.248 0 6.048-6.048 9.376-14.112 9.376-22.656s-3.328-16.544-9.312-22.56l-105.44-105.408h309.056c17.664 0 32-14.368 32-32s-14.336-32-32-32h-309.056l105.376-105.376c6.048-6.048 9.376-14.112 9.376-22.656s-3.328-16.544-9.344-22.56c-12.192-12.16-33.152-12.128-45.28-0.032l-182.624 182.624z">
+                                </path>
+                            </svg>
+                        </button>
+                            <button [disabled]="!matchAnySelect||!includeSelect" [class.disabled]="!includeSelect||!matchAnySelect" (click)="includeKey('matchanyKey');includeKey('excludeAny')" class="review-btn"><svg
+                                class="arw-ex" id="_x31_px" enable-background="new 0 0 24 24" fill="#ffffff" height="30"
+                                viewBox="0 0 24 24" width="30" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="m5.5 13c-.13 0-.258-.051-.354-.146l-5-5c-.195-.195-.195-.512 0-.707l5-5c.144-.144.358-.187.545-.109.187.077.309.26.309.462v2.5h10c.551 0 1 .449 1 1v3c0 .551-.449 1-1 1h-10v2.5c0 .202-.122.385-.309.462-.062.026-.127.038-.191.038zm-4.293-5.5 3.793 3.793v-1.793c0-.276.224-.5.5-.5h10.5v-3h-10.5c-.276 0-.5-.224-.5-.5v-1.793z" />
+                                <path
+                                    d="m18.5 22c-.064 0-.129-.012-.191-.038-.187-.077-.309-.26-.309-.462v-2.5h-10c-.551 0-1-.449-1-1v-3c0-.551.449-1 1-1h10v-2.5c0-.202.122-.385.309-.462.188-.077.402-.035.545.108l5 5c.195.195.195.512 0 .707l-5 5c-.096.096-.224.147-.354.147zm-10.5-7v3h10.5c.276 0 .5.224.5.5v1.793l3.793-3.793-3.793-3.793v1.793c0 .276-.224.5-.5.5z" />
+                            </svg>
+                        </button>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-12 col-12" droppable (onDrop)="itemDropFromInclude($event)">
+                        <div class="table-selector">
+                            <h3>INCLUDE optional services</h3>
+                            <div class="list">
+                                <li draggable (click)="selector(item,2)" *ngFor="let item of matchAny" [dragData]="item" [class.selected]="item.selected" value="Tom Smith">{{item.name}}</li>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-1 col-lg-1 col-md-12 col-12">
+                        <div class="arrow-box arrow-box2">
+                            <button [disabled]="!matchAnySelect" [class.disabled]="!matchAnySelect" (click)="includeKey('matchallKey')" class="review-btn">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="30" viewBox="0 0 768 768"
+                                class="arw-ex">
+                                <title></title>
+                                <g id="icomoon-ignore">
+                                </g>
+                                <path fill="#fff"
+                                    d="M384 672c-25.632 0-49.76-9.984-67.872-28.128s-28.16-42.272-28.128-67.936c0-23.872 8.672-31.936 24.448-63.936h-154.752c-52.928 0-96-43.104-96-96 0-52.928 43.072-96 96-96h154.752c-15.808-32-24.448-40.16-24.448-64.032 0.032-25.664 9.984-49.728 28.16-67.872 36.224-36.224 99.456-36.256 135.712 0.032l227.872 227.872-227.872 227.872c-18.112 18.144-42.24 28.128-67.872 28.128zM157.696 384c-17.664 0-32 14.368-32 32s14.336 32 32 32h309.056l-105.376 105.376c-6.048 6.048-9.376 14.048-9.376 22.592 0 8.608 3.328 16.608 9.376 22.656 12.128 12.096 33.12 12.096 45.248 0l182.624-182.624-182.624-182.624c-12.128-12.096-33.12-12.096-45.248 0-6.048 6.048-9.376 14.048-9.376 22.592 0 8.576 3.328 16.608 9.376 22.656l105.376 105.376h-309.056z">
+                                </path>
+                            </svg>
+                        </button>
+                            <button [disabled]="!matchAllSelect" [class.disabled]="!matchAllSelect" (click)="includeKey('excludeAll')" class="review-btn">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="30" viewBox="0 0 768 768"
+                                class="arw-ex">
+                                <title></title>
+                                <g id="icomoon-ignore">
+                                </g>
+                                <path fill="#fff"
+                                    d="M349.696 672c-25.632 0-49.76-9.984-67.872-28.128l-227.872-227.872 227.872-227.872c36.256-36.288 99.488-36.288 135.744 0 18.112 18.048 28.128 42.144 28.128 67.808 0 23.872-8.64 46.432-24.448 64.064h154.752c52.928 0 96 43.072 96 96s-43.072 96-96 96h-154.752c15.776 17.568 24.448 40.064 24.448 63.936 0.064 25.664-9.984 49.824-28.128 67.968-18.144 18.112-42.24 28.096-67.872 28.096zM144.448 416l182.624 182.624c12.128 12.096 33.12 12.096 45.248 0 6.048-6.048 9.376-14.112 9.376-22.656s-3.328-16.544-9.312-22.56l-105.44-105.408h309.056c17.664 0 32-14.368 32-32s-14.336-32-32-32h-309.056l105.376-105.376c6.048-6.048 9.376-14.112 9.376-22.656s-3.328-16.544-9.344-22.56c-12.192-12.16-33.152-12.128-45.28-0.032l-182.624 182.624z">
+                                </path>
+                            </svg>
+                        </button>
+                            <button [disabled]="!matchAnySelect||!matchAllSelect" [class.disabled]="!matchAnySelect||!matchAllSelect" (click)="includeKey('matchallKey');includeKey('excludeAll')" class="review-btn"><svg
+                                class="arw-ex" id="_x31_px" enable-background="new 0 0 24 24" fill="#ffffff" height="30"
+                                viewBox="0 0 24 24" width="30" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="m5.5 13c-.13 0-.258-.051-.354-.146l-5-5c-.195-.195-.195-.512 0-.707l5-5c.144-.144.358-.187.545-.109.187.077.309.26.309.462v2.5h10c.551 0 1 .449 1 1v3c0 .551-.449 1-1 1h-10v2.5c0 .202-.122.385-.309.462-.062.026-.127.038-.191.038zm-4.293-5.5 3.793 3.793v-1.793c0-.276.224-.5.5-.5h10.5v-3h-10.5c-.276 0-.5-.224-.5-.5v-1.793z" />
+                                <path
+                                    d="m18.5 22c-.064 0-.129-.012-.191-.038-.187-.077-.309-.26-.309-.462v-2.5h-10c-.551 0-1-.449-1-1v-3c0-.551.449-1 1-1h10v-2.5c0-.202.122-.385.309-.462.188-.077.402-.035.545.108l5 5c.195.195.195.512 0 .707l-5 5c-.096.096-.224.147-.354.147zm-10.5-7v3h10.5c.276 0 .5.224.5.5v1.793l3.793-3.793-3.793-3.793v1.793c0 .276-.224.5-.5.5z" />
+                            </svg>
+                        </button>
+
+
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-12 col-12" droppable (onDrop)="itemDropOnMatchAll($event)">
+                        <div class="table-selector">
+                            <h3>MUST have services</h3>
+                            <div class="list">
+                                <li draggable (click)="selector(item,3)" *ngFor="let item of matchAll" [dragData]="item" [class.selected]="item.selected" value="Tom Smith">{{item.name}}</li>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div  *ngIf = "showNextBtn" class="button-next">-->
+            <div class="row step-two" style="margin-top: 25px;margin-bottom: 25px;">
+                <div class="col-xl-3 col-lg-3 col-md-12 col-12">
+                    <div class="service-box">
+
+                        <img src="assets/images/Group_2.png" />
+                        <h4 class="keyword-both" style="padding-top: 13px">Career services<br> not required <br>by candidate</h4>
+                    </div>
+                </div>
+                <div class="col-xl-1 col-lg-1 col-md-12 col-12"></div>
+                <div class="col-xl-3 col-lg-3 col-md-12 col-12">
+                    <div class="service-box">
+                        <img src="assets/images/Group_1.png" />
+                        <h4 style="padding-top: 13px">Optional career<br> services that may <br>be used by <br>candidate later</h4>
+                    </div>
+                </div>
+                <div class="col-xl-1 col-lg-1 col-md-12 col-12"></div>
+                <div class="col-xl-3 col-lg-3 col-md-12 col-12">
+                    <div class="service-box">
+                        <img src="assets/images/Group_3.png" />
+                        <h4 style="padding-top: 13px">Career services<br> currently needed<br> by candidate</h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="side-form">
+            <form [formGroup]="frmDetails">
+                <div class="col-xl-12 col-lg-6 col-md-6 col-12">
+                    <label for="fname">COUNTRY</label> <br>
+                    <input type="text" id="txtCountry" name="fname" value="" formControlName="country">
+                </div>
+
+                <div class="col-xl-12 col-lg-6 col-md-6 col-12">
+                    <label for="fname">STATE</label> <br>
+                    <input type="text" id="txtState" class="state-class" name="fname" value="" formControlName="state">
+                </div>
+
+
+                <div class="col-xl-12 col-lg-6 col-md-6 col-12">
+                    <label for="fname">SPECIALIZATION</label> <br>
+                    <input type="text" id="txtSpecialization" name="fname" value="" formControlName="specialization">
+                </div>
+
+                <div class="col-xl-12 col-lg-6 col-md-6 col-12">
+                    <label for="fname">PRIMARY SERVICE</label> <br>
+                    <input type="text" id="txtPrimaryService" name="fname" value="" formControlName="primaryService">
+                </div>
+                <div class="col-xl-12 col-lg-6 col-md-6 col-12">
+                    <label for="fname">PRIMARY INDUSTRY EXPERIENCE</label> <br>
+                    <input type="text" id="txtPrimaryIndustryExperience" name="fname" value="" formControlName="primaryIndustryExperience">
+                </div>
+
+                <div class="col-xl-12 col-lg-4 col-md-6 col-12 align-right">
+                    <div class="button-wrap-tab-select-new">
+                        <a style="cursor:pointer" (click)="submitForm()">
+                        VIEW CAREER COACH MATCH
+                    </a>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+    <div class="making-hadding">
+        <h4>Recommend making adjustments to the service selection criteria based on level of matches</h4>
+    </div>
+</div>

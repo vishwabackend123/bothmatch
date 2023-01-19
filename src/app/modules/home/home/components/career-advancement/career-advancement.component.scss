@@ -1,0 +1,361 @@
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.table-new-class th.table-hadding {
+    font-weight: 500;
+    color: #22205f;
+    font-size: 21px;
+    text-align: center;
+    background-color: #dbded8;
+    border: 1px solid #a9afad;
+    font-family: "Bahnschrift";
+}
+
+.cnt-wrap-curate table.table-new-class td {
+    text-align: center;
+    margin: 0px;
+    background-color: #eceef0;
+    color: #18164e;
+    font-weight: 500;
+    font-size: 17px;
+    padding: 2px 2px;
+    border: 1px solid #a9afad;
+}
+
+table.table-new-class {
+    width: 94%;
+}
+
+.main-user-details {
+    display: flex;
+    max-width: 1100px;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.user-details-new {
+    width: calc(100% - 0px);
+    background: #dbf1f5;
+    margin-bottom: 49px;
+    padding: 15px 1px 11px 16px;
+    background: #FFF;
+    margin-left: 0px;
+}
+
+.user-details-new .user-details-content h3:not(.blue-color-text) {
+    padding-top: 56px;
+    font-weight: 100;
+}
+
+.user-details-img {
+    float: left;
+    width: 21%;
+}
+
+.coach-name-new {
+    position: relative;
+    left: 20px;
+    white-space: nowrap;
+}
+
+.user-details-new h3 {
+    font-size: 14.8px;
+    margin-left: 5px;
+    color: #18164e;
+}
+
+.user-details-new .user-details-img img {
+    margin: 6px;
+    height: auto;
+    width: 159px;
+    max-height: 100%;
+    max-width: 160%;
+}
+
+.user-details-img h3 {
+    text-align: center;
+    margin-top: 6px;
+    margin-bottom: -11px;
+    color: #000;
+    font-weight: 600;
+}
+
+.user-details-content {
+    float: left;
+    width: 71%;
+    padding: 13px 0px 7px 81px;
+}
+
+.user-details-new .user-details-content p {
+    font-size: 14px;
+    text-align: center;
+    line-height: 20px;
+    font-weight: 500;
+    color: #000;
+    width: 294px;
+}
+
+.candi-advance {
+    width: 100% !important;
+    padding: 42px 50px !important;
+    background: #dbf1f5 !important;
+    min-height: 450px;
+    margin: 61px 0px 10px;
+}
+
+.career-button {
+    text-align: center;
+    margin-top: 120px;
+    margin-left: 287px;
+}
+
+.career-button button {
+    font-size: 18px;
+    width: 125px;
+    height: 47px;
+    line-height: 27px;
+    background-color: #33cccc;
+    // border: 1px solid #afabab;
+    font-family: "Open Sans", sans-serif;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 40px !important;
+    border: 1px solid #afabab;
+}
+
+.services-img img {
+    width: 94%;
+    height: auto;
+    margin-top: 53px;
+}
+
+.carreer-view-new {
+    position: relative;
+}
+
+.carre-text {
+    position: absolute;
+    top: -60px;
+    /* left: 31%; */
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+@media (max-width: 1850px) {
+    // .candi-advance {
+    //     padding: 50px 33px !important;
+    // }
+    .user-details-new {
+        width: calc(100% - 0px);
+        margin-left: 0px;
+    }
+    .candi-advance {
+        width: 100% !important;
+        padding: 42px 56px !important;
+    }
+}
+
+@media (max-width: 1761px) {
+    .user-details-new {
+        padding: 16px 16px;
+    }
+    .user-details-new .user-details-img img {
+        width: 156px;
+    }
+    .candi-advance {
+        width: 100% !important;
+        padding: 42px 56px !important;
+    }
+    .user-details-new {
+        width: calc(100% - 3px);
+    }
+    .user-details-new h3 {
+        font-size: 13.8px;
+    }
+    .user-details-content p {
+        font-size: 14px !important;
+    }
+}
+
+@media (max-width: 1400px) {
+    .candi-advance {
+        width: 100% !important;
+        padding: 42px 31px !important;
+    }
+    .carre-text h3 {
+        font-size: 19px;
+    }
+    .carre-text {
+        position: absolute;
+        top: -57px;
+    }
+}
+
+@media (max-width: 1440px) {
+    .user-details-new .user-details-content p {
+        width: 253px;
+        font-size: 12px !important;
+    }
+    .user-details-new .user-details-content .botton-content-part h3:not(.blue-color-text) {
+        padding-top: 25px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .candi-advance {
+        margin: 61px 0px 10px;
+    }
+    .user-details-new .user-details-content h3:not(.blue-color-text) {
+        padding-top: 28px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .user-details-content {
+        width: 79% !important;
+        padding-left: 30px !important;
+    }
+    table.table-new-class {
+        width: 100%;
+    }
+    .services-img img {
+        width: 100%;
+    }
+    .user-details-new {
+        width: calc(62% - 0px);
+        float: right;
+        margin-top: 51px;
+        margin-bottom: 0;
+    }
+    .career-button button {
+        margin-top: 37px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .cnt-wrap-curate table.table-new-class td {
+        font-size: 12px !important;
+    }
+    .user-details-new h3 {
+        font-size: 11.8px !important;
+    }
+    .user-details-content {
+        padding-left: 35px !important;
+    }
+    .user-details-new .user-details-content p {
+        font-size: 11px !important;
+        width: 231px;
+    }
+    .user-details-new .user-details-img img {
+        height: 78px !important;
+        max-width: 100% !important;
+    }
+    .coach-name-new {
+        position: relative;
+        left: 0px !important;
+    }
+    .user-details-new .user-details-content h3:not(.blue-color-text) {
+        padding-top: 18px;
+    }
+    .user-details-new .user-details-content .botton-content-part h3:not(.blue-color-text) {
+        padding-top: 12px;
+    }
+    .career-button {
+        margin-top: 56px;
+        margin-left: 183px;
+    }
+    // .carre-text {
+    //     left: 25%;
+    // }
+}
+
+@media (max-width: 1440px) {
+    .table-new-class th.table-hadding {
+        font-size: 19px;
+    }
+    .cnt-wrap-curate table.table-new-class td {
+        font-size: 15px
+    }
+    table.table-new-class td {
+        height: 28px;
+    }
+    .user-details-new h3 {
+        font-size: 13.6px;
+    }
+    .user-details-content p {
+        font-size: 11px !important;
+        width: 100%;
+    }
+    .user-details-new .user-details-img img {
+        width: 128px;
+        height: auto !important;
+    }
+    .coach-name-new {
+        left: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .candi-advance {
+        width: 100% !important;
+        padding: 44px 27px !important;
+    }
+    .services-img img {
+        width: 100%;
+        height: auto;
+        margin-top: 38px;
+    }
+    .table-new-class th.table-hadding {
+        font-size: 18px;
+    }
+    .cnt-wrap-curate table.table-new-class td {
+        font-size: 12px !important;
+        height: 2px;
+    }
+    .user-details-new {
+        width: calc(80% - 0px);
+    }
+    .user-details-new .user-details-img img {
+        height: auto !important;
+    }
+    .user-details-content {
+        padding-left: 39px !important;
+    }
+    .career-button {
+        margin-top: 80px;
+        margin-left: 124px;
+    }
+    .user-details-new .user-details-content h3:not(.blue-color-text) {
+        padding-top: 8px;
+    }
+    .user-details-new h3 {
+        font-size: 12px !important;
+    }
+    .user-details-new .user-details-content p {
+        font-size: 12px !important;
+        line-height: 19px;
+        width: 246px;
+    }
+    .coach-name-new {
+        left: 2px;
+    }
+    .career-button button {
+        font-size: 19px;
+        width: 130px;
+        height: 41px;
+    }
+    table.table-new-class {
+        width: 100%;
+    }
+    // .carre-text {
+    //     left: 17%;
+    // }
+    .carre-text h3 {
+        font-size: 18px;
+    }
+}

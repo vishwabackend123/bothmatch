@@ -1,0 +1,335 @@
+.btn-grp {
+	display: inline-block;
+	float: right;
+	margin-top: 20px;
+	@include clearfix;
+	.btn {
+		float: left;
+		&+ .btn {
+			margin-left: 8px;
+			@include max(991) {
+				margin: 12px 8px 0 0;
+			}
+		}
+	}
+	&.center {
+		float: none;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+		.btn {
+			float: none;
+		}
+	}
+}
+.btn {
+	@include align-items(center);
+	background-color: $primary-color;
+	border: 0;
+	@include border-radius(4px !important);
+	color: $white;
+	@include flexbox-display(inline-flex);
+	font-weight: $fw-600;
+	@include justify-content(center);
+	line-height: 1;
+	overflow: hidden;
+	padding: 0 25px !important;
+	position: relative;
+	text-align: center;
+	text-decoration: none !important;
+	text-transform: uppercase;
+	@include transition(all,ease,0.2s);
+	&:hover {
+		background-color: $black;
+		color: $white;
+	}
+}
+.btns-add {
+	font-size: $text-sm;
+	height: 38px;
+}
+.btns-remove {
+	background-color: $red;
+	font-size: $text-sm;
+	height: 38px;
+}
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button[type="submit"] {
+	background-color: $primary-color !important;
+	padding-left: 16px !important;
+	padding-right: 16px !important;
+	&:hover {
+		background-color: $black !important;
+	}
+}
+.elementor-button-wrapper {
+	.elementor-button-content-wrapper {
+		@include align-items(center);
+		@include flexbox-display(inline-flex);
+	}
+	.elementor-button,
+	a,
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"] {
+		@extend .btn;
+		text-decoration: none !important;
+	}
+	.elementor-button,
+	a {
+		&+.elementor-button,
+		&+a {
+			margin-left: 15px;
+		}
+	}
+	@include max(767) {
+		.elementor-button,
+		a,
+		input[type="submit"],
+		input[type="reset"],
+		input[type="button"],
+		button[type="submit"] {
+			font-size: $text-sm !important;
+			height: 38px;
+			min-width: 110px;
+			padding: 0 20px !important;
+		}
+		.elementor-button,
+		a {
+			margin-top: 5px;
+			&+.elementor-button,
+			&+a {
+				margin-left: 7px;
+			}
+		}
+		.elementor-size-xs {
+			font-size: 1.3rem !important;
+			height: 34px;
+		}
+		.elementor-size-md {
+			font-size: $text-sm !important;
+			height: 38px;
+		}
+		.elementor-size-lg {
+			font-size: $text-md !important;
+			height: 43px;
+			min-width: 150px;
+		}
+		.elementor-size-xl {
+			font-size: $text-sm !important;
+			height: 38px;
+		}
+	}
+	@include max(350) {
+		.elementor-button,
+		a,
+		input[type="submit"],
+		input[type="reset"],
+		input[type="button"],
+		button[type="submit"] {
+			padding: 0 10px !important;
+		}
+	}
+	@include min(768) {
+		.elementor-button,
+		a,
+		input[type="submit"],
+		input[type="reset"],
+		input[type="button"],
+		button[type="submit"] {
+			font-size: $text-lg;
+			height: 39px;
+		}
+		.elementor-size-xs {
+			font-size: 1.4rem;
+			height: 36px;
+		}
+		.elementor-size-md {
+			font-size: $text-md + 0.1;
+			height: 41px;
+		}
+		.elementor-size-lg {
+			font-size: $h5;
+			height: 43px;
+		}
+		.elementor-size-xl {
+			font-size: $h5;
+			height: 45px;
+		}
+		.subscribe_btn {
+			@include border-radius(6px);
+			font-size: $h5;
+			font-weight: $fw-500;
+			height: 53px;
+			width: 100%;
+			@include min-max(1200,1440) {
+				font-size: $text-xl;
+			}
+		}
+	}
+	@include min(1200) {
+		.elementor-button,
+		a,
+		input[type="submit"],
+		input[type="reset"],
+		input[type="button"],
+		button[type="submit"] {
+			height: 49px;
+			min-width: 163px;
+		}
+		.elementor-size-xs {
+			height: 37px;
+			min-width: 132px;
+		}
+		.elementor-size-md {
+			height: 49px;
+			min-width: 166px;
+		}
+		.elementor-size-lg {
+			height: 54px;
+			min-width: 218px;
+		}
+		.elementor-size-xl {
+			height: 64px;
+			min-width: 250px;
+		}
+	}
+}
+.secondary {
+	.elementor-button,
+	a,
+	button,
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"] {
+		background-color: $primary-color;
+		color: $white;
+		&:before {
+			background-color: $tertiary-color;
+		}
+		&:hover {
+			background-color: $black;
+			color: $white;
+		}
+	}
+}
+.white {
+	.elementor-button,
+	a,
+	button,
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"] {
+		background-color: $white;
+		color: $black !important;
+		&:hover {
+			background-color: $white !important;
+			color: $primary-color !important;
+		}
+	}
+}
+button.trx_mscf_prev
+button.trx_mscf_next {
+	@extend .btn;
+}
+button.trx_mscf_prev {
+	margin-right: 10px;
+}
+button.trx_mscf_next {
+	margin-left: 10px;
+}
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button[type="submit"] {
+	@extend .btn;
+	@include border-radius(15px);
+	float: right;
+	text-align: center;
+	@include min(768) {
+		@include border-radius(20px);
+	}
+	@include min(1200) {
+		@include border-radius(30px);
+		height: 50px;
+		min-width: 160px;
+	}
+}
+.back-btn {
+	align-items: center;
+	-webkit-align-items: center;
+	background-color: $tertiary-color;
+	border: 0;
+	border-bottom-right-radius: 4px;
+	-webkit-border-bottom-right-radius: 4px;
+	border-top-right-radius: 4px;
+	-webkit-border-top-right-radius: 4px;
+	bottom: 100px;
+	color: $white;
+	display: flex;
+	font-size: $text-sm;
+	height: 32px;
+	margin-top: 30px;
+	min-width: 1px;
+	padding: 0 10px 0 8px;
+	position: fixed;
+	right: 15px;
+	z-index: 100;
+	&:before {
+		border-bottom: 16px solid transparent;
+		border-right: 10px solid $tertiary-color;
+		border-top: 16px solid transparent;
+		content: '';
+		display: block;
+		left: -10px;
+		position: absolute;
+		top: 0;
+		@include transition(all,ease,0.4s);
+		z-index: 2;
+	}
+	&:hover {
+		background-color: lighten($tertiary-color,10%);
+		&:before {
+			border-right-color: lighten($tertiary-color,10%);
+		}
+	}
+	@include max(1199) {
+		display: none;
+	}
+}
+#back-to-top {
+	align-items: center;
+	background-color: lighten(#d60000,10%);
+	color: $white;
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 50px;
+	opacity: 0;
+	overflow: hidden;
+	position: fixed;
+	right: 15px;
+	text-align: center;
+	bottom: 0;
+	@include transition(all,ease,0.5s);
+	@include transformY(20px);
+	width: 45px;
+	z-index: 99;
+	span{
+		font-size: 16px;
+		font-weight: 600;
+	}
+	&.visible {
+		opacity: 1;
+		@include transformY(0);
+	}
+	&:hover {
+		background-color: #000;
+		text-decoration: none;
+	}
+	@include max(1199) {
+		display: none;
+	}
+}

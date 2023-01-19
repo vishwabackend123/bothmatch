@@ -1,0 +1,182 @@
+/* // ie 11 & above
+_:-ms-fullscreen,
+:root .yourClass {
+	property: value;
+}
+
+// ie 10 & above
+_:-ms-lang(x),
+.yourClass {
+	property: value;
+}*/
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	select {
+		background: #fff;
+		padding-right: 0;
+	}
+	.medpros_header .header_top .logo {
+		width: 176px;
+	}
+	.medpros_header .header_top .logo svg,
+	.medpros_header .header_top .logo img {
+		width: 176px;
+	}
+	.mp_mgt_service .cols.content .half-container {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.list .listing_wrap .content {
+		width: 100%;
+	}
+	.sorting_wrap .filter .opt {
+		padding-right: 0;
+	}
+}
+/*
+// ie 10 only
+_:-ms-lang(x),
+.yourClass {
+	property: value\9;
+}*/
+
+// ie 9 & 10
+@media screen and (min-width:0\0) {
+	select {
+		padding-right: 0\9;
+	}
+	.btn {
+		display: inline-block\9;
+		line-height: 1\9;
+		padding-top: 10px\9;
+		&.fill {
+			padding-top: 10px\9;
+		}
+	}
+	.back-btn {
+		padding-top: 10px\9;
+	}
+	.modal-open {
+		z-index: 99999\9;
+	}
+	.modal {
+		z-index: 100001\9;
+	}
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"],
+	button[type="submit"] {
+		line-height: 1\9;
+		padding-top: 0\9;
+	}
+	.mp_mgt_service .cols.content .half-container {
+		margin-left: 0\9;
+		margin-right: 0\9;
+	}
+	.mp_mgt_service {
+		display: block\9;
+		.cols,
+		.cols.content {
+			display: block\9;
+			float: left\9;
+			width: 50%\9;
+		}
+		.half-container {
+			float: right\9;
+		}
+	}
+	.list .listing_wrap .content {
+		width: 100%\9;
+	}
+	.sorting_wrap .filter .opt {
+		padding-right: 0\9;
+	}
+	@include placeholder {
+		color: ($text-color)\9;
+		font-size: 1rem\9;
+		font-weight: 400\9;
+		opacity: 1\9;
+	}
+	//backslash-9 removes ie11+ & old Safari 4
+}
+
+/* ================================================================*/
+// ie 9 & above
+/*@media screen and (min-width:0\0) and (min-resolution: +72dpi) {
+	// IE9+ CSS
+  	.yourClass {
+  		property: value;
+  	}
+}*/
+/* ================================================================*/
+
+/* // ie 9 only
+@media screen and (min-width:0\0) and (min-resolution: .001dpcm) { 
+	// IE9 CSS
+ 	.yourClass {
+ 		property: value;
+ 	}
+}
+
+// ie 8,9 & 10
+@media screen\0 {
+	.yourClass {
+		property: value;
+	}
+}
+
+// IE 8 Standards Mode Only
+
+.yourClass {
+	property \*: value\9
+}
+
+// IE 8
+
+html>body .yourClass {
+	property: value;
+}
+@media \0screen {
+	.yourClass {
+		property: value;
+	}
+}
+
+// IE 6, 7 and 8
+
+@media \0screen\,screen\9 {
+    .yourClass {
+    	property: value;
+    }
+}
+
+// IE 6 and 7
+
+@media screen\9 {
+    .yourClass {
+    	property: value;
+    }
+}
+.yourClass {
+	*property: value;
+}
+.yourClass {
+	#property: value;
+}
+
+// IE 7
+
+*+html .yourClass {
+	property: value;
+}
+*:first-child+html .yourClass {
+	property: value;
+}
+
+// IE 6
+
+* html .yourClass {
+	property: value;
+}
+.yourClass {
+	_property: value;
+} */

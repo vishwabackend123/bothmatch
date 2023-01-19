@@ -1,0 +1,5 @@
+<app-header [headerTabIndex]="headerTabIndex" (goTotopJobs)="blueImageClicked($event)"></app-header>
+<app-header-slider></app-header-slider>
+<app-resume-upload (blueImageClicked)="blueImageClicked($event)"></app-resume-upload>
+<app-challenges-solution (goToTopJobs)="blueImageClicked($event)" (headerTabChange)="headerTabChange($event)"></app-challenges-solution>
+<app-federal-jobs [blueImgClick]="blueImgClick"></app-federal-jobs>

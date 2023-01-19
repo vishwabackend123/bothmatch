@@ -1,0 +1,214 @@
+<div class="main-profile-page">
+  <div class="profile-page-form">
+    <form [formGroup]="registerForm">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+          <div class="registration-form">
+            <div class="profile-state">
+              <label>FULL NAME</label>
+              <input type="text" formControlName="name" placeholder="prefill registration/ login name">
+              <div class="error-fields">
+                <div *ngIf="registerForm.get('name').touched && registerForm.get('name').invalid">
+                  <p *ngIf="registerForm.get('name').hasError('required')" class="required">
+                    Full Name is required
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="profile-state">
+              <label>EMAIL</label>
+              <input type="email" formControlName="email" placeholder="prefill registration/ login email">
+              <div class="error-fields">
+                <div *ngIf="registerForm.get('email').touched && registerForm.get('email').invalid">
+                  <p *ngIf="registerForm.get('email').hasError('required')" class="required">
+                    Email is required
+                  </p>
+                  <p class="required" *ngIf="registerForm.controls.email.errors?.email">Email format is invalid</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="profile-state">
+              <label>CITY</label>
+              <input type="text" formControlName="city" placeholder="City">
+              <div class="error-fields">
+                <div *ngIf="registerForm.get('city').touched && registerForm.get('city').invalid">
+                  <p *ngIf="registerForm.get('city').hasError('required')" class="required">
+                    City is required
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="profile-state">
+              <label>COUNTRY</label>
+              <input type="text" formControlName="country" placeholder="Country">
+              <div class="error-fields">
+                <div *ngIf="registerForm.get('country').touched && registerForm.get('country').invalid">
+                  <p *ngIf="registerForm.get('country').hasError('required')" class="required">
+                    Country is required
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="profile-state">
+              <label>TOTAL YEARS IN CAREER SERVICES</label>
+              <input type="text" formControlName='total_years_in_career_service'>
+              <div class="error-fields">
+                <div
+                  *ngIf="registerForm.get('total_years_in_career_service').touched && registerForm.get('total_years_in_career_service').invalid">
+                  <p *ngIf="registerForm.get('total_years_in_career_service').hasError('required')" class="required">
+                    Field is required
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="profile-state ">
+              <label>PROFESSIONAL CERTIFICATIONS</label>
+              <textarea _ngcontent-lnj-c7="" formControlName='professional_sertification' class="text-class" cols="40"
+                rows="5"></textarea>
+            </div>
+
+            <div class="profile-state">
+              <label>CUSTOM TAGS</label>
+              <textarea _ngcontent-lnj-c7="" formControlName='custom_tags' class="text-class" cols="40"
+                rows="5"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-5">
+
+          <div class="header-profile">
+            <div class="profile-state">
+              <label>PROFILE HEADER</label>
+              <input type="text" formControlName='profile_header'>
+              <div class="error-fields">
+                <div *ngIf="registerForm.get('profile_header').touched && registerForm.get('profile_header').invalid">
+                  <p *ngIf="registerForm.get('profile_header').hasError('required')" class="required">
+                    Field is required
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="profile-state">
+              <label>SERVICE SUMMARY</label>
+              <textarea _ngcontent-lnj-c7="" formControlName='service_summary' class="text-class" cols="40"
+                rows="5"></textarea>
+              <div class="error-fields">
+                <div *ngIf="registerForm.get('service_summary').touched && registerForm.get('service_summary').invalid">
+                  <p *ngIf="registerForm.get('service_summary').hasError('required')" class="required">
+                    Field is required
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="profile-state">
+              <label>INDUSTRY EXPERIENCE</label>
+              <textarea _ngcontent-lnj-c7="" formControlName='industry_experience' class="text-class" cols="40"
+                rows="5"></textarea>
+            </div>
+
+            <div class="profile-state">
+              <label>CURATE MATCH - PROFILE SHARE LINK</label>
+              <input type="text" formControlName='pofile_share_link'>
+            </div>
+
+            <div class="profile-state">
+              <label>PERSONAL WEBSITE</label>
+              <input type="text" formControlName='website_link'>
+            </div>
+
+            <div class="profile-state">
+              <label>LINKEDIN PROFILE LINK</label>
+              <input type="text" formControlName='linkedin_link'>
+            </div>
+
+            <div class="profile-state">
+              <label>JOBREP COMMUNITY PROFILE LINK</label>
+              <input type="text" formControlName='jobrep_profile_link'>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-12 col-lg-3">
+          <div class="upload-pic">
+            <div class="profile-state">
+              <label>PROFILE PICTURE</label>
+              <ng-container *ngIf="!baseImage">
+                <div class="picture-new">
+                  <img src="assets/images/uploads.png">
+                  <input type="file" accept=".png, .jpg, .jpeg" (change)="onFileSelected($event)" class="d-none" #file>
+                  <button type="submit" class="submit-btn upload" (click)="file.click()">UPLOAD PICTURE</button>
+                </div>
+              </ng-container>
+              <ng-container *ngIf="baseImage">
+                <div class="picture-new image-uploaded">
+                  <img [src]="imageUrl">
+                  <input type="file" accept=".png, .jpg, .jpeg" (change)="onFileSelected($event)" class="d-none" #file>
+                  <button type="submit" class="submit-btn upload position-absolute" (click)="file.click()"><i class="fa fa-pencil"></i></button>
+                </div>
+              </ng-container>
+            </div>
+            <div class="profile-state">
+              <label>TOP THREE SPECIALITIES</label>
+              <textarea _ngcontent-lnj-c7="" formControlName='top3_specialites' class="share-top" cols="40"
+                rows="5"></textarea>
+              <div class="error-fields">
+                <div
+                  *ngIf="registerForm.get('top3_specialites').touched && registerForm.get('top3_specialites').invalid">
+                  <p *ngIf="registerForm.get('top3_specialites').hasError('required')" class="required">
+                    Field is required
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="status-profile">
+            <div class="profile-state">
+              <label>PROFILE STATUS</label>
+              <input type="text" formControlName='profile_status_id'>
+              <div class="error-fields">
+                <div
+                  *ngIf="registerForm.get('profile_status_id').touched && registerForm.get('profile_status_id').invalid">
+                  <p *ngIf="registerForm.get('profile_status_id').hasError('required')" class="required">
+                    Field is required
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="image-upload">
+              <label>PROFILE APPROVAL DATE</label>
+              <input type="text" formControlName='approved_at'>
+            </div>
+
+            <div class="profile-state">
+              <label>PROFILE LAST UPADATED</label>
+              <input type="text" formControlName='updated_at'>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+  <div class="note-bottom">
+    <div class="bottom-text">
+      <p>Note: In order to provide quality service to candidates, a submitted<br> carreer coach profile will be active
+        in the portal after review and approval</p>
+    </div>
+
+    <div class="bottom-button-next">
+      <button type="submit" class="submit-btn" (click)="tabChange(2)">NEXT</button>
+    </div>
+  </div>
+
+</div>

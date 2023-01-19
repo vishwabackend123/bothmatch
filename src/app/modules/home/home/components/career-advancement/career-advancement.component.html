@@ -1,0 +1,87 @@
+<div class="carreer-view-new">
+    <div class="carre-text">
+        <h3>Candidate + Career Professional Directly Matched</h3>
+    </div>
+    <div class="row candi-advance ">
+
+        <div class="col-xl-6 col-lg-6 col-md-12 col-12 wow fadeInLeft">
+            <div class="jobrep-txt cnt-wrap-curate">
+                <table class="table-new-class">
+                    <tr>
+                        <th class="table-hadding" style="color:#a70063" colspan="2">Professional Services
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>Career Transition</td>
+                        <td>Leadership Coaching</td>
+                    </tr>
+                    <tr>
+                        <td>Certification Assessment</td>
+                        <td>Networking Coaching</td>
+                    </tr>
+                    <tr>
+                        <td>Cover Letter Preparation</td>
+                        <td>Personal Branding</td>
+                    </tr>
+                    <tr>
+                        <td>Education Coaching</td>
+                        <td>Personality Assessment</td>
+                    </tr>
+                    <tr>
+                        <td>Employer Evaluation</td>
+                        <td>Profession Assessment</td>
+                    </tr>
+                    <tr>
+                        <td>Executive Coaching</td>
+                        <td>Resume Development</td>
+                    </tr>
+                    <tr>
+                        <td>Interview Coaching</td>
+                        <td>Salary Negotiation</td>
+                    </tr>
+                    <tr>
+                        <td>Job Match Strategy</td>
+                        <td>Skills Assessment</td>
+                    </tr>
+                    <tr>
+                        <td>Job Tech Strategy</td>
+                        <td>Training Assessment</td>
+                    </tr>
+                </table>
+
+                <div class="services-img">
+                    <img src="assets/images/career-resume.PNG">
+
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-12 col-12 wow fadeInRight">
+            <!--<img *ngIf = "showimage" id="idHolisticsImg" class="holistics" [ngStyle]="{'height': height+'px'}" src="assets/images/bg-right.jpg">-->
+
+            <div class="user-details-new" *ngFor="let data of imageData">
+                <div class="user-details-img">
+                    <img src={{data.image}} />
+                    <div class="coach-name-new">
+                        <h3 class="blue-color-text">{{data.name}}</h3>
+                    </div>
+                </div>
+                <div class="user-details-content">
+                    <h3 class="blue-color-text">{{data.title}}</h3>
+                    <p [innerHTML]="data.details"></p>
+                    <div class="botton-content-part">
+                        <h3>Speciality:</h3>
+                        <!--<h3>LinkedIn:</h3> -->
+                    </div>
+                </div>
+
+            </div>
+            <div class="career-button">
+                <button type="button" (click)="tabChange(6)">NEXT</button>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="main-expertise">
+  <div class="row">
+    <div class="col-xl-7 col-lg-7 col-md-12 col-12 test">
+      <div class="coach-selection-main">
+        <table class="coach-selection">
+          <tr>
+            <th class="new-table-class services-new" rowspan="2">Services
+            </th>
+            <th class="new-table-class" rowspan="2">
+              Not<br>Ranked</th>
+            <th class="level-new level-main" colspan="5">Expertise Level
+            </th>
+          </tr>
+          <tr class="level-new level-main number-level">
+            <th style="color:black; background: #b5c5e5;">1</th>
+            <th style="color:black; background: #b5c5e5;">2</th>
+            <th style="color:black; background: #b5c5e5;">3</th>
+            <th style="color:black; background: #b5c5e5;">4</th>
+            <th style="color:black; background: #b5c5e5;">5</th>
+          </tr>
+          <tr *ngFor="let row of allExpertise; index as i">
+            <td class="not-ranked-td">{{row.service_name}}</td>
+            <td class="not-ranked-class">
+              <input class="jobrep-radio not-ranked" type="radio" name="expertise_{{i}}" (change)="expertiseChange(row, 0)"  [checked]="allExpertise[i].expertise_level == 0">
+            </td>
+            <td class="radio-button"> <input class="jobrep-radio" type="radio" (change)="expertiseChange(row, 1)" name="expertise_{{i}}" [checked]="allExpertise[i].expertise_level == 1"></td>
+            <td class="radio-button"> <input class="jobrep-radio" type="radio" (change)="expertiseChange(row, 2)" name="expertise_{{i}}" [checked]="allExpertise[i].expertise_level == 2"></td>
+            <td class="radio-button"> <input class="jobrep-radio" type="radio" (change)="expertiseChange(row, 3)" name="expertise_{{i}}" [checked]="allExpertise[i].expertise_level == 3"></td>
+            <td class="radio-button"> <input class="jobrep-radio" type="radio" (change)="expertiseChange(row, 4)" name="expertise_{{i}}" [checked]="allExpertise[i].expertise_level == 4"></td>
+            <td class="radio-button"> <input class="jobrep-radio" type="radio" (change)="expertiseChange(row, 5)" name="expertise_{{i}}" [checked]="allExpertise[i].expertise_level == 5" ></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="col-xl-5 col-lg-5 col-md-12 col-12 test ">
+      <div class=" inner-tab-image">
+        <img class="view-career-img" src="assets/images/view_career.PNG">
+        <div class="coach-match-new">
+          <div class="expert-new">
+            <button class="btn-theme-primary" id="viewCoaches" (click)="viewCareerCoaches()">UPDATE EXPERTISE
+            </button>
+          </div>
+          <div class="carrer-match-fild">
+            <label>EXPERTISE LAST UPDATED</label>
+            <input type="text" [ngModel]="lastDate" class="inputDisable" readonly>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

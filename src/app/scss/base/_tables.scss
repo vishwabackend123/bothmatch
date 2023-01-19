@@ -1,0 +1,62 @@
+// Table Styles
+table {
+	border-collapse: collapse;
+	width: 100%;
+	tr,
+	th,
+	td {
+		vertical-align: middle;
+	}
+  thead {
+    tr {
+      background-color: $quinary-color;
+      color: $white;
+      th {
+        color: inherit;
+        font-size: $text-md;
+        font-weight: $fw-500;
+        height: 46px;
+        text-transform: uppercase;
+      }
+    }
+  }
+  tbody {
+    tr {
+      background-color: $white;
+      &:nth-child(odd) {
+        background-color: #f0f0f0;
+      }
+    }
+  }
+	th {
+		color: $primary-color;
+		font-weight: 500;
+		height: 34px;
+	}
+	td {
+		height: 34px;
+		padding: 12px 15px;
+		&.none {
+			height: 10px !important;
+			padding: 0 10px;
+		}
+    a {
+      color: #164889;
+      display: inline;
+      &:hover {
+        color: #94c633;
+        text-decoration: underline;
+      }
+    }
+	}
+}
+table:not([class]),
+table[class=""] {
+	border-collapse: collapse;
+	        box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	td {
+		min-height: 30px;
+	}
+}

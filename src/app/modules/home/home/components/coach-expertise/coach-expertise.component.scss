@@ -1,0 +1,320 @@
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th.table-hadding {
+  font-weight: 500;
+  color: #22205f;
+  font-size: 27px;
+  text-align: center;
+  background-color: #dbded8;
+  border: 1px solid #a9afad;
+  font-family: "Bahnschrift";
+}
+
+.cnt-wrap-curate table.table-new td {
+  text-align: center;
+  margin: 0px;
+  background-color: #eceef0;
+  color: #18164e;
+  font-weight: 500;
+  font-size: 18px;
+  padding: 2px 2px;
+  border: 1px solid #a9afad;
+}
+
+table {
+  width: 92%;
+}
+
+// .radio{
+//         appearance: auto !important;
+//     -webkit-appearance: auto !important;
+// }
+.not-ranked {
+  width: 20px;
+  height: 20px;
+  vertical-align: top;
+}
+
+.coach-selection td.radio-button {
+  background: #e1eff9 !important;
+}
+
+.coach-selection td {
+  padding: 2px 14px;
+  font-size: 18px;
+  text-align: center;
+  border: 1px solid #afabab;
+  background: #f4f5f6;
+  font-weight: 500;
+  height: 30px;
+}
+
+.coach-selection th {
+  font-weight: 700;
+  background: #dddbd9;
+  border-left: 1px solid #afabab;
+  border-top: 1px solid #afabab;
+  border: 1px solid #afabab;
+}
+
+.jobrep-radio {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.jobrep-radio:before {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #e1edf7;
+}
+
+.not-ranked-td {
+  background: #edeff1 !important;
+}
+
+.not-ranked-class {
+  background: #f4f5f6 !important;
+}
+
+.new-table-class {
+  color: #a70063;
+  font-size: 18px;
+  text-align: center;
+  line-height: 23px;
+}
+
+.jobrep-radio:checked:before {
+  background: #33cccc;
+}
+
+.not-ranked:checked:before {
+  background: #33cccc !important;
+}
+
+.inner-tab-image img {
+  width: 100%;
+  height: auto;
+}
+
+.coach-selection-main {
+  margin-left: 17px;
+  margin-top: 10px;
+}
+
+th.new-table-class.services-new {
+  padding: 15px 14px 18px 12px;
+  text-align: center;
+  font-size: 19px;
+  color: #a70063;
+}
+
+.coach-selection th.level-new.level-main {
+  text-align: center;
+  color: #000;
+  background: #b5c5e5;
+}
+
+tr.level-new.number-level {
+  text-align: center;
+  color: #8856ae;
+  background: #b5c5e5;
+}
+
+.expert-new {
+  text-align: center;
+  margin-top: 12px;
+}
+
+.carrer-match-fild {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.carrer-match-fild input {
+  width: 168px;
+  margin: 0 auto;
+}
+.inputDisable{
+  cursor: no-drop;
+}
+.expert-new button {
+  font-size: 18px;
+  width: 164px;
+  height: 64px;
+  line-height: 27px;
+  background-color: #33cccc;
+  border: 1px solid #afabab;
+  color: #fff;
+  font-weight: 500;
+  border-radius: 40px !important;
+}
+
+.carrer-match-fild label {
+  font-size: 12px;
+}
+
+.inner-tab-image {
+  margin-left: -47px;
+}
+
+.main-expertise {
+  margin-bottom: -20px;
+}
+
+@media screen and (max-width: 1800px) {
+  .inner-tab-image {
+    margin-left: -59px;
+  }
+
+  .expert-new {
+    text-align: center;
+    margin-top: 61px;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  table {
+    width: 100%;
+  }
+
+  .coach-selection td {
+    font-size: 12px;
+    height: 27px;
+  }
+
+  .inner-tab-image {
+    margin-left: -24px;
+  }
+
+  .new-table-class {
+    font-size: 17px;
+  }
+
+  th.new-table-class.services-new {
+    font-size: 17px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .expert-new {
+    text-align: center;
+    margin-top: 48px;
+  }
+
+  .coach-selection-main {
+    margin-left: 0px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .coach-selection td {
+    padding: 2px 12px;
+    font-size: 15px;
+  }
+
+  table {
+    width: 97%;
+  }
+
+  .coach-selection-main {
+    margin-left: 4px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  table {
+    width: 100%;
+  }
+
+  .inner-tab-image {
+    margin-left: -26px;
+    margin-top: 30px;
+  }
+
+  .coach-selection td {
+    font-size: 11px;
+    padding: 2px 12px;
+  }
+
+  .jobrep-radio:before {
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
+  }
+
+  .jobrep-radio {
+    width: 18px;
+    height: 18px;
+  }
+
+  .expert-new {
+    margin-top: 73px;
+  }
+
+  .new-table-class {
+    font-size: 16px;
+    padding: 2px;
+  }
+
+  th.new-table-class.services-new {
+    font-size: 19px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .inner-tab-image img {
+    width: 83%;
+  }
+
+  .inner-tab-image {
+    margin-left: 0px !important;
+    text-align: center;
+  }
+
+  .expert-new button {
+    font-size: 15px;
+    width: 137px;
+    height: 61px;
+  }
+
+  .carrer-match-fild label {
+    font-size: 10px;
+  }
+
+  .carrer-match-fild input {
+    width: 140px;
+  }
+}
+
+@media screen and (max-width: 1135px) {
+  .coach-selection td {
+    font-size: 12px;
+  }
+
+  .coach-selection td {
+    padding: 2px 12px;
+    font-size: 11px;
+  }
+
+  .inner-tab-image {
+    margin-left: -24px;
+    margin-top: 31px;
+  }
+
+  .expert-new {
+    margin-top: 64px;
+  }
+}

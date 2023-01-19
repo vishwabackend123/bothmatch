@@ -1,0 +1,188 @@
+<app-header></app-header>
+<app-header-slider></app-header-slider>
+<div class="refaq">
+
+    <div class="container">
+        <h2>CAREER PROFESSIONALS</h2>
+        <p class="need-para">Career Advancement Services</p>
+        <div class="line-new">
+        </div>
+
+        <div class="row">
+            <div class="container">
+                <ul class="nav nav-pills mb-3 nav-justified prof-tab" role="tablist">
+                    <li class="nav-item" role="presentation" (click)="tabChange(0)">
+                        <a class="nav-link" role="tab" [ngClass]="{'active': tabIndex === 0}" aria-controls="pills-flamingo" aria-selected="false">CAREER ADVANCEMENT</a>
+                    </li>
+
+                    <li class="nav-item" role="presentation" (click)="tabChange(1)">
+                        <a class="nav-link" role="tab" [ngClass]="{'active': tabIndex === 1}" aria-controls="pills-flamingo" aria-selected="false">CAREER PROFESSIONAL ENROLLMENT</a>
+                    </li>
+                    <li class="nav-item" role="presentation" (click)="tabChange(2)">
+                        <a class="nav-link" role="tab" [ngClass]="{'active': tabIndex === 2}" aria-controls="pills-cuckoo" aria-selected="false">PROFESSIONAL MATCH REPORT</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="tab-content pillscont job-rap">
+                <!-- <ng-container *ngSwitchCase="0"> -->
+                <div [ngClass]="{'show': tabIndex ===0,'hide':tabIndex !== 0}" class="tab-pane fade" id="flamingos" role="tabpanel" aria-labelledby="flamingos-tab">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-12 wow fadeInLeft">
+                            <div class="jobrep-txt cnt-wrap-curate">
+                                <h3 class="advancement-title">Candidates + Career Professionals Matched</h3>
+                                <p class="candidate-job">When candidates need to improve their<br> resume before they use the Curate Job Match <br> portal or need help with additional career <br> advancement services, they now have a better<br> opportunity to find the right curated
+                                    career
+                                    <br> professionals (JobReps).
+                                    <br><br> Curate Match helps connect the candidate and <br> their ideal curated career professional to help<br> advance employement opportunities and fit.<br>
+                                </p>
+                                <br>
+                                <table class="table-new">
+                                    <tr>
+                                        <th class="table-hadding" style="color:#a70063" colspan="2">Coaching Services
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td class="branches">Career Transition</td>
+                                        <td>Leadership Coaching</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Certification Assessment</td>
+                                        <td>Networking Coaching</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cover Letter Preparation</td>
+                                        <td>Personal Branding</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Education Coaching</td>
+                                        <td>Personality Assessment</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Employer Evaluation</td>
+                                        <td>Profession Assessment</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Executive Coaching</td>
+                                        <td>Resume Development</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Interview Coaching</td>
+                                        <td>Salary Negotiation</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Job Match Strategy</td>
+                                        <td>Skills Assessment</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Job Tech Strategy</td>
+                                        <td>Training Assessment</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="serivce-text">
+                                <p>Note: All Coaching services are provided by third-party coaches independent of Both Match
+                                </p>
+                            </div>
+
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-12 wow fadeInRight">
+                            <div class="user-details" *ngFor="let data of imageData">
+                                <div class="user-details-img">
+                                    <img src={{data.image}} />
+                                    <div class="coach-name">
+                                        <h3 class="blue-color-text">{{data.name}}</h3>
+                                    </div>
+                                </div>
+                                <div class="user-details-content">
+                                    <h3 class="blue-color-text">{{data.title}}</h3>
+                                    <p [innerHTML]="data.details"></p>
+                                    <div class="botton-content-part">
+                                        <h3>Speciality:</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div [ngClass]="{'show': tabIndex ===1,'hide':tabIndex !== 1}" class="tab-pane fade login-new" id="challenges" role="tabpanel" aria-labelledby="flamingo-tab">
+                    <ul class="nav nav-pills mb-3 nav-justified login-tabs" role="tablist">
+                        <li class="nav-item" role="presentation" (click)="innerTabChange(0)">
+                            <a class="nav-link" role="tab" [ngClass]="{'active': coachTabIndex === 0}" aria-controls="pills-flamingo" aria-selected="false">REGISTRATION + LOGIN</a>
+                        </li>
+
+                        <li class="nav-item" role="presentation" (click)="innerTabChange(1)">
+                            <a class="nav-link" role="tab" [ngClass]="{'active': coachTabIndex === 1}" aria-controls="pills-flamingo" aria-selected="false">PROFILE UPDATE</a>
+                        </li>
+                        <li class="nav-item" role="presentation" (click)="innerTabChange(2)">
+                            <a class="nav-link" role="tab" [ngClass]="{'active': coachTabIndex === 2}" aria-controls="pills-flamingo" aria-selected="false">EXPERTISE LEVEL UPDATE</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content pillscont inner-tab-bg main-profile">
+                        <div [ngClass]="{'show': coachTabIndex ===0,'hide':coachTabIndex !== 0}" class="tab-pane fade" id="coachExpertiseSlection" role="tabpanel" aria-labelledby="profile-tab">
+                            <app-coach-login [userData]="fun.userData" (changeTab)="changeCareerProfessionalChildTab($event)" ></app-coach-login>
+                        </div>
+
+                        <div [ngClass]="{'show': coachTabIndex ===1,'hide':coachTabIndex !== 1}" class="tab-pane fade" id="selectedCoaches" role="tabpanel" aria-labelledby="profile-tab">
+                            <app-coach-profile [userData]="fun.userData" (changeTab)="changeCareerProfessionalChildTab($event)"></app-coach-profile>
+                        </div>
+                        <div [ngClass]="{'show': coachTabIndex ===2,'hide':coachTabIndex !== 2}" class="tab-pane fade" id="selectedCoaches" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="row">
+                                <app-coach-expertise [userData]="fun.userData"></app-coach-expertise>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div [ngClass]="{'show': tabIndex ===2,'hide':tabIndex !== 2}" class="tab-pane fade " id="solution" role="tabpanel" aria-labelledby="profile-tab">
+                    <!--<div class="row">-->
+                    <!--    <div class="col-xl-6 col-lg-6 col-md-6 col-12 test">-->
+                    <!--<img class="holistic" [ngStyle]="{'height': height+'px'}" src="assets/images/textv2.png">-->
+                    <!--    </div>-->
+                    <!--    <div class="col-xl-6 col-lg-6 col-md-6 col-12 test">-->
+
+                    <!--<img class="holistics" [ngStyle]="{'height': height+'px'}" src="assets/images/puzzlev2.jpg">-->
+                    <!--    </div>-->
+
+                    <!--</div>-->
+                    <ul class="nav nav-pills mb-3 nav-justified" role="tablist">
+                        <li class="nav-item" role="presentation" (click)="enrollmentTabChange(0)">
+                            <a class="nav-link" role="tab" [ngClass]="{'active': enrollmentTabIndex === 0}" aria-controls="pills-flamingo" aria-selected="false">CAREER PROFESSIONALS PROFILE</a>
+                        </li>
+
+                        <li class="nav-item" role="presentation" (click)="enrollmentTabChange(1)">
+                            <a class="nav-link" role="tab" [ngClass]="{'active': enrollmentTabIndex === 1}" aria-controls="pills-flamingo" aria-selected="false">PROFESSIONAL EXPERTISE</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content pillscont inner-tab-bg">
+                        <div [ngClass]="{'show': enrollmentTabIndex ===0,'hide':enrollmentTabIndex !== 0}" class="tab-pane fade" id="coachExpertiseSlection" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="row">
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+                                    <!--<img class="holistic" [ngStyle]="{'height': height+'px'}"  src="assets/images/Maze.jpg">-->
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+                                    <!--<img class="holistic" [ngStyle]="{'height': height+'px'}"  src="assets/images/Maze.jpg">-->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div [ngClass]="{'show': enrollmentTabIndex ===1,'hide':enrollmentTabIndex !== 1}" class="tab-pane fade" id="selectedCoaches" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="row">
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-12 ">
+                                    <!--<img class="holistic" [ngStyle]="{'height': height+'px'}"  src="assets/images/Maze.jpg">-->
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+                                    <!--<img class="holistics" [ngStyle]="{'height': height+'px'}"  src="assets/images/Grey.jpg">-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<app-footer></app-footer>

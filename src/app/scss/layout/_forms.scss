@@ -1,0 +1,220 @@
+/* =====     Forms     ===== */
+input {
+			box-sizing: border-box !important;
+	-webkit-box-sizing: border-box !important;
+}
+@include placeholder {
+	color: #3c4858;
+	font-family: $font-family;
+	font-size: $base-font;
+	font-weight: $fw-300;
+	line-height: 1;
+	opacity: 1;
+	@include max(1199) {
+		font-size: 1.4rem;
+	}
+}
+
+label {
+	color: $black;
+	display: inline-block;
+	font-size: $text-md;
+	font-weight: $fw-400;
+	line-height: 1;
+	padding-bottom: 10px;
+	&+ label {
+		padding-left: 10px;
+	}
+}
+.form-elements,
+.textarea,
+select {
+			appearance: none;
+	-webkit-appearance: none;
+	background-color: $white;
+	border: 1px solid $border-color;
+	@include border-radius(0);
+	color: #3c4858;
+	display: block;
+	font-size: $base-font;
+	font-weight: $fw-300;
+	width: 100%;
+	@include min(768) {
+		height: 46px;
+		padding: 0 15px;
+	}
+	&:focus {
+				appearance: none;
+		-webkit-appearance: none;
+				box-shadow: none;
+		-webkit-box-shadow: none;
+		outline: 0;
+	}
+	@include max(1199) {
+		border-width: 1px;
+		font-size: 1.4rem;
+		height: 40px;
+		padding: 0 10px;
+	}
+}
+.textarea {
+	height: 105px;
+	padding: 15px 20px;
+	resize: none;
+	@include max(1199) {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+}
+select{
+	   -moz-appearance: none;
+	-webkit-appearance: none;
+	// background: $white url('~src/assets/images/carret.png') no-repeat 96% 50%;
+	border: 1px solid $border-color;
+	outline: none;
+	&:invalid {
+		color: #9d9d9d;
+		font-size: $text-md;
+		font-weight: 400;
+	}
+	[disabled] {
+		color: #9d9d9d;
+		font-size: $text-md;
+		font-weight: 400;
+	}
+	option {
+		color: $text-color;
+		font-family: $font-family;
+		font-size: $base-font;
+		font-weight: $fw-400;
+	}
+	&:focus,
+	&:active {
+		outline: none;
+	}
+}
+label {
+	input[type="radio"] {
+		margin-right: 5px;
+	}
+}
+input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    // -moz-appearance: textfield;
+    display: none;
+
+}
+input[type="date"]::-webkit-calendar-picker-indicator{
+    background-color: #3a6596;
+    display: block;
+    color: #fff;
+}
+.input-holder {
+	margin-bottom: 25px;
+	position: relative;
+	@include clearfix;
+	&.error {
+		input,
+		textarea {
+			border-color: $red;
+		}
+	}
+	.error,
+	.newerror {
+		background-color: $red;
+		@include border-radius(3px);
+		color: $white;
+		display: inline-block;
+		font-size: 11px;
+		line-height: 1;
+		padding: 2px 3px;
+		position: absolute;
+		right: 0;
+		top: -15px;
+		&:after {
+			border-bottom: none;
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+			border-top: 5px solid $red;
+			bottom: -5px;
+			content: '';
+			position: absolute;
+			right: 10px;
+		}
+	}
+	.newerror {
+		top: -20px;
+		@include max(767) {
+			top: -25px;
+		}
+	}
+}
+.captcha-wrapper {
+	display: inline-block;
+	float: right;
+	height: 80px;
+	padding-right: 155px;
+	position: relative;
+	.input-holder {
+		display: inline-block;
+		float: right;
+		margin: 0 !important;
+		width: 100%;
+	}
+	input[type=submit] {
+		bottom: 17px;
+		position: absolute;
+		right: 0;
+		z-index: 2;
+	}
+	input[type=submit] {
+		height: 40px;
+		min-width: 10px;
+	}
+	@include max(1199) {
+		padding-right: 130px;
+		input[type="submit"] {
+			bottom: 20px;
+		}
+	}
+	@include max(479) {
+		height: 130px;
+		padding-bottom: 50px;
+		padding-right: 0;
+		input[type="submit"] {
+			bottom: 0;
+		}
+	}
+	@include max(339) {
+		.g-recaptcha {
+			position: relative;
+			transform: scale(0.9,0.9) translateX(17px);
+		}
+	}
+}
+.modal-dialog {
+	max-width: 700px;
+}
+.modal-body {
+	padding: 15px;
+}
+.modal-content {	
+	@include max(410) {
+		.captcha-wrapper {
+			height: 130px;
+			.captcha-wrap {
+				p {
+					min-height: 30px;
+				}
+			}
+		}
+	}
+}
+@include min(1200) {
+	.modal-dialog {
+		max-width: 600px;
+	}
+	.modal-body {
+		padding: 30px;
+	}
+}

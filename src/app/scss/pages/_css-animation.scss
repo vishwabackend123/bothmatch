@@ -1,0 +1,130 @@
+// Prefix for Hover class names
+$nameSpace: 'medPros' !default;
+
+// Durations
+$fastDuration: .1s !default;
+$mediumDuration: .3s !default;
+$slowDuration: .5s !default;
+
+$highlightColor: #ccc !default;
+$activeColor: #2098D1 !default;
+$shadowColor: rgba(0, 0, 0, .6) !default;
+
+// Browser Prefixes - Which CSS prefixes should be used?
+$webkit: true !default;
+$moz: false !default;
+$ms: false !default;
+$o: false !default;
+
+// Compile with or without classes
+$includeClasses: true !default;
+
+// prefix declarations
+@mixin prefixed($property, $value) {
+  @if $webkit == true {
+    -webkit-#{$property}: #{$value};
+  }
+  @if $moz == true {
+    -moz-#{$property}: #{$value};
+  }
+  @if $ms == true {
+    -ms-#{$property}: #{$value};
+  }
+  @if $o == true {
+    -o-#{$property}: #{$value};
+  }
+  #{$property}: #{$value};
+}
+// prefix keyframes
+@mixin keyframes($name) {
+  @if $webkit == true {
+    @-webkit-keyframes #{$name} {
+      @content;
+    }
+  }
+  @if $moz == true {
+    @-moz-keyframes #{$name} {
+      @content;
+    }
+  }
+  @if $ms == true {
+    @-ms-keyframes #{$name} {
+      @content;
+    }
+  }
+  @if $o == true {
+    @-o-keyframes #{$name} {
+      @content;
+    }
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+// As is often the case, some devices/browsers need additional code to get CSS to work
+// in the most desired way. These mixins are used to quickly drop in hacks for each element
+// Find out more here: https://github.com/IanLunn/Hover/wiki/Hacks-Explained
+
+@mixin hardwareAccel() {
+  // Improve performance on mobile/tablet devices
+  // Perspective reduces blurryness of text in Chrome
+  @include prefixed(transform, perspective(1px) translateZ(0));
+}
+
+@mixin improveAntiAlias() {
+  // Improve aliasing on mobile/tablet devices
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
+@mixin forceBlockLevel() {
+  // Transforms need to be block-level to work
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@mixin hacks() {
+  @include forceBlockLevel();
+  @include hardwareAccel();
+  @include improveAntiAlias();
+}
+
+/* Float Shadow */
+@mixin float-shadow {
+  @include hacks();
+  position: relative;
+  @include prefixed(transition-duration, $mediumDuration);
+  @include prefixed(transition-property, transform);
+
+  &:before {
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+    content: '';
+    top: 100%;
+    left: 5%;
+    height: 10px;
+    width: 90%;
+    opacity: 0;
+    background: -webkit-radial-gradient(center, ellipse, rgba(0,0,0,.5) 0%, rgba(0, 0, 0, 0) 80%);
+    background: radial-gradient(ellipse at center, rgba(0,0,0,.5) 0%,rgba(0,0,0,0) 80%); /* W3C */
+    @include prefixed(transition-duration, $mediumDuration);
+    @include prefixed(transition-property, "transform, opacity");
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    @include prefixed(transform, translateY(-5px)); /* move the element up by 5px */
+
+    &:before {
+      opacity: 1;
+      @include prefixed(transform, translateY(5px)); /* move the element down by 5px (it will stay in place because it's attached to the element that also moves up 5px) */
+    }
+  }
+}
+
+@if $includeClasses {
+  .#{$nameSpace}-float-shadow {
+    @include float-shadow();
+  }
+}

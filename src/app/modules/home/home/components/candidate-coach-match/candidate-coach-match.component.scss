@@ -1,0 +1,444 @@
+.main-coach-match {
+    display: flex;
+    width: 100%;
+    margin-top: 61px;
+}
+
+.coach-match-new {
+    padding: 16px 9px 2px 1px;
+    background-color: #dbf1f5;
+    width: 82.1%;
+}
+
+.tab-hadding h4 {
+    text-align: center;
+    color: #a70063;
+}
+
+.row.step-two h4 {
+    text-align: center;
+    color: #a7007a;
+}
+
+.disabled {
+    background-color: #cccccc;
+    cursor: pointer;
+}
+
+.list {
+    padding-top: 3px;
+    height: 280px !important;
+    background-color: #fff;
+    overflow-y: scroll;
+    li {
+        padding-left: 18px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    .selected {
+        background-color: #007bffd9;
+        color: #fff;
+    }
+}
+
+.side-form {
+    width: 16%;
+    margin: 54px 16px;
+}
+
+.making-hadding h4 {
+    background-color: #18164e;
+    color: #ffff07;
+    width: 81.7%;
+    font-size: 18px;
+    text-align: center;
+    padding: 8px 2px;
+    margin-bottom: 7px;
+}
+
+.side-form input {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    color: #000;
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    width: 231px;
+}
+
+.button-wrap-tab-select-new a {
+    padding: 7px 29px;
+    font-size: 17px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    color: #fff;
+    background: #33cccc;
+    border: 1px solid #afabab;
+    text-align: left;
+    margin: 60px 9px;
+    text-transform: uppercase;
+    border-radius: 70px;
+    width: 182px;
+    height: 67px;
+}
+
+input.state-class {
+    margin-bottom: 58px;
+}
+
+.step-two {
+    display: flex;
+    justify-content: center;
+}
+
+.side-form label {
+    font-size: 12px;
+    width: 231px;
+}
+
+.table-selector {
+    width: 281px;
+    // margin-left: -6px;
+}
+
+.service-box img {
+    width: 100%;
+}
+
+.service-box {
+    width: 281px;
+}
+
+.arrow-box.arrow-box2 {
+    margin: 22px 9px 6px 18px;
+}
+
+.mani-new-cotch {
+    position: relative;
+}
+
+.career-top h3 {
+    font-size: 20px;
+}
+
+.candidate-text-new {
+    position: absolute;
+    /* left: 33%; */
+    /* right: 18%; */
+    top: -61px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+// .arrow-box {
+//     margin-left: 24px !important;
+// }
+@media screen and (max-width: 1800px) {
+    .making-hadding h4 {
+        width: 81.5%;
+    }
+    .side-form input {
+        width: 205px;
+    }
+    .list li {
+        padding-left: 11px;
+        font-size: 17px;
+    }
+    .button-wrap-tab-select-new a {
+        font-size: 14px;
+        width: 166px;
+        height: 60px;
+    }
+    .table-selector {
+        width: 255px;
+    }
+    // .table-selector {
+    //     margin-left: -8px;
+    // }
+    .service-box {
+        width: 256px;
+        // margin-left: -9px;
+    }
+    .coach-match-new {
+        padding: 16px 21px 2px 1px;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .tab-hadding h4 {
+        font-size: 19px;
+    }
+    // .table-selector {
+    //     margin-left: 1px;
+    // }
+    .table-selector h3 {
+        font-size: 11px;
+    }
+    .list {
+        height: 228px !important;
+        padding-left: 7px;
+    }
+    .list li {
+        padding-left: 5px;
+        font-size: 14px;
+    }
+    .row.step-two h4 {
+        font-size: 15px;
+    }
+    .making-hadding h4 {
+        font-size: 14px;
+        width: 82.2%;
+    }
+    .side-form {
+        margin: 51px 1px 2px 2px;
+    }
+    .side-form input {
+        height: 31px;
+    }
+    .side-form label {
+        font-size: 11px;
+        width: 182px;
+    }
+    .button-wrap-tab-select-new a {
+        margin: 24px 9px;
+        font-size: 12px;
+        width: 146px;
+        height: 57px;
+    }
+    .side-form input {
+        width: 171px;
+    }
+    .table-selector {
+        width: 188px;
+    }
+    .service-box {
+        width: 188px;
+        margin-left: 2px;
+    }
+    .coach-match-new {
+        padding: 16px 0px 2px 1px;
+    }
+    .candidate-text-new h3 {
+        font-size: 20px;
+    }
+    .candidate-text-new {
+        position: absolute;
+        top: -57px;
+    }
+    // .candidate-text-new {
+    //     position: absolute;
+    //     left: 32%;
+    //     top: -61px;
+    // }
+}
+
+@media screen and (max-width: 1200px) {
+    .main-coach-match {
+        margin-top: 61px;
+    }
+    .side-form input {
+        width: 160px;
+        height: 29px;
+    }
+    .tab-hadding h4 {
+        font-size: 16px;
+    }
+    .side-form label {
+        font-size: 11px;
+        width: 160px;
+    }
+    .making-hadding h4 {
+        font-size: 13px;
+        width: 81.3%;
+        margin: 0px 9px;
+    }
+    .button-wrap-tab-select-new a {
+        margin: 27px 0px !important;
+        font-size: 11px;
+        width: 139px;
+        height: 52px;
+    }
+    .list {
+        height: 233px !important;
+    }
+    // .step-two {
+    //     margin-left: 0px;
+    // }
+    // .arrow-box {
+    //     margin-left: -13px !important;
+    // }
+    // .table-selector {
+    //     margin-left: -1px;
+    // }
+    .service-box {
+        margin-left: 0px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .making-hadding h4 {
+        width: 82.1%;
+        margin: 0px;
+        font-size: 12px;
+    }
+    .side-form input {
+        width: 136px;
+        height: 27px;
+    }
+    .side-form label {
+        font-size: 11px;
+    }
+    .button-wrap-tab-select-new a {
+        font-size: 11px;
+        width: 120px;
+        height: 50px;
+        padding: 7px 15px;
+    }
+    .tab-hadding h4 {
+        font-size: 15px;
+    }
+    .step-two {
+        margin-left: -18px;
+    }
+    .table-selector {
+        width: 183px;
+    }
+    .arrow-box {
+        margin-left: 8px !important;
+    }
+    .list li {
+        font-size: 13px;
+    }
+    svg:not(:root) {
+        width: 25px;
+    }
+    .row.step-two h4 {
+        font-size: 14px;
+    }
+    .list {
+        height: 233px !important;
+    }
+    .service-box {
+        width: 183px;
+    }
+    .coach-match-new {
+        padding: 16px 20px 2px 0px;
+    }
+    // .candidate-text-new {
+    //     position: absolute;
+    //     left: 30%;
+    // }
+}
+
+@media screen and (max-width: 991px) {
+    .coach-match-new {
+        padding: 16px 40px 2px 43px;
+        width: 100%;
+    }
+    .main-coach-match {
+        display: block;
+    }
+    .table-selector {
+        width: 100%;
+    }
+    .list {
+        text-align: center;
+    }
+    .list li {
+        font-size: 16px;
+    }
+    .arrow-box {
+        margin: 30px auto;
+    }
+    .service-box {
+        width: 100%;
+    }
+    .row.step-two h4 {
+        font-size: 18px;
+    }
+    .side-form {
+        width: 100%;
+    }
+    .side-form input {
+        width: 100%;
+    }
+    .making-hadding h4 {
+        width: 100%;
+    }
+    .side-form label {
+        font-size: 11px;
+        width: 200px;
+    }
+    .arrow-box2 {
+        transform: rotate(90deg);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .main-coach-match {
+        display: block;
+        width: 100%;
+        margin-left: 0px;
+    }
+    .coach-match-new {
+        padding: 16px 3px;
+        background-color: #dbf1f5;
+        width: 100%;
+    }
+    .tab-hadding h4 {
+        font-size: 16px;
+    }
+    .list li {
+        padding-left: 0px;
+        font-size: 19px;
+    }
+    .list {
+        height: 281px !important;
+        text-align: center;
+    }
+    .step-two {
+        margin: 4px;
+    }
+    .side-form input {
+        width: 400px;
+    }
+    .making-hadding h4 {
+        font-size: 12px;
+        width: 100%;
+    }
+    .table-selector h3 {
+        font-size: 16px;
+    }
+    .table-selector {
+        width: 100%;
+    }
+    .service-box {
+        width: 100%;
+        text-align: -webkit-center;
+    }
+    .row.step-two h4 {
+        font-size: 17px;
+    }
+    .arrow-box2 {
+        transform: rotate(90deg);
+        margin: 0px 9px 6px 18px;
+    }
+    .button-wrap-tab-select-new a {
+        font-size: 12px;
+        width: 148px;
+        height: 50px;
+        font-weight: 500;
+        border: none;
+        padding: 6px 24px;
+    }
+    // .candidate-text-new {
+    //     position: absolute;
+    //     left: 22%;
+    // }
+    .candidate-text-new h3 {
+        font-size: 18px;
+    }
+}

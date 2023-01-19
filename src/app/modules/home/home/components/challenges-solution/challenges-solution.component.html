@@ -1,0 +1,131 @@
+<section class="current iamg-section-wrap">
+  <div class="container" (window:resize)="setImageHeight($event)">
+    <ul class="nav nav-pills mb-3 nav-justified" role="tablist">
+      <li class="nav-item" role="presentation" (click)="tabChange(0)">
+        <a class="nav-link" role="tab" [ngClass]="{'active': tabIndex === 0}" aria-controls="pills-flamingo"
+          aria-selected="false">OUR MISSION</a>
+      </li>
+
+      <li class="nav-item" role="presentation" (click)="tabChange(1)">
+        <a class="nav-link" role="tab" [ngClass]="{'active': tabIndex === 1}" aria-controls="pills-flamingo"
+          aria-selected="false">CURRENT CHALLENGES</a>
+      </li>
+      <li class="nav-item" role="presentation" (click)="tabChange(2)">
+        <a class="nav-link" role="tab" [ngClass]="{'active': tabIndex === 2}" aria-controls="pills-cuckoo"
+          aria-selected="false">CURATE MATCH SOLUTION</a>
+      </li>
+    </ul>
+    <div class="tab-content pillscont">
+      <div *ngIf="isLoading">
+        <div class="loading-box"></div>
+        <div class="loading-box"></div>
+        <div class="loading-box"></div>
+        <div class="loading-box"></div>
+        <div class="loading-box"></div>
+        <div class="loading-box"></div>
+        <div class="loading-box"></div>
+        <div class="loading-box"></div>
+      </div>
+      <div [ngClass]="{'show': tabIndex ===0,'hide':tabIndex !== 0}" *ngIf="!isLoading" class="tab-pane fade"
+        id="flamingos" role="tabpanel" aria-labelledby="flamingos-tab">
+        <div class="row">
+          <div class="col-xl-6 col-lg-6 col-md-6 col-12 wow fadeInLeft">
+            <div class="holistic cnt-wrap-curate">
+              <div class="my-head">
+                <h2 class="holis">WHY CURATE MATCH ?</h2>
+              </div>
+              <p class="deepholis" [ngStyle]="{'height': height+'px'}">
+                <strong>New Shorter Job Journey :</strong><br> The current way to find a job forces candidates to spend
+                too many hours and many months looking for work. During this time, many candidates face a high rate of
+                rejection, get
+                frequently ignored and all during their unemployed time, loose thousands of dollars in potential wages.
+                Curate Match is built to help candidates save time, money and reduce stress during their job match
+                journey.
+                <br> <br>Using Curate Match<sup>TM</sup> candidates now have an option to instantly upload the resume,
+                add candidate’s personal preferences and then use the curated matched job information to network and
+                apply to these
+                highly matched companies. There are no guarantees, but highly matched companies significantly increase
+                the chance of finding a suitable job. <br><br>
+
+                <strong> Talent + Job Matching :</strong><br> Curate Match<sup>TM</sup> incorporates Deep AI
+                Match<sup>TM </sup><a class="holisa solutions-link" (click)="tabChange(2)">solutions</a> and human
+                insights to save time, money,
+                and reduce stress. You can now utilize the first open, on-demand and identity- protected talent and job
+                matching portal to empower users and transform recruiting. Curate Match<sup>TM</sup> does not process
+                personal information
+                or deploy machine learning in job matching, thus eliminating the potential for any discrimination or
+                bias. <br><br> Curate Match<sup>TM</sup> is on a mission to help address the talent and job matching <a
+                  class="holisa challenges-link" (click)="tabChange(1)">challenges</a> from the ground up and
+                collaborate with Candidates, Employers, Colleges and JobReps (States, Resume Writers, Coaches,
+                Counselors, Job Scouts, Advisors and other career professionals).
+                <br><br>
+
+                <strong> Next + First Steps :</strong><br> Candidates are encouraged to put their best foot forward by
+                uploading their optimized resume to get the best matches. If additional assistance is needed to first
+                update the resume
+                or get career advancement help, find your ideal career professional here: <a
+                  class="holisa solutions-link" href="javascript: void(0)" (click)="goToJobRep()">JobReps</a>
+                <br><br> View <a class="holisa" (click)="goTopJobs()"> Instant Talent Match Demo</a> on how to save
+                time, money and<br> reduces stress.
+              </p>
+            </div>
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-12 wow fadeInRight">
+            <img id="idHolisticsImg" class="holistics my-img" src="assets/images/{{ourMissionImag}}">
+          </div>
+        </div>
+      </div>
+      <!-- </ng-container> -->
+      <!-- <ng-container *ngSwitchCase="1"> -->
+      <div [ngClass]="{'show': tabIndex ===1,'hide':tabIndex !== 1}" class="tab-pane fade" id="challenges"
+        role="tabpanel" aria-labelledby="flamingo-tab">
+        <div class="row">
+
+          <div class="col-xl-6 col-lg-6 col-md-6 col-12 test">
+
+            <img class="holistic" src="assets/images/Maze.jpg">
+
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-12 test ">
+            <img class="holistics" src="assets/images/Grey.jpg">
+          </div>
+
+        </div>
+      </div>
+      <!-- </ng-container> -->
+      <!-- <ng-container *ngSwitchCase="2"> -->
+      <div [ngClass]="{'show': tabIndex ===2,'hide':tabIndex !== 2}" class="tab-pane fade" id="solution" role="tabpanel"
+        aria-labelledby="profile-tab">
+        <div class="row">
+          <div class="col-xl-6 col-lg-6 col-md-6 col-12 test">
+            <img class="holistic" src="assets/images/Part1v3.png">
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-12 test">
+
+            <img class="holistics" src="assets/images/Part2v3.png">
+          </div>
+
+        </div>
+      </div>
+      <!-- </ng-container> -->
+
+
+
+    </div>
+
+    <ul class="nav nav-pills-dots mb-3 round-tab text-center">
+      <li class="nav-item" (click)="tabChange(0)">
+        <a class="nav-link  round-indicator" role="tab" aria-controls="pills-flamingos" aria-selected="true"
+          [ngClass]="{'active': tabIndex === 0}"></a>
+      </li>
+      <li class="nav-item" (click)="tabChange(1)">
+        <a class="nav-link round-indicator " role="tab" aria-controls="pills-flamingo" aria-selected="false"
+          [ngClass]="{'active': tabIndex === 1}"></a>
+      </li>
+      <li class="nav-item" (click)="tabChange(2)">
+        <a class="nav-link round-indicator" role="tab" aria-controls="pills-cuckoo" aria-selected="false"
+          [ngClass]="{'active': tabIndex === 2}"></a>
+      </li>
+    </ul>
+  </div>
+</section>

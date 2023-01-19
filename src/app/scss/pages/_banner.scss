@@ -1,0 +1,125 @@
+.banner{
+	padding: 60px 0;
+	// background: url(~src/assets/images/banner.jpg) no-repeat center center/cover; 
+	margin-top: 126px;
+	@include min(1620) {
+		padding: 90px 0;
+	}
+	.text-height{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 500px;
+	}
+	.banner-text-wrap{
+		padding: 42px;
+		background: rgba(254, 254, 254, 0.5);
+		margin-right: 15px;
+		margin-top: 75px;
+		width: 100%;
+		p{
+			font-size: 51px;
+			font-weight: $fw-700;
+			color: #be1a1a;
+			font-family: $font-family;
+			line-height: 1;
+			@include min(1620) {
+				font-size: 61px;
+			}
+			span{
+				font-weight: 400;
+			}
+		}
+		p.small{
+			font-size: 20px;
+			font-weight: 400;
+			color: #000;
+			font-family: $font-family;
+			@include min(1620) {
+				font-size: 23px;
+			}
+		}
+
+	}
+	.form-section{
+		    padding: 40px 50px;
+		background: rgba(0,0,0,0.75);
+		margin-right: 15px;
+		@include placeholder {
+			color: #fff;
+		}
+		.form-tittle{
+			font-size: 30px;
+			color: #fff;
+			font-weight: $fw-600;
+			margin-bottom: 20px;
+			@include min(1620) {
+				font-size: 36px;
+				margin-bottom: 25px;
+			}
+		}
+		input {
+		    width: 100%;
+		    margin-bottom: 20px;
+		    color: #fff;
+		    font-size: 16px;
+		    font-weight: 400;
+		    line-height: 1;
+		    padding: 8px 15px 8px 0;
+		    border-radius: 0;
+		    background: transparent;
+		    border: 0;
+		    border-bottom: 1px solid #fff;
+		    appearance: none;
+		    -webkit-appearance: none;
+		    -moz-appearance: none;
+		    box-sizing: border-box !important;
+		    -webkit-box-sizing: border-box !important;
+		    outline: none;
+		}
+		textarea {
+		    width: 100%;
+		    padding: 15px 15px 15px 0;;
+		    color: #fff;
+		    font-size: 16px;
+		    font-weight: 400;
+		    border-radius: 0;
+		    min-height: 100px;
+		    border: 1px solid #c6c6c6;
+		    resize: none;
+		    line-height: 1;
+		    background: transparent;
+		    border: 0;
+		    border-bottom: 1px solid #fff;
+		    appearance: none;
+		    -webkit-appearance: none;
+		    -moz-appearance: none;
+		    box-sizing: border-box !important;
+		    -webkit-box-sizing: border-box !important;
+		    outline: none;
+		}
+		.input-holder{
+			margin-bottom: 0;
+		}
+		.button-wrap{
+			margin-top: 20px;
+		    float: right;
+		    min-height: 80px;
+		    #btn-footerform{
+		    	padding: 14px 24px!important;
+		    	color: #000;
+				font-size: 18px;
+				font-weight: 600;
+				margin-bottom: 0!important;
+				min-width: 115px;
+				border-bottom: 0;
+				&:hover{
+					color: #fff;
+				}
+		    }
+		}
+	}
+}
+.no-padding{
+	padding: 0;
+}

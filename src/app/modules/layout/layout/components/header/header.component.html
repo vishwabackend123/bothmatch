@@ -1,0 +1,86 @@
+<div class="header">
+    <div class="container" id="cont">
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-4">
+                <figure class="logo-fig">
+                    <a href="/"> <img class="curate-logo" src="assets/images/curate-match-logo.png"></a>
+                </figure>
+            </div>
+            <div class="col-xl-4 col-lg-6 col-md-7 order-md-2 order-3 left-0">
+                <div class="top-float">
+                    <div class="stickynav">
+                        <div class="carousel-inner" style="background: none;box-shadow:none;">
+                            <ul class="carousel-itemA active" id="scroll_start">
+                                <li class="tagline">Match Candidate. Don't Search</li>
+                                <li style="color:#18164e;" class="tagline">Match Job. Don't Search</li>
+                                <li class="tagline final-text">Match Job. <span>Match Candidate</span></li>
+                            </ul>
+                        </div>
+                        <!-- <h3 class="scroll-down tagline" id="scroll_end" [@slideInOut]="animationState">{{slideText}}</h3> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-2 col-md-1 order-md-3 order-2">
+                <div class="stick-nav">
+                    <div class="menu-wrp">
+                        <nav class="main-nav" [ngStyle]="{'top': height+'px'}">
+                            <ul>
+                                <li (click)="tabChange(0,'')"><a [ngClass]="{'menu-active': tabIndex === 0}" href="javascript: void(0)">HOME</a></li>
+                                <li (click)="tabChange(3,'match')"><a [ngClass]="{'menu-active': tabIndex === 3}" href="javascript: void(0)">MATCH</a></li>
+                                <li (click)="tabChange(1,'jobrep')"><a [ngClass]="{'menu-active': tabIndex === 1}" href="javascript: void(0)">JOBREPS</a></li>
+                                <li (click)="tabChange(2,'about-us')"><a [ngClass]="{'menu-active': tabIndex === 2}" href="javascript: void(0)">ABOUT US</a></li>
+                            </ul>
+                        </nav>
+                        <div class="mob-btn" (click)="onClickMenu()">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="overlay"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="d-flex justify-content-between">
+                <div class="first-box">
+                    <figure class="logo-fig">
+                        <a href="/"> <img class="curate-logo" src="assets/images/curate-match-logo.png"></a>
+                    </figure>
+                </div>
+                <div class="second-box">
+                    <div class="top-float">
+                        <div class="stickynav">
+                            <div class="carousel-inner" style="background: none;box-shadow:none;">
+                                <ul class="carousel-itemA active" id="scroll_start">
+                                    <li class="tagline">Match Candidate. Don't Search</li>
+                                    <li style="color:#18164e;" class="tagline">Match Job. Don't Search</li>
+                                    <li class="tagline final-text">Match Job. <span>Match Candidate</span></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="third-box">
+                    <div class="right_menu">
+                        <div class="menu-wrp">
+                            <nav class="main-nav" [ngStyle]="{'top': height+'px'}">
+                                <ul>
+                                    <li (click)="tabChange(0,'')"><a [ngClass]="{'menu-active': tabIndex === 0}" href="javascript: void(0)">HOME</a></li>
+                                    <li (click)="tabChange(1,'jobrep')"><a [ngClass]="{'menu-active': tabIndex === 1}" href="javascript: void(0)">JOBREPS</a></li>
+                                    <li (click)="tabChange(2,'about-us')"><a [ngClass]="{'menu-active': tabIndex === 2}" href="javascript: void(0)">ABOUT US</a></li>
+                                </ul>
+                            </nav>
+                            <div class="mob-btn" (click)="onClickMenu()">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="overlay"></div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+        </div>
+    </div>
