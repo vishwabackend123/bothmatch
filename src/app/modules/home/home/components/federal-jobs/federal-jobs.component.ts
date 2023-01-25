@@ -3,11 +3,13 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { ApiService } from 'src/app/core/services/api.service'
 import jsPDF from 'jspdf';
+import { ToastrService } from 'ngx-toastr';
 import 'jspdf-autotable';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { environment } from 'src/environments/environment'
 import { formatDate } from '@angular/common';
 import { ReCaptchaV3Service } from 'ngx-captcha';
+import { FilesService } from 'src/app/core/services/files.service';
 
 declare var Stripe: any;
 @Component({
@@ -26,10 +28,13 @@ export class FederalJobsComponent implements OnInit {
   };
   hgt = 0;
   frmDetails!: FormGroup;
+  // fileService: FilesService;
   addressForm!: FormGroup;
+  toastr!: ToastrService;
   privateJobForm!: FormGroup;
   tabIndex = 0;
   isfileUploading = false;
+  baseImage: any;
   showPaymentDiv = false;
   showJobMatchesSteps = true;
   cars: any = [];
@@ -79,6 +84,7 @@ export class FederalJobsComponent implements OnInit {
   clientSecret: any;
   card: any;
   printGeneratedon: any = new Date().toLocaleString();
+
 
   services = [{ name: 'Benefits' },
   { name: 'Certification' },
@@ -134,6 +140,7 @@ export class FederalJobsComponent implements OnInit {
     private modalService: NgbModal,
     private router: Router,
     private reCaptchaV3Service: ReCaptchaV3Service,
+    public fileService: FilesService,
   ) {
     this.showHideMobilePopup();
   }
@@ -421,6 +428,7 @@ export class FederalJobsComponent implements OnInit {
 
   }
   fileUpload(event: any) {
+    debugger
     this.resetKewordsData();
     let elements = document.querySelectorAll(".after-upload");
     for (let index = 0; index < elements.length; index++) {
@@ -430,18 +438,36 @@ export class FederalJobsComponent implements OnInit {
       var ext = event.target.files[0].name.split('.').pop();
       if (ext == "pdf" || ext == "docx" || ext == "doc") {
         this.isfileUploading = true;
-        setTimeout(() => {
-
-          this.setKewordsData();
-          this.isfileUploading = false;
-          // change tab after the list is added
-          this.tabChange(1);
-          // document.querySelector(".after-upload")?.classList.remove("hidden");
-          for (let index = 0; index < elements.length; index++) {
-            elements[index]?.classList.remove("hidden");
+        let fileName = event.target.files[0].name;
+        let file = event.target.files[0];
+        const formData = new FormData();
+        formData.append('docfile', file);
+        formData.append('fileName', fileName);
+        this.fileService.resumeUpload(formData).then((res: any) => {
+          if (res && res.message == "Success") {
+            this.baseImage = res.data?.path;
+            // this.registerForm.patchValue({
+            //   image: res.data?.path
+            // })
+            setTimeout(() => {
+              this.setKewordsData();
+              this.isfileUploading = false;
+              // change tab after the list is added
+              this.tabChange(1);
+              // document.querySelector(".after-upload")?.classList.remove("hidden");
+              for (let index = 0; index < elements.length; index++) {
+                elements[index]?.classList.remove("hidden");
+              }
+            }, 1000)
           }
-        }, 1000)
-
+        }).catch((err: any) => {
+          console.log(err);
+          if (err && err.detail) {
+            this.toastr.error(err.detail)
+          } else {
+            this.toastr.error('Internal err')
+          }
+        })
       }
       else {
         alert("Please upload pdf, doc or docx file");

@@ -26,6 +26,20 @@ export class FilesService {
     });
   }
 
+  resumeUpload(data: any) {
+    return new Promise((resolve, rejects) => {
+      debugger
+      this.apiService.httpPostForUplaod("dev/govt_match_app/uploadResume", data).subscribe(
+        (data) => {
+          resolve(data);
+        },
+        (error) => {
+          rejects(error);
+        }
+      );
+    });
+  }
+
   getExpertise() {
     return new Promise((resolve, rejects) => {
       this.requestService.post("userprofile/get_user_expertise/").subscribe(
