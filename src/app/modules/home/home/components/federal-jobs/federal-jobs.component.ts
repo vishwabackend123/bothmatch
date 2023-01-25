@@ -28,7 +28,6 @@ export class FederalJobsComponent implements OnInit {
   };
   hgt = 0;
   frmDetails!: FormGroup;
-  // fileService: FilesService;
   addressForm!: FormGroup;
   toastr!: ToastrService;
   privateJobForm!: FormGroup;
@@ -428,7 +427,6 @@ export class FederalJobsComponent implements OnInit {
 
   }
   fileUpload(event: any) {
-    debugger
     this.resetKewordsData();
     let elements = document.querySelectorAll(".after-upload");
     for (let index = 0; index < elements.length; index++) {
