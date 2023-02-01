@@ -14,20 +14,19 @@
     text-align: center;
     color: #a70063;
 }
-
-.row.step-two h4 {
-    text-align: center;
-    color: #a7007a;
-}
-
 .disabled {
     background-color: #cccccc;
     cursor: pointer;
 }
 
+.required {
+    color: red;
+    font-size:12px;
+}
+
 .list {
     padding-top: 3px;
-    height: 280px !important;
+    height: 360px !important;
     background-color: #fff;
     overflow-y: scroll;
     li {
@@ -67,21 +66,27 @@
     font-weight: 400;
     width: 231px;
 }
-
-.button-wrap-tab-select-new a {
-    padding: 7px 29px;
+.invalid-feedback{
+   position: absolute;
+   bottom: -23px;
+}
+.loading-btn,
+.button-wrap-tab-select-new button[type=submit]{
+    padding: 7px 29px !important;
     font-size: 17px;
     font-family: "Open Sans", sans-serif;
     font-weight: 400;
     color: #fff;
-    background: #33cccc;
-    border: 1px solid #afabab;
+    background: #33cccc !important;
+    border: none;
     text-align: left;
     margin: 60px 9px;
     text-transform: uppercase;
-    border-radius: 70px;
+    border-radius: 70px !important;
     width: 182px;
     height: 67px;
+    text-align: center;
+    line-height: 25px;
 }
 
 input.state-class {
@@ -97,12 +102,6 @@ input.state-class {
     font-size: 12px;
     width: 231px;
 }
-
-.table-selector {
-    width: 281px;
-    // margin-left: -6px;
-}
-
 .service-box img {
     width: 100%;
 }
@@ -136,6 +135,98 @@ input.state-class {
 // .arrow-box {
 //     margin-left: 24px !important;
 // }
+
+
+
+
+.career_professional_service .table-selector h3 {
+    font-size: 20px;
+    padding: 15px 2px;
+}
+.career_professional_service .table-selector h3 span{
+    border-bottom:1px solid #ff0000;
+}
+.tab-content {
+    padding-left: 0;
+    padding-right: 0;
+}
+.candidate-emp::before {
+    height: 45px;
+    width: 45px;
+    top: -35px;
+    background-image: url(/assets/images/up-arrow.svg);
+    content: "";
+     position: absolute;
+    background-position: center;
+   left: 50%;
+    transform: translateX(-50%);
+}
+.candidate-emp h4 {
+    font-size: 35px;
+    line-height: 55px;
+    font-family: "Bahnschrift";
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    font-weight: 500;
+}
+
+.candidate-emp {
+    background: #18164e;
+    color: #fff;
+    padding: 12px 4px;
+}
+.exclude-con{
+    background: #edeced;
+    border: 1px solid #d2d2d2;
+}
+.exculd-images{
+    text-align: center;
+}
+.exculd-text p {
+    text-align: center;
+    font-size: 23px;
+    color: #a70063;
+    padding: 0px 35px 12px;
+    line-height: 1.5;
+    font-family: Myriad Pro Regular;
+    height: 192px;
+}
+
+.exculd-images img {
+    padding: 25px 0px 20px;
+    max-width: 171px;
+}
+
+input.state-class {
+    margin-bottom: 16px;
+}
+
+
+
+.table-selector{
+    position:relative;
+}
+
+
+.table-selector:after{
+content: "";
+    height: 42px;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    max-width: calc(100% - 20px);
+    margin: 0 auto;
+    bottom: 0;
+}
+
+
+
+.making-hadding.phone{
+    display:none;
+}
+
 @media screen and (max-width: 1800px) {
     .making-hadding h4 {
         width: 81.5%;
@@ -152,9 +243,7 @@ input.state-class {
         width: 166px;
         height: 60px;
     }
-    .table-selector {
-        width: 255px;
-    }
+    
     // .table-selector {
     //     margin-left: -8px;
     // }
@@ -165,6 +254,22 @@ input.state-class {
     .coach-match-new {
         padding: 16px 21px 2px 1px;
     }
+    .career_professional_service .table-selector h3{
+        font-size: 16px;
+    }
+    .list{
+        height: 321px !important;
+    }
+    .candidate-emp h4 {
+        font-size: 30px;
+    }   
+    .exculd-images img {
+        padding: 25px 0px 20px;
+        max-width: 141px;
+    }
+    .exculd-text p {
+        font-size: 20px;
+       padding: 0px 21px 12px;}
 }
 
 @media screen and (max-width: 1400px) {
@@ -178,12 +283,11 @@ input.state-class {
         font-size: 11px;
     }
     .list {
-        height: 228px !important;
-        padding-left: 7px;
+        height: 280px !important;
     }
     .list li {
         padding-left: 5px;
-        font-size: 14px;
+        font-size: 15px;
     }
     .row.step-two h4 {
         font-size: 15px;
@@ -211,9 +315,7 @@ input.state-class {
     .side-form input {
         width: 171px;
     }
-    .table-selector {
-        width: 188px;
-    }
+    
     .service-box {
         width: 188px;
         margin-left: 2px;
@@ -233,8 +335,25 @@ input.state-class {
     //     left: 32%;
     //     top: -61px;
     // }
+    .candidate-emp h4 {
+        line-height: 15px;
+    }
+        .candidate-emp{
+            padding: 16px 4px;
+        }
+        .arrow-box.arrow-box2{
+            margin: 0;
+        }
+        .career_professional_service .table-selector h3 {
+            font-size: 16px;
+            height: 68px;
+        }
 }
-
+@media screen and (min-width: 1024px) {
+    .phone {
+        display: none;
+    }
+}
 @media screen and (max-width: 1200px) {
     .main-coach-match {
         margin-top: 61px;
@@ -252,8 +371,8 @@ input.state-class {
     }
     .making-hadding h4 {
         font-size: 13px;
-        width: 81.3%;
-        margin: 0px 9px;
+        width: 82%;
+        margin: 0px 0;
     }
     .button-wrap-tab-select-new a {
         margin: 27px 0px !important;
@@ -262,7 +381,7 @@ input.state-class {
         height: 52px;
     }
     .list {
-        height: 233px !important;
+        height: 284px !important;
     }
     // .step-two {
     //     margin-left: 0px;
@@ -276,7 +395,19 @@ input.state-class {
     .service-box {
         margin-left: 0px;
     }
+    .exculd-text p {
+         padding: 0px 17px 12px;
+    }
 }
+
+@media(max-width:1102px){
+    .table-selector:after {
+         max-width: calc(100% - 10px);
+    }
+}
+
+
+
 
 @media screen and (max-width: 1024px) {
     .making-hadding h4 {
@@ -303,9 +434,6 @@ input.state-class {
     .step-two {
         margin-left: -18px;
     }
-    .table-selector {
-        width: 183px;
-    }
     .arrow-box {
         margin-left: 8px !important;
     }
@@ -319,7 +447,7 @@ input.state-class {
         font-size: 14px;
     }
     .list {
-        height: 233px !important;
+        height: 255px !important;
     }
     .service-box {
         width: 183px;
@@ -331,6 +459,42 @@ input.state-class {
     //     position: absolute;
     //     left: 30%;
     // }
+
+    .main-coach-match.career_professional_service {
+        flex-wrap: wrap;
+    }
+    .coach-match-new {
+        width: 100% !important;
+        padding: 20px 22px !important;
+    }
+    .side-form {
+        width: 100% !important;
+    }
+    .exculd-images img {
+        padding: 25px 0px 20px;
+        max-width: 100px;
+    }
+    
+    .arrow-box2 {
+        transform: unset !important;
+        margin: 20px 0 !important;
+    }
+    .side-form input {
+        width: 100%;
+    }
+    .making-hadding.phone {
+        display: block;
+        width: 100%;
+    }
+    .making-hadding.desktop {
+        display: none;
+    }
+    .making-hadding h4 {
+        width: 100%;
+    }
+    .making-hadding.phone{
+        display:block;
+    }
 }
 
 @media screen and (max-width: 991px) {
@@ -362,9 +526,7 @@ input.state-class {
     .side-form {
         width: 100%;
     }
-    .side-form input {
-        width: 100%;
-    }
+    
     .making-hadding h4 {
         width: 100%;
     }
@@ -372,8 +534,26 @@ input.state-class {
         font-size: 11px;
         width: 200px;
     }
-    .arrow-box2 {
-        transform: rotate(90deg);
+    .list {
+        text-align: left;
+        padding: 20px 40px;
+    }
+    .candidate-emp{
+        padding: 24px 4px;
+    }
+    .exculd-text p {
+        padding: 0px 17px 52px;
+        height: unset;
+    }
+    .career_professional_service .table-selector h3 {
+        font-size: 16px;
+        height: unset;
+    }
+    .candidate-emp::before{
+        content:unset;
+    }
+    .list {
+        height: 300px !important;
     }
 }
 
@@ -401,9 +581,6 @@ input.state-class {
     }
     .step-two {
         margin: 4px;
-    }
-    .side-form input {
-        width: 400px;
     }
     .making-hadding h4 {
         font-size: 12px;

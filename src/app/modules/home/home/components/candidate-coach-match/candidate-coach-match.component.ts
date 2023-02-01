@@ -1,5 +1,8 @@
 import { Component, OnInit,Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { ToastrService } from 'ngx-toastr';
+import { FilesService } from 'src/app/core/services/files.service';
+import { FunctionService } from 'src/app/core/services/function.service';
 
 @Component({
   selector: 'app-candidate-coach-match',
@@ -11,51 +14,80 @@ export class CandidateCoachMatch implements OnInit {
   include: any = [];
   matchAny: any = [];
   matchAll: any = [];  
+  dataLoader: any = false
+  data_in: any = []
+  data_or_in: any = []
+  data_not_in: any = []
   includeSelect: any = false;
+  isLoading: boolean = false
   matchAnySelect: any = false;
   matchAllSelect: any = false;
   showNextBtn: boolean = false;
+  matchesData: any = [];
   frmDetails!: FormGroup;
   @Output() changeTab = new EventEmitter<number>();
   constructor(
     private fb: FormBuilder,
+    public fileService: FilesService,
+    public toast: ToastrService,
+    public fun: FunctionService
   ) { }
 
   ngOnInit(): void {
-    this.setKewordsData();
+    this.getExpertizeWithoutAuth()
     this.frmDetails = this.fb.group({
       country: [''],
       state: [''],
+      city: [''],
       specialization: [''],
       primaryService: [''],
-      primaryIndustryExperience: ['']
+      primaryIndustryExperience: [''],
+      data_in:[""],
+      data_or_in:[""],
+      data_not_in: [""]
     })
   }
 
-   //INSERT KEYWORDS IN STEP 2 ARRAYS
-   setKewordsData() {
-    this.include.push({ name: 'Certification Assessment' }
-      , { name: 'Education Coaching' }
-      , { name: 'Executive Coaching' }
-      , { name: 'Leadership Coaching' }
-      , { name: 'Personality Assessment' })
-    this.include = this.listSort(this.include)
-    this.matchAny.push({ name: 'Career Transition' }
-      , { name: 'Employer Evaluation' }
-      , { name: 'Interview Coaching' }
-      , { name: 'Job Match Strategy' }
-      , { name: 'Job Tech Strategy' }
-      , { name: 'Presonal Branding' }
-      , { name: 'Training Assessment' });
-    this.matchAny = this.listSort(this.matchAny)
-    this.matchAll.push({ name: 'Cover Letter Preparation' }
-      , { name: 'Networking Coaching' }
-      , { name: 'Profession Assessment' }
-      , { name: 'Resume Development' }
-      , { name: 'Salary Negotiation' }
-      , { name: 'Skills Assessment' });
-    this.matchAll = this.listSort(this.matchAll)
 
+  getExpertizeWithoutAuth() {
+    this.isLoading = true;
+    this.fileService.getAllExpertis().then((res: any) => {
+      this.isLoading = false;
+      if (res && res.status) {
+        let data= res.data.data;
+        const unique = [...new Map(data.map((m) => [m.service_name, m])).values()];
+        this.setKewordsData(unique);
+      }
+      else {
+        this.isLoading = false;
+        console.log('Err somthing went wrong');
+      }
+    }).catch((err: any) => {
+      this.isLoading = false;
+      console.log(err);
+    })
+  }
+
+  //INSERT KEYWORDS IN STEP 2 ARRAYS
+  setKewordsData(data: any) {
+    for (let index = 0; index < data.length; index++) {
+      const element = data[index];
+      if(index > 0 && index < 6){
+        this.include.push({name: element.service_name, id: element.id}) 
+        this.data_in.push(`${element.id}`)
+        this.include = this.listSort(this.include)
+      }
+      else if(index >= 5 && index < 13){
+        this.matchAny.push({ name: element.service_name, id: element.id });
+        this.data_or_in.push(`${element.id}`)
+        this.matchAny = this.listSort(this.matchAny)
+      }
+      else{
+        this.matchAll.push({ name: element.service_name, id: element.id });
+        this.data_not_in.push(`${element.id}`)
+        this.matchAll = this.listSort(this.matchAll)
+      }
+    }
   }
 
   // EMPTY THE STEP 2 ARRAYS
@@ -69,23 +101,24 @@ export class CandidateCoachMatch implements OnInit {
     let Arr = [];
     let select = [];
     for (let item of list) {
-      Arr.push(item.name);
+      Arr.push({name: item.name, id:item.id});
       if (item.selected) {
-        select.push(item.name)
+        select.push({name: item.name, id:item.id})
       }
     }
     Arr.sort();
     list = [];
     for (let item of Arr) {
-      list.push({ name: item })
+      list.push({ name: item.name, id: item.id})
       for (let i of select) {
-        if (item == i)
+        if (item.name == i.name)
           list[list.length - 1].selected = true;
       }
     }
     return list;
   }
   itemDropFromInclude(e: any) {
+    
     let filterObj = this.matchAny.filter((x: any) => x.name == e.dragData.name)
     if (filterObj == null || filterObj == '') {
       this.matchAny.push(e.dragData);
@@ -96,6 +129,7 @@ export class CandidateCoachMatch implements OnInit {
     }
   }
   itemDropFromMatchAny(e: any) {
+    
     let filterObj = this.include.filter((x: any) => x.name == e.dragData.name)
     if (filterObj == null || filterObj == '') {
       this.include.push(e.dragData);
@@ -106,6 +140,7 @@ export class CandidateCoachMatch implements OnInit {
     }
   }
   itemDropOnMatchAll(e: any) {
+    
     let filterObj = this.matchAll.filter((x: any) => x.name == e.dragData.name)
     if (filterObj == null || filterObj == '') {
       this.matchAll.push(e.dragData);
@@ -116,10 +151,15 @@ export class CandidateCoachMatch implements OnInit {
     }
   }
   includeKey(option: any) {
+    
     switch (option) {
       case 'include': {
         this.cars = (swap(this.cars, this.include));
         this.include = this.listSort(this.include)
+        // for (let i = 0; i < this.include.length; i++) {
+        //   const ele = this.include [i];
+        //   this.data_in.push(`${ele.id}`)
+        // }
         break;
       }
       case 'exclude': {
@@ -130,26 +170,66 @@ export class CandidateCoachMatch implements OnInit {
       case 'matchanyKey': {
         this.include = (swap(this.include, this.matchAny))
         this.matchAny = this.listSort(this.matchAny)
-
+        this.data_in = []
+        this.data_or_in = []
+        for (let i = 0; i < this.include.length; i++) {
+          const ele = this.include [i];
+          this.data_in.push(`${ele.id}`)
+        }
+        for (let j = 0; j < this.matchAny.length; j++) {
+          const eleIn = this.matchAny [j];
+          this.data_or_in.push(`${eleIn.id}`)
+        }
         break;
       }
       case 'matchallKey': {
         this.matchAny = (swap(this.matchAny, this.matchAll))
         this.matchAll = this.listSort(this.matchAll)
+        this.data_or_in = []
+        this.data_not_in = []
+        for (let i = 0; i < this.matchAny.length; i++) {
+          const ele = this.matchAny [i];
+          this.data_or_in.push(`${ele.id}`)
+        }
+        for (let j = 0; j < this.matchAll.length; j++) {
+          const eleIn = this.matchAll [j];
+          this.data_not_in.push(`${eleIn.id}`)
+        }
         break;
       }
       case 'excludeAny': {
         this.matchAny = (swap(this.matchAny, this.include))
         this.include = this.listSort(this.include)
+        this.data_in = []
+        this.data_or_in = []
+        for (let i = 0; i < this.include.length; i++) {
+          const ele = this.include [i];
+          this.data_in.push(`${ele.id}`)
+        }
+        for (let j = 0; j < this.matchAny.length; j++) {
+          const eleIn = this.matchAny [j];
+          this.data_or_in.push(`${eleIn.id}`)
+        }
         break;
       }
       case 'excludeAll': {
         this.matchAll = (swap(this.matchAll, this.matchAny))
         this.matchAny = this.listSort(this.matchAny)
+        this.data_or_in = []
+        this.data_not_in = []
+        for (let i = 0; i < this.matchAny.length; i++) {
+          const ele = this.matchAny [i];
+          this.data_or_in.push(`${ele.id}`)
+        }
+        for (let j = 0; j < this.matchAll.length; j++) {
+          const eleIn = this.matchAll [j];
+          this.data_not_in.push(`${eleIn.id}`)
+        }
         break;
       }
     }
     function swap(boxA: any, boxB: any) {
+      
       let indices = [];
       for (let item of boxA) {
         if (item.selected) {
@@ -179,6 +259,7 @@ export class CandidateCoachMatch implements OnInit {
     this.showNextButton();
   }
   selector(select: any, a: any) {
+    
     switch (a) {
       case 4: {
         this.include = arr(this.include);
@@ -238,6 +319,34 @@ export class CandidateCoachMatch implements OnInit {
     }
   }
   submitForm() {
-    this.changeTab.emit(7);
+    console.log('data_not_in => ', this.data_not_in);
+    console.log('data_in => ', this.data_in);
+    console.log('data_or_in => ', this.data_or_in);
+    this.dataLoader = true
+    this.frmDetails.markAllAsTouched();
+    this.frmDetails.patchValue({data_in: this.data_in})
+    this.frmDetails.patchValue({data_not_in: this.data_not_in})
+    this.frmDetails.patchValue({data_or_in: this.data_or_in})
+    if(this.frmDetails.valid){
+      this.fileService.filterCareerProfessional(this.frmDetails.value).then((res:any)=>{
+        this.dataLoader = false
+        if(res && res.status){
+          this.matchesData = res.data.data;
+          this.fun.setFilterData = res.data.data
+          this.changeTab.emit(7);
+        }
+        else{
+          this.dataLoader = false;
+          this.toast.error(res.message)
+        }
+      }).catch((err: any) => {
+      this.dataLoader = false;
+      console.log(err);
+    })
+    }
+    else{
+      this.toast.error('Please fill all required fields')
+      this.dataLoader = false
+    }
   }
 }

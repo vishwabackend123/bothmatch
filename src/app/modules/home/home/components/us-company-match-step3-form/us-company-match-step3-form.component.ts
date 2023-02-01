@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class USCompanyMatchStep3FormComponent implements OnInit {
   siteKey: any = "6LcD6aAcAAAAAFucR0IcVnwv4AuVDve7wEbN0dnd";
   step3Form!: FormGroup;
-
+  @Output() changeTab = new EventEmitter<number>();
   constructor(private fb: FormBuilder,) { }
 
   ngOnInit(): void {
@@ -20,5 +20,11 @@ export class USCompanyMatchStep3FormComponent implements OnInit {
   get getControls() {
     return this.step3Form.controls
   }
-  submitForm(){}
+  submitForm(){
+
+    this.tabChange(4);
+  }
+  tabChange(tab: any) {
+    this.changeTab.emit(tab);
+  }
 }

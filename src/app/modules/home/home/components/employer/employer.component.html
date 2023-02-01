@@ -1,0 +1,142 @@
+<app-header></app-header>
+<app-header-slider></app-header-slider>
+<div class="refaq">
+
+    <div class="container">
+        <div class="employee-header-sec">
+            <h2>EMPLOYERS + RECRUITERS</h2>
+            <p class="need-para">Organically Match With Candidates</p>
+            <div class="line-new">
+            </div>
+            <div class="batch-mate" *ngIf="recruitingDashboardTabIndex ===2 && mainTabIndex ===1 ||  recruitingDashboardTabIndex ===1 && mainTabIndex ===1 ||  recruitingDashboardTabIndex ===3 && mainTabIndex ===1 ">
+                <div class="bulb-icon">
+                    <span class="bulb-image"><img src="/assets/images/bulb-image.png" alt=""></span>
+                </div>
+                <div class="bulb-content">
+                    <h3>JOB CURATING (BATCH MODE)</h3>
+                    <p>To curate and promote additional job listings, click on the Step 1 tab and select the next job to be curated in Step 2</p>
+                    <h3>Once complete, go to Step 3</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container">
+                <ul class="nav nav-pills mb-3 nav-justified prof-tab" role="tablist">
+                    <li class="nav-item" role="presentation" (click)="mainTabChange(0)">
+                        <a class="nav-link" role="tab" [ngClass]="{'active': mainTabIndex === 0}" aria-controls="pills-flamingo" aria-selected="false">EMPLOYER ENROLLMENT</a>
+                    </li>
+
+                    <li class="nav-item" role="presentation" (click)="mainTabChange(1)">
+                        <a class="nav-link" role="tab" [ngClass]="{'active': mainTabIndex === 1}" aria-controls="pills-flamingo" aria-selected="false" style="text-transform: uppercase;">Recruiting Dashboard</a>
+                    </li>
+
+                    <li class="nav-item" role="presentation" (click)="mainTabChange(2)">
+                        <a class="nav-link" role="tab" [ngClass]="{'active': mainTabIndex === 2}" aria-controls="pills-cuckoo" aria-selected="false" style="text-transform: uppercase;">Employer Metrics</a>
+                    </li>
+                </ul>
+
+
+                <div class="tab-content pillscont job-employer-main" [ngClass]="{'second-tab-cus': employerMatrixTabIndex ===1 && mainTabIndex ===2,'first-tab-cus':employerMatrixTabIndex === 0 && mainTabIndex ===2,'last-tab-cus': mainTabIndex ===1 && recruitingDashboardTabIndex ===3}">
+                    <!-- <ng-container *ngSwitchCase="0"> -->
+                    <div [ngClass]="{'show': mainTabIndex ===1,'hide':mainTabIndex !== 1}" class="tab-pane fade" id="flamingos" role="tabpanel" aria-labelledby="flamingos-tab">
+
+                        <ul class="nav nav-pills mb-3 nav-justified main-recrutment-tab login-tabs" role="tablist" [ngClass]="{'main-step2': recruitingDashboardTabIndex === 2}">
+                            <li class="nav-item" role="presentation" (click)="innerTabChange(0,'recruitingDashboardTab')">
+                                <a class="nav-link" role="tab" [ngClass]="{'active': recruitingDashboardTabIndex === 0}" aria-controls="pills-flamingo" aria-selected="false">RECRUITING JOURNEY</a>
+                            </li>
+
+                            <li class="nav-item" role="presentation" (click)="innerTabChange(1,'recruitingDashboardTab')">
+                                <a class="nav-link" role="tab" [ngClass]="{'active': recruitingDashboardTabIndex === 1}" aria-controls="pills-flamingo" aria-selected="false">STEP 1 - SELECT JOBS TO
+                                    CURATE</a>
+                            </li>
+                            <li class="nav-item" role="presentation" (click)="innerTabChange(2,'recruitingDashboardTab')">
+                                <a class="nav-link" role="tab" [ngClass]="{'active': recruitingDashboardTabIndex === 2}" aria-controls="pills-flamingo" aria-selected="false">STEP 2 - CURATE JOBS</a>
+                            </li>
+                            <li class="nav-item" role="presentation" (click)="innerTabChange(3,'recruitingDashboardTab')">
+                                <a class="nav-link" role="tab" [ngClass]="{'active': recruitingDashboardTabIndex === 3}" aria-controls="pills-flamingo" aria-selected="false">STEP 3 - REVIEW & PAY</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content pillscont second-tab-multi inner-tab-bg main-profile custom-tabs" [ngClass]="{'main-batch-payment': recruitingDashboardTabIndex ===3}">
+                            <div [ngClass]="{'show': recruitingDashboardTabIndex ===0,'hide':recruitingDashboardTabIndex !== 0}" class="tab-pane fade" id="recruitingOverview" role="tabpanel" aria-labelledby="profile-tab">
+                                <app-recruiting-overview [userData]="fun.userData" (changeTab)="innerTabChange($event ,'recruitingDashboardTab')"></app-recruiting-overview>
+                            </div>
+                            <div [ngClass]="{'show': recruitingDashboardTabIndex ===1,'hide':recruitingDashboardTabIndex !== 1}" class="tab-pane fade" id="step1JobToCurate" role="tabpanel" aria-labelledby="profile-tab">
+                                <app-openjobs [userData]="fun.userData" (changeTab)="innerTabChange($event ,'recruitingDashboardTab')"></app-openjobs>
+                            </div>
+                            <div [ngClass]="{'show': recruitingDashboardTabIndex ===2,'hide':recruitingDashboardTabIndex !== 2}" class="tab-pane fade main-step2CurateJobs" id="step2CurateJobs" role="tabpanel" aria-labelledby="profile-tab">
+                                <app-step2-curate-jobs [userData]="fun.userData" (changeTab)="innerTabChange($event ,'recruitingDashboardTab')"></app-step2-curate-jobs>
+                            </div>
+                            <div [ngClass]="{'show': recruitingDashboardTabIndex ===3,'hide':recruitingDashboardTabIndex !== 3}" class="tab-pane fade" id="step3ReviewAndPay" role="tabpanel" aria-labelledby="profile-tab">
+                                <app-step3-review-and-pay></app-step3-review-and-pay>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div [ngClass]="{'show': mainTabIndex ===0,'hide':mainTabIndex !== 0}" class="tab-pane fade login-new" id="challenges" role="tabpanel" aria-labelledby="flamingo-tab">
+                        <ul class="nav nav-pills mb-3 nav-justified login-tabs" role="tablist">
+                            <li class="nav-item" role="presentation" (click)="innerTabChange(0,'employerInnerTab')">
+                                <a class="nav-link" role="tab" [ngClass]="{'active': employerInnerTabIndex === 0}" aria-controls="pills-flamingo" aria-selected="false">REGISTRATION + LOGIN</a>
+                            </li>
+
+                            <li class="nav-item" role="presentation" (click)="innerTabChange(1,'employerInnerTab')">
+                                <a class="nav-link" role="tab" [ngClass]="{'active': employerInnerTabIndex === 1}" aria-controls="pills-flamingo" aria-selected="false">COMPANY PROFILE</a>
+                            </li>
+                            <li class="nav-item" role="presentation" (click)="innerTabChange(2,'employerInnerTab')">
+                                <a class="nav-link" role="tab" [ngClass]="{'active': employerInnerTabIndex === 2}" aria-controls="pills-flamingo" aria-selected="false">SUBSCRIPTION</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content pillscont inner-tab-bg main-profile" [ngClass]="{'thirdtab-sub': employerInnerTabIndex === 2}">
+                            <div [ngClass]="{'show': employerInnerTabIndex ===0,'hide':employerInnerTabIndex !== 0}" class="tab-pane fade" id="coachExpertiseSlection" role="tabpanel" aria-labelledby="profile-tab">
+                                <app-employer-login [userData]="fun.userData" (changeTab)="changeChildTab($event,'employerInnerTab')"></app-employer-login>
+                            </div>
+
+                            <div [ngClass]="{'show': employerInnerTabIndex ===1,'hide':employerInnerTabIndex !== 1}" class="tab-pane fade" id="selectedCoaches" role="tabpanel" aria-labelledby="profile-tab">
+                                <app-employer-profile [userData]="fun.userData" (changeTab)="changeChildTab($event,'employerInnerTab')"></app-employer-profile>
+                            </div>
+                            <div [ngClass]="{'show': employerInnerTabIndex ===2,'hide':employerInnerTabIndex !== 2}" class="tab-pane fade" id="selectedPayment" role="tabpanel" aria-labelledby="profile-tab">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <app-subscription-payment></app-subscription-payment>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div [ngClass]="{'show': mainTabIndex ===2,'hide':mainTabIndex !== 2}" class="tab-pane fade " id="solution" role="tabpanel" aria-labelledby="profile-tab">
+                        <ul class="nav nav-pills mb-3 nav-justified login-tabs" role="tablist">
+                            <li class="nav-item" role="presentation" (click)="innerTabChange(0,'employerMatrixTab')">
+                                <a class="nav-link" role="tab" [ngClass]="{'active': employerMatrixTabIndex === 0}" aria-controls="pills-flamingo" aria-selected="false">ALL <span class="curate-color"> CURATED </span>JOBS</a>
+                            </li>
+                            <li class="nav-item" role="presentation" (click)="innerTabChange(1,'employerMatrixTab')">
+                                <a class="nav-link" role="tab" [ngClass]="{'active': employerMatrixTabIndex === 1}" aria-controls="pills-flamingo" aria-selected="false">SUBMITTED RESUMES + MATCH %</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content job-post-profile third-tab-multi">
+                            <div class="posted-job-header">
+                                <h2 [ngClass]="{'show': employerMatrixTabIndex ===0,'hide':employerMatrixTabIndex !== 0}" class="column-heading pink-clr">Curated Jobs Bill Report</h2>
+                                <h2 [ngClass]="{'show': employerMatrixTabIndex ===1,'hide':employerMatrixTabIndex !== 1}" class="column-heading pink-clr">Resume Submit Bill Report</h2>
+                                <div class="print-class-download">
+                                    <div class="tool-btn-list">
+                                        <div class="print-button"><button><i aria-hidden="true" class="fa fa-download"></i></button>
+                                            <button class="btn-new add-new"><i aria-hidden="true" class="fa fa-print"></i></button></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div [ngClass]="{'show': employerMatrixTabIndex ===0,'hide':employerMatrixTabIndex !== 0}" class="tab-pane fade" id="selectedCoaches" role="tabpanel" aria-labelledby="profile-tab">
+                                <app-curatejobs [userData]="fun.userData" (changeTab)="innerTabChange($event ,'employerMatrixTab')"></app-curatejobs>
+                            </div>
+                            <div [ngClass]="{'show': employerMatrixTabIndex ===1,'hide':employerMatrixTabIndex !== 1}" class="tab-pane fade" id="selectedCoaches" role="tabpanel" aria-labelledby="profile-tab">
+                                <app-submittedresume [userData]="fun.userData"></app-submittedresume>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<app-footer></app-footer>

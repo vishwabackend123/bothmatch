@@ -1,0 +1,90 @@
+<div class="row">
+    <div class="col-12">
+        <div class="posted-job-header">
+            <h2 class="column-heading pink-clr">Currently Posted Jobs</h2>
+            <div class="tool-btn-list">
+                <div class="print-button"><button><i
+              aria-hidden="true" class="fa fa-download"></i></button><button class="btn-new "><i
+             aria-hidden="true" class="fa fa-print"></i></button></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="table-responsive Currently-start">
+            <!-- <table class="table table-bordered table-job-dash">
+            <thead>
+              <tr>
+                <th scope="col" class="mw-table-sm">Job ID </th>
+                <th class="mw-table-lg" scope="col">Job Title </th>
+                <th scope="col">Location </th>
+                <th scope="col">Match<br> Count</th>
+                <th scope="col">Job Post<br> Date</th>
+                <th scope="col">Job Close<br> Date</th>
+                <th scope="col">Invoice<br> Number</th>
+                <th scope="col">Recruiter<br> Name</th>
+                <th scope="col">Recruiter<br> Reference</th>
+                <th scope="col">Curate<br> Date </th>
+                <th scope="col" class="mw-table-sm">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let i of Arr(num)">
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr>
+
+            </tbody>
+          </table> -->
+            <table class="table table-bordered table-job-dash">
+                <thead>
+                    <tr>
+                        <th scope="col" class="mw-table-sm mw-table-smallscreen">Job ID </th>
+                        <th class="mw-table-lg" scope="col">Job Title</th>
+                        <th class="mw-table-md" scope="col">Job Category </th>
+                        <th class="mw-table-md" scope="col">Job Type </th>
+                        <th class="mw-table-md" scope="col">Location</th>
+                        <th class="mw-table-sm" scope="col">Match<br> Count</th>
+                        <th class="mw-table-sm" scope="col">Post Date</th>
+                        <th class="mw-table-sm" scope="col">Close Date</th>
+                        <th class="mw-table-sm" scope="col">Recruiter<br> Reference</th>
+                        <th scope="col" class="mw-table-sm">Curate<br>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let i of Arr(num)">
+                        <td>JP05242201</td>
+                        <td>12346789012346789012345</td>
+                        <td>1234567890123</td>
+                        <td>1234567890123</td>
+                        <td>123456789012</td>
+                        <td>100%</td>
+                        <td>5/23/2022</td>
+                        <td>5/23/2022</td>
+                        <td>WWWWWWWWWW</td>
+                        <td>5/23/2022</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <!-- <div class="bottom-button-next button-image">
+      <button type="button" class="submit-btn" (click)="tabChange(1)">NEXT</button>
+    </div> -->
+
+        <div class="d-flex align-items-center mt-40">
+            <div class="information mr-auto"><span class="bulb-image"><img src="/assets/images/bulb-image.png" alt=""></span> Click on the Job ID you wish to curate and proceed to Step 2</div>
+            <div class="bottom-button-next button-image">
+                <button type="button" class="submit-btn" (click)="tabChange(2)">NEXT</button>
+            </div>
+        </div>
+    </div>
+</div>

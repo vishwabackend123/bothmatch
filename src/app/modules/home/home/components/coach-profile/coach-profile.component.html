@@ -1,214 +1,314 @@
 <div class="main-profile-page">
-  <div class="profile-page-form">
-    <form [formGroup]="registerForm">
-      <div class="row">
-        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
-          <div class="registration-form">
-            <div class="profile-state">
-              <label>FULL NAME</label>
-              <input type="text" formControlName="name" placeholder="prefill registration/ login name">
-              <div class="error-fields">
-                <div *ngIf="registerForm.get('name').touched && registerForm.get('name').invalid">
-                  <p *ngIf="registerForm.get('name').hasError('required')" class="required">
-                    Full Name is required
-                  </p>
+    <ng-container *ngIf="!fun.isLoginLoader">
+        <div class="profile-page-form">
+            <form [formGroup]="registerForm">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+                        <div class="registration-form">
+                            <div class="profile-state">
+                                <label class="orange_color">FULL NAME</label>
+                                <input type="text" formControlName="name" [disabled]="true" placeholder="prefill registration/ login name">
+                                <div class="error-fields">
+                                    <div *ngIf="registerForm.get('name').touched && registerForm.get('name').invalid">
+                                        <p *ngIf="registerForm.get('name').hasError('required')" class="required">
+                                            Full Name is required
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="profile-state">
+                                <label class="orange_color">EMAIL</label>
+                                <input type="email" formControlName="email" [readonly]="true" placeholder="prefill registration/ login email">
+                                <div class="error-fields">
+                                    <div *ngIf="registerForm.get('email').touched && registerForm.get('email').invalid">
+                                        <p *ngIf="registerForm.get('email').hasError('required')" class="required">
+                                            Email is required
+                                        </p>
+                                        <p class="required" *ngIf="registerForm.controls.email.errors?.pattern">Email format is invalid</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="profile-state state_city">
+                                <div class="profile_state_inner city_inner">
+                                    <label class="orange_color">CITY</label>
+                                    <input type="text" formControlName="city" placeholder="City">
+                                    <div class="error-fields">
+                                        <div *ngIf="registerForm.get('city').touched && registerForm.get('city').invalid">
+                                            <p *ngIf="registerForm.get('city').hasError('required')" class="required">
+                                                City is required
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="profile_state_inner state_inner">
+                                    <label class="orange_color">State</label>
+                                    <input type="text" formControlName="state" placeholder="State">
+                                    <div class="error-fields">
+                                        <div *ngIf="registerForm.get('state').touched && registerForm.get('state').invalid">
+                                            <p *ngIf="registerForm.get('state').hasError('required')" class="required">
+                                                State is required
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="profile-state">
+                                <label class="orange_color">COUNTRY</label>
+                                <input type="text" formControlName="country" placeholder="Country">
+                                <div class="error-fields">
+                                    <div *ngIf="registerForm.get('country').touched && registerForm.get('country').invalid">
+                                        <p *ngIf="registerForm.get('country').hasError('required')" class="required">
+                                            Country is required
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="profile-state">
+                                <label class="orange_color">MOBILE PHONE NUMBER</label>
+                                <input type="text" mask="(000) 000-0000" formControlName='total_years_in_career_service' placeholder="Enter Phone Number">
+                                <div class="error-fields">
+                                    <div *ngIf="registerForm.get('total_years_in_career_service').touched && registerForm.get('total_years_in_career_service').invalid">
+                                        <p *ngIf="registerForm.get('total_years_in_career_service').hasError('required')" class="required">
+                                            Field is required
+                                        </p>
+                                        <!-- <p class="required" *ngIf="registerForm.controls.total_years_in_career_service.errors?.pattern">Only number allow</p> -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="profile-state">
+                                <label class="skyblue_color">INDUSTRY EXPERIENCE + Focus <sup>P</sup></label>
+                                <textarea _ngcontent-lnj-c7="" maxlength="170" formControlName='industry_experience' class="text-class-new" cols="40" rows="5"></textarea>
+                            </div>
+
+                            <div class="profile-state">
+                                <label class="skyblue_color">CUSTOM TAGS <sup>P</sup></label>
+                                <textarea _ngcontent-lnj-c7="" formControlName='custom_tags' class="text-class" cols="40" rows="5"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-5">
+
+                        <div class="header-profile">
+                            <div class="profile-state">
+                                <label class="orange_color">PROFILE HEADER</label>
+                                <input type="text" maxlength="40" formControlName='profile_header'>
+                                <div class="error-fields">
+                                    <div *ngIf="registerForm.get('profile_header').touched && registerForm.get('profile_header').invalid">
+                                        <p *ngIf="registerForm.get('profile_header').hasError('required')" class="required">
+                                            Field is required
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="profile-state service summery">
+                                <label class="orange_color">SERVICE SUMMARY</label>
+                                <textarea _ngcontent-lnj-c7="" maxlength="500" formControlName='service_summary' class="text-class" cols="40" rows="5"></textarea>
+                                <div class="error-fields">
+                                    <div *ngIf="registerForm.get('service_summary').touched && registerForm.get('service_summary').invalid">
+                                        <p *ngIf="registerForm.get('service_summary').hasError('required')" class="required">
+                                            Field is required
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="profile-state">
+                                <label class="green_color">PROFESSIONAL CERTIFICATIONS <sup>B</sup></label>
+                                <textarea _ngcontent-lnj-c7="" formControlName='professional_sertification' class="text-class" cols="40" rows="5"></textarea>
+                            </div>
+
+                            <div class="profile-state linkedin-profile">
+                                <label class="green_color">LINKEDIN PROFILE LINK <sup>B</sup></label>
+                                <input type="text" formControlName='linkedin_link'>
+                                <div class="error-fields">
+                                    <div *ngIf="registerForm.get('linkedin_link').touched && registerForm.get('linkedin_link').invalid">
+                                        <!-- <p *ngIf="registerForm.get('linkedin_link').hasError('required')" class="required">
+                                            Field is required
+                                        </p> -->
+                                        <!-- <p class="required" *ngIf="registerForm.controls.linkedin_link.errors?.invalidUrl">Please enter valid linkedin url</p> -->
+                                        <p class="required" *ngIf="registerForm.get('linkedin_link').touched && registerForm.get('linkedin_link').hasError('invalidUrl')">Enter valid linkedin url (eg. https://www.linkedin.com)</p>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="profile-state personal_profile">
+                                <label class="green_color">PERSONAL WEBSITE <sup>B</sup></label>
+                                <input type="text" formControlName='website_link'>
+                            </div>
+                            <div class="profile-state jobreb_profile">
+                                <label class="skyblue_color">JOBREP COMMUNITY PROFILE LINK <sup>P</sup></label>
+                                <input type="text" formControlName='jobrep_profile_link'>
+                                <div class="error-fields">
+                                    <div *ngIf="registerForm.get('jobrep_profile_link').touched && registerForm.get('jobrep_profile_link').invalid">
+                                        <p class="required" *ngIf="registerForm.get('jobrep_profile_link').touched && registerForm.get('jobrep_profile_link').hasError('invalidJobrepUrl')">Enter valid jobrep profile url (eg. https://jobrep.com)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="profile-state">
+                                <label class="skyblue_color">BOTH MATCH - PROFILE SHARE LINK <sup>P</sup></label>
+                                <input type="text" formControlName='pofile_share_link'>
+                                <div class="error-fields">
+                                    <div *ngIf="registerForm.get('pofile_share_link').touched && registerForm.get('pofile_share_link').invalid">
+                                        <p class="required" *ngIf="registerForm.get('pofile_share_link').touched && registerForm.get('pofile_share_link').hasError('invalidBothMatchpUrl')">Enter valid url (eg. https://bothmatch.com)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-3">
+                        <div class="upload-pic">
+                            <div class="profile-state">
+                                <label class="orange_color">PROFILE PICTURE (SIZE LESS THAN 1MB)</label>
+                                <ng-container *ngIf="!baseImage">
+                                    <div class="picture-new">
+                                        <ng-container *ngIf="!imgLoader">
+                                            <img id="blah" [src]="imageSrc || 'http://placehold.it/180'" alt="your image" />
+                                            <input type="file" accept=".png, .jpg, .jpeg" (change)="onFileSelected($event)" class="d-none" #file>
+                                            <button type="submit" *ngIf="fun.isLoggedIn" class="submit-btn upload" (click)="file.click()">UPLOAD PICTURE</button>
+                                        </ng-container>
+                                        <ng-container *ngIf="imgLoader">
+                                            <div class="loader_img">
+                                                <img src="/assets/images/spinner.svg">
+                                            </div>
+                                        </ng-container>
+                                    </div>
+                                    <div class="error-fields">
+                                        <div *ngIf="registerForm.get('image').touched && registerForm.get('image').invalid">
+                                            <p *ngIf="registerForm.get('image').hasError('required')" class="required">
+                                                Field is required
+                                            </p>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                                <ng-container *ngIf="baseImage">
+                                    <div class="picture-new image-uploaded">
+                                        <ng-container *ngIf="!imgLoader">
+                                            <ng-container *ngIf="imageUrl">
+                                                <img [src]="imageUrl">
+                                                <button type="submit" class="submit-btn upload position-absolute" (click)="file.click()"><i class="fa fa-pencil"></i></button>
+                                                <input type="file" accept=".png, .jpg, .jpeg" (change)="onFileSelected($event)" class="d-none" #file>
+                                            </ng-container>
+                                        </ng-container>
+                                        <ng-container *ngIf="imgLoader">
+                                            <div class="loader_img">
+                                                <img src="/assets/images/spinner.svg">
+                                            </div>
+                                        </ng-container>
+                                    </div>
+                                </ng-container>
+                            </div>
+                            <div class="profile-state spec" style="margin-bottom:0;">
+                                <label class="orange_color">TOP THREE SPECIALITIES <sup>B</sup></label>
+                                <!-- <div class="input__group">
+                                    <select formControlName='top3_specialites' class="share-top input-cst-special">
+                                        <ng-container *ngFor="let exp of getExpData">
+                                            <option value="{{exp.id}}">{{exp.service_name}}</option>
+                                        </ng-container>
+                                    </select>
+                                    <i style="color:#ccc" class="fa fa-caret-down"></i>
+                                </div> -->
+                                <!-- <textarea _ngcontent-lnj-c7="" formControlName='top3_specialites' class="share-top" cols="40" rows="5"></textarea> -->
+                                <!-- <div class="error-fields">
+                                    <div *ngIf="registerForm.get('top3_specialites').touched && registerForm.get('top3_specialites').invalid">
+                                        <p *ngIf="registerForm.get('top3_specialites').hasError('required')" class="required">
+                                            Field is required
+                                        </p>
+                                    </div>
+                                </div> -->
+                                <ng-container *ngIf="getExpData && getExpData.length">
+                                    <ng-multiselect-dropdown
+                                        [placeholder]="'Select'"
+                                        [settings]="dropdownSettings"
+                                        [data]="getExpData"
+                                        formControlName="top3_specialites"
+                                        (onSelect)="onItemSelect($event)"
+                                        (onSelectAll)="onSelectAll($event)"
+                                    >
+                                    </ng-multiselect-dropdown>
+                                </ng-container>
+                                <ng-container *ngIf="!getExpData ">
+                                    <ng-multiselect-dropdown
+                                        [placeholder]="'Select'"
+                                        [disabled] = "true"
+                                        [settings]="dropdownSettings"
+                                        [data]="getExpData"
+                                        formControlName="top3_specialites"
+                                    >
+                                    </ng-multiselect-dropdown>
+                                </ng-container>
+                                 <div class="error-fields">
+                                    <div *ngIf="registerForm.get('top3_specialites').touched && registerForm.get('top3_specialites').invalid">
+                                        <p *ngIf="registerForm.get('top3_specialites').hasError('required')" class="required">
+                                            Field is required
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="status-profile profile_status">
+                            <div class="profile-state">
+                                <label>PROFILE STATUS</label>
+                                <input type="text" formControlName='profile_status_id' readonly>
+                                <!-- <div class="error-fields">
+                                    <div *ngIf="registerForm.get('profile_status_id').touched && registerForm.get('profile_status_id').invalid">
+                                        <p *ngIf="registerForm.get('profile_status_id').hasError('required')" class="required">
+                                            Field is required
+                                        </p>
+                                    </div>
+                                </div> -->
+                            </div>
+
+                            <div class="image-upload">
+                                <label>PROFILE APPROVAL DATE</label>
+                                <input type="text" formControlName='approved_at' readonly>
+                            </div>
+
+                            <div class="profile-state">
+                                <label>PROFILE LAST UPADATED</label>
+                                <input type="text" formControlName='updated_at' readonly>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-
-            <div class="profile-state">
-              <label>EMAIL</label>
-              <input type="email" formControlName="email" placeholder="prefill registration/ login email">
-              <div class="error-fields">
-                <div *ngIf="registerForm.get('email').touched && registerForm.get('email').invalid">
-                  <p *ngIf="registerForm.get('email').hasError('required')" class="required">
-                    Email is required
-                  </p>
-                  <p class="required" *ngIf="registerForm.controls.email.errors?.email">Email format is invalid</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="profile-state">
-              <label>CITY</label>
-              <input type="text" formControlName="city" placeholder="City">
-              <div class="error-fields">
-                <div *ngIf="registerForm.get('city').touched && registerForm.get('city').invalid">
-                  <p *ngIf="registerForm.get('city').hasError('required')" class="required">
-                    City is required
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="profile-state">
-              <label>COUNTRY</label>
-              <input type="text" formControlName="country" placeholder="Country">
-              <div class="error-fields">
-                <div *ngIf="registerForm.get('country').touched && registerForm.get('country').invalid">
-                  <p *ngIf="registerForm.get('country').hasError('required')" class="required">
-                    Country is required
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="profile-state">
-              <label>TOTAL YEARS IN CAREER SERVICES</label>
-              <input type="text" formControlName='total_years_in_career_service'>
-              <div class="error-fields">
-                <div
-                  *ngIf="registerForm.get('total_years_in_career_service').touched && registerForm.get('total_years_in_career_service').invalid">
-                  <p *ngIf="registerForm.get('total_years_in_career_service').hasError('required')" class="required">
-                    Field is required
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="profile-state ">
-              <label>PROFESSIONAL CERTIFICATIONS</label>
-              <textarea _ngcontent-lnj-c7="" formControlName='professional_sertification' class="text-class" cols="40"
-                rows="5"></textarea>
-            </div>
-
-            <div class="profile-state">
-              <label>CUSTOM TAGS</label>
-              <textarea _ngcontent-lnj-c7="" formControlName='custom_tags' class="text-class" cols="40"
-                rows="5"></textarea>
-            </div>
-          </div>
+            </form>
         </div>
 
-        <div class="col-12 col-sm-12 col-md-6 col-lg-5">
 
-          <div class="header-profile">
-            <div class="profile-state">
-              <label>PROFILE HEADER</label>
-              <input type="text" formControlName='profile_header'>
-              <div class="error-fields">
-                <div *ngIf="registerForm.get('profile_header').touched && registerForm.get('profile_header').invalid">
-                  <p *ngIf="registerForm.get('profile_header').hasError('required')" class="required">
-                    Field is required
-                  </p>
-                </div>
-              </div>
+        <div class="plan_outter">
+            <div class="plan_inner">
+                <p>Basic Subscription Plan<sup>B</sup></p>
             </div>
-
-            <div class="profile-state">
-              <label>SERVICE SUMMARY</label>
-              <textarea _ngcontent-lnj-c7="" formControlName='service_summary' class="text-class" cols="40"
-                rows="5"></textarea>
-              <div class="error-fields">
-                <div *ngIf="registerForm.get('service_summary').touched && registerForm.get('service_summary').invalid">
-                  <p *ngIf="registerForm.get('service_summary').hasError('required')" class="required">
-                    Field is required
-                  </p>
-                </div>
-              </div>
+            <div class="plan_inner">
+                <p>Premium Subscription Plan<sup>P</sup></p>
             </div>
-
-            <div class="profile-state">
-              <label>INDUSTRY EXPERIENCE</label>
-              <textarea _ngcontent-lnj-c7="" formControlName='industry_experience' class="text-class" cols="40"
-                rows="5"></textarea>
-            </div>
-
-            <div class="profile-state">
-              <label>CURATE MATCH - PROFILE SHARE LINK</label>
-              <input type="text" formControlName='pofile_share_link'>
-            </div>
-
-            <div class="profile-state">
-              <label>PERSONAL WEBSITE</label>
-              <input type="text" formControlName='website_link'>
-            </div>
-
-            <div class="profile-state">
-              <label>LINKEDIN PROFILE LINK</label>
-              <input type="text" formControlName='linkedin_link'>
-            </div>
-
-            <div class="profile-state">
-              <label>JOBREP COMMUNITY PROFILE LINK</label>
-              <input type="text" formControlName='jobrep_profile_link'>
-            </div>
-          </div>
         </div>
-
-        <div class="col-12 col-sm-12 col-md-12 col-lg-3">
-          <div class="upload-pic">
-            <div class="profile-state">
-              <label>PROFILE PICTURE</label>
-              <ng-container *ngIf="!baseImage">
-                <div class="picture-new">
-                  <img src="assets/images/uploads.png">
-                  <input type="file" accept=".png, .jpg, .jpeg" (change)="onFileSelected($event)" class="d-none" #file>
-                  <button type="submit" class="submit-btn upload" (click)="file.click()">UPLOAD PICTURE</button>
+        <div class="note-bottom">
+            <div class="bottom-text bulb-image">
+                <span class="bulb-image"><img src="/assets/images/bulb-image.png" alt=""></span>
+                <div class="order-paragraph">
+                    <p>In order to provide quality service to candidates, a submitted<br> carreer coach profile will be active in the portal after review and approval</p>
                 </div>
-              </ng-container>
-              <ng-container *ngIf="baseImage">
-                <div class="picture-new image-uploaded">
-                  <img [src]="imageUrl">
-                  <input type="file" accept=".png, .jpg, .jpeg" (change)="onFileSelected($event)" class="d-none" #file>
-                  <button type="submit" class="submit-btn upload position-absolute" (click)="file.click()"><i class="fa fa-pencil"></i></button>
-                </div>
-              </ng-container>
-            </div>
-            <div class="profile-state">
-              <label>TOP THREE SPECIALITIES</label>
-              <textarea _ngcontent-lnj-c7="" formControlName='top3_specialites' class="share-top" cols="40"
-                rows="5"></textarea>
-              <div class="error-fields">
-                <div
-                  *ngIf="registerForm.get('top3_specialites').touched && registerForm.get('top3_specialites').invalid">
-                  <p *ngIf="registerForm.get('top3_specialites').hasError('required')" class="required">
-                    Field is required
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="status-profile">
-            <div class="profile-state">
-              <label>PROFILE STATUS</label>
-              <input type="text" formControlName='profile_status_id'>
-              <div class="error-fields">
-                <div
-                  *ngIf="registerForm.get('profile_status_id').touched && registerForm.get('profile_status_id').invalid">
-                  <p *ngIf="registerForm.get('profile_status_id').hasError('required')" class="required">
-                    Field is required
-                  </p>
-                </div>
-              </div>
             </div>
 
-            <div class="image-upload">
-              <label>PROFILE APPROVAL DATE</label>
-              <input type="text" formControlName='approved_at'>
+            <div class="bottom-button-next">
+                <ng-container *ngIf="!isLoader">
+                    <button type="submit" class="submit-btn" [disabled]="!fun.isLoggedIn" (click)="tabChange(2)">NEXT</button>
+                </ng-container>
+                <button type="button" *ngIf="isLoader" class="submit-btn">Loading...</button>
             </div>
-
-            <div class="profile-state">
-              <label>PROFILE LAST UPADATED</label>
-              <input type="text" formControlName='updated_at'>
-            </div>
-          </div>
         </div>
-      </div>
-    </form>
-  </div>
-
-
-  <div class="note-bottom">
-    <div class="bottom-text">
-      <p>Note: In order to provide quality service to candidates, a submitted<br> carreer coach profile will be active
-        in the portal after review and approval</p>
-    </div>
-
-    <div class="bottom-button-next">
-      <button type="submit" class="submit-btn" (click)="tabChange(2)">NEXT</button>
-    </div>
-  </div>
-
+    </ng-container>
+    <ng-container *ngIf="fun.isLoginLoader">
+        <div class="loader_img load_img2">
+            <img src="/assets/images/spinner2.svg">
+        </div>
+    </ng-container>
 </div>

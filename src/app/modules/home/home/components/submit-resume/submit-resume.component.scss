@@ -1,0 +1,533 @@
+    .submited-resume {
+        position: relative;
+    }
+    
+    .submited-title h4 {
+        font-size: 25px;
+        text-align: center;
+        color: #ea0a8c;
+        font-weight: 600;
+        font-family: "Poppins", sans-serif;
+    }
+    
+    .tool-btn-list {
+        position: absolute;
+        right: 4px;
+        bottom: 2px;
+    }
+    
+    .print-button[_ngcontent-gpx-c17] {
+        margin-right: 10px;
+    }
+    
+    .print-button button {
+        font-size: 30px;
+        width: 50px;
+        margin-right: 20px;
+        margin-bottom: 0px;
+        border-radius: 25px;
+        background: #18164d;
+        color: #fff;
+        transition: all 0.5s;
+        float: right;
+    }
+    
+    .register-login {
+        margin-top: 20px;
+    }
+    
+    .private-login {
+        background: #18164d;
+        padding: 20px 47px 12px 47px;
+    }
+    
+    .step-1-regester h4 {
+        color: #fff200;
+        font-size: 18px;
+    }
+    
+    .form-login-input label {
+        color: #fff;
+    }
+    
+    .form-login-input input {
+        max-width: 390px;
+        width: 100%;
+        border: none;
+        border-radius: unset;
+    }
+    
+    .form-recaptcha-size {
+        transform: scale(1.0);
+        // transform-origin: 0 0;
+        margin-top: 11px;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 34px;
+    }
+    
+    .form-login-input {
+        margin-top: 16px;
+    }
+    
+    .button-click {
+        display: flex;
+        margin-top: 12px;
+        padding-bottom: 1px;
+    }
+    
+    .button-click a {
+        background: #33cccc;
+        max-width: 187px;
+        font-size: 18px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 36px;
+        color: #ffff;
+        font-weight: 500;
+        min-height: 36px;
+        margin-bottom: 6px;
+        border-radius: 44px;
+        border: 1px solid #ccc;
+    }
+    
+    .forgot-login a {
+        background: #ffff;
+        max-width: 412px;
+        font-size: 18px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 36px;
+        color: #a52166;
+        font-weight: 500;
+        min-height: 36px;
+        margin-top: 34px;
+        border-radius: 44px;
+        border: 1px solid #ccc;
+    }
+    
+    .inbox-code {
+        background: #32004b;
+        padding: 20px 36px;
+    }
+    
+    .step-2-title h3 {
+        color: #fff200;
+        font-size: 18px;
+    }
+    
+    .step-2-title p {
+        color: #fff200;
+        font-size: 19px;
+    }
+    
+    .otp-input label {
+        color: #ffff;
+    }
+    
+    .otp-input input {
+        max-width: 200px;
+        width: 100%;
+        border: none;
+        border-radius: unset;
+    }
+    
+    .step-2-title {
+        display: flex;
+    }
+    
+    .step-2-title h3.check {
+        width: 118px;
+    }
+    
+    .otp-input {
+        padding: 18px 80px 2px;
+    }
+    
+    .submit-class a {
+        background: #33cccc;
+        max-width: 200px;
+        font-size: 18px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffff;
+        font-weight: 500;
+        min-height: 36px;
+        margin-bottom: 6px;
+        border-radius: 20px;
+        border: 1px solid #ccc;
+    }
+    
+    .submit-class {
+        padding: 0px 80px;
+    }
+    
+    .spam-folder p {
+        color: #fff;
+        padding: 9px 0px 7px 0px;
+        font-size: 18px;
+        line-height: 1.2;
+        margin-top: 31px;
+    }
+    
+    .table-start {
+        margin-top: 28px;
+    }
+    
+    .table.dash-bord thead tr {
+        background-color: #DCDBDB;
+    }
+    
+    .table.dash-bord th {
+        border: 1px solid #AFABAA;
+    }
+    
+    .table.dash-bord thead tr th {
+        color: #6F3996;
+        text-transform: capitalize;
+        text-align: center;
+        font-weight: bold;
+        line-height: 1.2;
+    }
+    
+    .table.dash-bord tbody tr:nth-child(odd) {
+        background: #fff;
+    }
+    
+    .table.dash-bord td {
+        height: 24px;
+    }
+    
+    // table td {
+    //     padding: 12px 15px;
+    // }
+    .table.dash-bord td {
+        border: 1px solid #AFABAA;
+        background: #f4fafa;
+        text-align: center;
+        font-size: 15px;
+        font-weight: 500;
+        padding: 5px 7px 2px;
+    }
+    
+    .submit-class-new {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .submit-class-new a {
+        background: #33cccc;
+        max-width: 78px;
+        font-size: 15px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffff;
+        font-weight: 500;
+        min-height: 31px;
+        margin-bottom: 6px;
+        border-radius: 20px;
+        border: 1px solid #ccc;
+        text-decoration: none;
+        margin-top: 3px;
+    }
+    
+    .button-click a.out-button {
+        background: #a7006d;
+        margin-right: 0px;
+    }
+    
+    .tabel-title h4 {
+        text-align: center;
+        font-size: 25px;
+        color: #ea0a8c;
+        font-weight: 600;
+        margin-bottom: 21px;
+        font-family: "Poppins", sans-serif;
+        margin-top: 55px;
+    }
+    
+    @media screen and (min-width: 1641px) and (max-width: 1800px) {
+        .step-2-title h3.check {
+            width: 142px;
+        }
+        .button-click a.out-button {
+            background: #a7006d;
+            margin-left: 24px;
+        }
+        .button-click a {
+            margin-right: 0px;
+        }
+        .step-2-title h3 {
+            font-size: 18px;
+        }
+        .step-1-regester h4 {
+            font-size: 18px;
+        }
+        .spam-folder p {
+            padding: 3px 4px 15px 6px;
+            font-size: 16px;
+            margin-top: 33px;
+        }
+        .captcha-button {
+            margin-left: 21px;
+        }
+        .form-recaptcha-size {
+            margin-left: 15px;
+            transform: scale(0.8);
+        }
+    }
+    
+    @media screen and (min-width: 1441px) and (max-width: 1640px) {
+        .form-recaptcha-size {
+            transform: scale(0.8);
+        }
+        .job-match-insite .nav.nav-pills .nav-item a {
+            padding: 5px 3px;
+            font-size: 13px;
+        }
+        .step-2-title h3 {
+            color: #fff200;
+            font-size: 17px;
+        }
+        .otp-input {
+            padding: 18px 74px 2px;
+        }
+        .submit-class {
+            padding: 3px 74px;
+        }
+        .spam-folder p {
+            padding: 4px 2px 11px 5px;
+            font-size: 15px;
+            margin-top: 27px;
+        }
+        .step-1-regester h4 {
+            color: #fff200;
+            font-size: 17px;
+        }
+        .button-click a.out-button {
+            background: #a7006d;
+            margin-left: 24px;
+        }
+        .button-click a {
+            margin-right: 0px;
+        }
+        .captcha-button {
+            margin-left: 21px;
+        }
+        .step-2-title h3.check {
+            width: 123px;
+        }
+    }
+    
+    @media screen and (min-width: 1400px) and (max-width: 1440px) {
+        .otp-input input {
+            max-width: 200px;
+        }
+        .step-2-title h3.check {
+            width: 139px;
+        }
+    }
+    
+    @media screen and (min-width: 1025px) and (max-width: 1400px) {
+        .inbox-code {
+            padding: 22px 24px;
+        }
+        .form-recaptcha-size {
+            transform: scale(0.7);
+            margin-left: 0px;
+        }
+        .step-2-title h3 {
+            font-size: 12px;
+            width: calc(100% - 66px);
+        }
+        .spam-folder p {
+            padding: 5px 0px 9px 10px;
+            font-size: 14px;
+            margin-top: 29px;
+        }
+        .step-2-title h3.check {
+            width: 56px;
+        }
+        .otp-input {
+            padding: 10px 1px 4px 58px;
+        }
+        .submit-class {
+            padding: 9px 60px;
+        }
+        .step-1-regester h4 {
+            font-size: 13px;
+        }
+        .button-click a.out-button {
+            background: #a7006d;
+            margin-left: 24px;
+        }
+        .button-click a {
+            margin-right: 0px;
+            font-size: 14px;
+        }
+        .step-2-title {
+            flex-wrap: wrap;
+        }
+        .forgot-login a {
+            font-size: 15px;
+        }
+        .submit-class a {
+            font-size: 16px;
+        }
+        .captcha-button {
+            margin-left: 21px;
+        }
+        .otp-input input {
+            max-width: 151px;
+        }
+    }
+    
+    @media screen and (min-width: 991px) and (max-width: 1024px) {
+        .form-recaptcha-size {
+            transform: scale(0.7);
+        }
+        .button-click a {
+            max-width: 123px;
+            font-size: 12px;
+            margin-right: 10px;
+        }
+        .inbox-code {
+            padding: 15px 24px;
+        }
+        .button-click a {
+            max-width: 123px;
+            font-size: 12px;
+            margin-right: 10px;
+            min-height: 37px;
+            margin-bottom: 3px;
+        }
+        .button-click {
+            margin-top: 7px;
+        }
+        .forgot-login a {
+            margin-top: 41px;
+        }
+        .step-2-title h3.check {
+            width: 119px;
+        }
+        .step-2-title h3 {
+            font-size: 14px;
+        }
+        .otp-input {
+            padding: 2px 1px 2px 58px;
+        }
+        .step-1-regester h4 {
+            font-size: 14px;
+        }
+        .submit-class {
+            padding: 7px 15px 13px 58px;
+        }
+        .spam-folder p {
+            padding: 3px 0px 12px 6px;
+            font-size: 14px;
+            margin-top: 30px;
+        }
+        .button-click a.out-button {
+            background: #a7006d;
+            margin-left: 24px;
+        }
+        .button-click a {
+            margin-right: 0px;
+        }
+        .tool-btn-list {
+            bottom: 1px;
+        }
+        .otp-input input {
+            max-width: 128px;
+        }
+        .submit-class a {
+            max-width: 128px;
+            font-size: 12px;
+        }
+        .captcha-button {
+            margin-left: 21px;
+        }
+        .forgot-login a {
+            font-size: 14px;
+        }
+    }
+    
+    @media screen and (min-width: 768px) and (max-width: 991px) {
+        .inbox-code {
+            margin-top: 32px;
+        }
+        .step-2-title h3.check {
+            width: 69px;
+        }
+        .submited-title h4 {
+            font-size: 18px;
+        }
+        .form-recaptcha-size {
+            transform: scale(0.8);
+        }
+        .otp-input input {
+            max-width: 198px;
+            margin: auto;
+        }
+        .submit-class a {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 198px;
+            margin-top: 13px;
+        }
+        .type-class {
+            text-align: center;
+        }
+        .step-2-title h3 {
+            color: #fff200;
+            font-size: 15px;
+        }
+        .spam-folder p {
+            color: #fff;
+            padding: 3px 50px 3px 1px;
+            font-size: 16px;
+            text-align: center;
+        }
+        .table.dash-bord thead tr th {
+            font-size: 13px;
+        }
+        .submit-class-new a {
+            font-size: 13px;
+        }
+        .table.dash-bord td {
+            font-size: 13px;
+        }
+        .step-2-title {
+            justify-content: center;
+        }
+        .button-click a.out-button {
+            background: #a7006d;
+            margin-left: 24px;
+        }
+        .button-click a {
+            margin-right: 0px;
+        }
+        .register-login {
+            margin-top: 28px;
+        }
+        .tool-btn-list {
+            position: absolute;
+            right: 4px;
+            top: -7px;
+        }
+    }
+    
+    @media screen and (max-width: 990px) {
+        .step-1-regester h4 {
+            font-size: 15px;
+            text-align: center;
+        }
+    }

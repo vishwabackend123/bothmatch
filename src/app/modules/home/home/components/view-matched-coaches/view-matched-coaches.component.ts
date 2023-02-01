@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FunctionService } from 'src/app/core/services/function.service';
 // import jsPDF from 'jspdf';
-// import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-view-matched-coaches',
@@ -8,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-matched-coaches.component.scss']
 })
 export class ViewMatchedCoaches implements OnInit {
+  imgUrl:any
   headers: any = ["name", "Position Title", "Position URL", "Organization Name", "Department Name", "Position Start Date", "Position End Date", "Publication Start Date", "Application Close Date"];
   rows: any = ["name", "Position Title", "Position URL", "Organization Name", "Department Name", "Position Start Date", "Position End Date", "Publication Start Date", "Application Close Date"];
   tableHeading : string = "Top Job Matches";
-  constructor() { }
+  constructor(
+    public fun: FunctionService
+  ) { 
+    this.imgUrl = environment.imgPathUrl
+  }
 
   ngOnInit(): void {
   }

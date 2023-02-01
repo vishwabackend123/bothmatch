@@ -1,0 +1,73 @@
+<div class="row">
+    <div class="col-12">
+        <div class="table-responsive">
+
+            <!-- <table class="table table-bordered table-job-dash">
+            <thead>
+              <tr>
+                <th scope="col" class="mw-table-sm">Job ID </th>
+                <th class="mw-table-lg" scope="col">Job Title</th>
+                <th scope="col">Job Category </th>
+                <th scope="col">Job Type </th>
+                <th scope="col">Location</th>
+                <th scope="col">Match Count</th>
+                <th scope="col">Job Post<br> Date</th>
+                <th scope="col">Job Close<br> Date</th>
+                <th scope="col" class="mw-table-sm">Status</th>
+              </tr>
+            </thead>
+            <tbody>E
+              <tr *ngFor="let i of Arr(num)">
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr>
+
+            </tbody>
+          </table> -->
+            <table class="table table-bordered table-job-dash">
+                <thead>
+                    <tr>
+                        <th scope="col" class="mw-table-sm">Job ID </th>
+                        <th class="mw-table-lg" scope="col">Job Title </th>
+                        <th scope="col" class="mw-table-sm">Match<br> Count</th>
+                        <th scope="col" class="mw-table-sm">Job Category</th>
+                        <th scope="col" class="mw-table-sm">Job type</th>
+                        <th scope="col" class="mw-table-md">Location</th>
+                        <th scope="col" class="">Job Post<br> Date</th>
+                        <th scope="col" class="">Job Close<br> Date</th>
+
+                        <th scope="col" class="mw-table-sm">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let i of Arr(num)">
+                        <td>JP0524220112</td>
+                        <td>12346789012346789012345</td>
+                        <td>100%</td>
+                        <td>12345678901234567890</td>
+                        <td>1234567891234</td>
+                        <td>123456789012</td>
+                        <td>1234567890</td>
+                        <td>1234567890</td>
+                        <td>is active</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+        <div class="d-flex align-items-center mt-40">
+            <div class="information mr-auto">
+                <span class="bulb-image bu"><img alt="" src="/assets/images/bulb-image.png"></span> Above information is visible and accessible only to logged in users</div>
+            <div class="bottom-button-next button-image">
+                <button type="button" class="submit-btn" (click)="tabChange(1)">NEXT</button>
+            </div>
+        </div>
+    </div>

@@ -1,3 +1,5 @@
+
+
 .profile-state label {
     color: #18164e;
     font-family: "Arial Rounded MT";
@@ -15,18 +17,27 @@
 }
 
 .picture-new {
-    max-width: 290px;
+    max-width: 100%;
     background-color: #fff;
-    height: 183px;
-    margin-bottom: 17px;
-    padding: 28px 63px;
+    height: 184px;
+    margin-bottom: 14px;
+    padding: 15px 40px;
     text-align: center;
     border: 1px solid #ccc;
     border-radius: 5px;
+    position:relative;
 }
 
-.picture-new img {
+.picture-new img#blah {
+    width: 100px !important;
+}
+
+
+.upload-pic .picture-new img#blah {
     width: 100px;
+    // height: 100px;
+    // object-fit: cover;
+    border-radius: 50%;
 }
 
 .picture-new button {
@@ -46,8 +57,9 @@
 
 textarea.share-top {
     width: 100%;
-    height: 107px;
+    height: 109px;
     border-radius: 5px;
+    margin-top: 1px;
 }
 
 .image-upload input {
@@ -55,10 +67,11 @@ textarea.share-top {
 }
 
 .status-profile {
-    width: 96.9%;
+    max-width: 100%;
+    width: auto;
     background-color: #fff;
     padding: 9px 23px 23px 23px;
-    margin-left: 9px;
+    margin-left: 11px;
     margin-top: 39px;
     background-color: #ebedf0;
     border: 1px solid #ccc;
@@ -66,14 +79,20 @@ textarea.share-top {
 }
 
 .header-profile {
-    margin: 0px 0px 0px 9px;
+    margin: 0px 0px 0px 11px;
 }
 
 .upload-pic {
-    margin-left: 9px;
+    margin-left: 11px;
 }
 
 .profile-state textarea.text-class {
+    margin-bottom: 0px;
+    height: 110px;
+    border-radius: 5px;
+}
+
+.profile-state textarea.text-class-new {
     margin-bottom: 0px;
     height: 109px;
     border-radius: 5px;
@@ -81,23 +100,25 @@ textarea.share-top {
 
 .note-bottom {
     display: flex;
-    margin-top: 45px;
     width: 100%;
     margin-bottom: -20px;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .bottom-text p {
     padding: 0;
-    font-size: 19px;
+    font-size: 15px;
     color: #a70063;
     line-height: 21px;
     margin-top: 11px;
+    font-weight: 500;
 }
 
 .bottom-button-next {
-    width: 8%;
     float: right;
     margin: 0 auto;
+    margin-right: 110px;
 }
 
 .bottom-button-next button.submit-btn {
@@ -113,11 +134,100 @@ textarea.share-top {
     color: #fff;
     margin-top: -1px;
     border: 1px solid #afabab;
+    font-weight: 400;
 }
 
 .bottom-text {
-    width: 50%;
+    width: 100%;
 }
+
+.profile-page-form input::placeholder,
+.profile-page-form textarea::placeholder {
+    font-size: 13px;
+    color: #a19c9c;
+    line-height: 1.2;
+}
+
+.bottom-text.bulb-image {
+    display: flex;
+    align-items: baseline;
+}
+.profile-state label.orange_color {
+    color: #ff9000 !important;
+}
+.profile-state label.skyblue_color {
+    color: #33cccc !important;
+}
+.profile-state label.green_color {
+    color: #8eb84a !important;
+}
+.plan_outter {
+    display: flex;
+    align-items: center;
+    margin: 7px 0 8px 0;
+}
+.plan_outter p {
+    font-size: 17px;
+    color: #EA0A8C;
+    margin-right: 50px;
+    font-weight: 500;
+}
+.profile-state.state_city {
+    display: flex;
+   
+}
+.profile_state_inner.city_inner {
+    width: 80%;
+}
+.profile_state_inner.state_inner {
+    width: 19%;
+    margin-left:auto;
+}
+sup{
+    color: #EA0A8C;
+}
+
+.loader_img{
+    position: absolute;
+    top: 25px;
+    left: 0;
+    right: 0;
+}
+.loader_img img {
+    width: 77px;
+}
+
+.main-profile-page {
+    position: relative;
+}
+.loader_img.load_img2 {
+    text-align: center;
+    min-height: 390px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// .profile-state select.special-dropdown {
+//     height: 35px !important;
+   
+//     border: 1px solid #ccc;
+//     border: 1px solid #ccc;
+//     border-radius: 5px;
+//     -webkit-border-radius: 5px;
+//     color: #000;
+//     display: block;
+//     font-size: 14px;
+//     font-weight: 400;
+//     height: 35px;
+//     padding: 0 10px;
+// }
+
+
+.status-profile.profile_status {
+    margin-top: 32px;
+}
+
 
 @media screen and (max-width: 1800px) {
     .picture-new button {
@@ -137,8 +247,8 @@ textarea.share-top {
 }
 
 @media screen and (max-width: 1400px) {
-    .picture-new img {
-        width: 75px;
+    .picture-new img#blah {
+        width: 75px !important;
     }
     .picture-new button {
         margin: 9px auto !important;
@@ -155,7 +265,7 @@ textarea.share-top {
         margin-top: 31px;
     }
     .upload-pic {
-        margin-left: 12px;
+        margin-left: 11px;
     }
     .profile-state {
         margin-bottom: 5px;
@@ -175,6 +285,12 @@ textarea.share-top {
     }
 }
 
+@media(max-width:1366px){
+    .status-profile.profile_status {
+        margin-top: 24px;
+    }
+}
+
 @media screen and (max-width: 1024px) {
     .status-profile {
         padding: 6px 15px 11px 12px;
@@ -183,7 +299,7 @@ textarea.share-top {
         margin-top: 32px;
     }
     .upload-pic {
-        margin-left: 13px;
+        margin-left: 11px;
     }
     .profile-state label {
         color: #18164e;
@@ -199,8 +315,8 @@ textarea.share-top {
     }
     .picture-new {
         padding: 28px 14px;
-        height: 163px;
-        margin-bottom: 11px;
+        height: 166px;
+        margin-bottom: 8px;
     }
     .profile-state {
         margin-bottom: 5px;
@@ -221,6 +337,29 @@ textarea.share-top {
     .profile-state textarea.text-class {
         height: 101px;
     }
+    .profile_state_inner.city_inner {
+        width: 76%;
+    }
+    .profile_state_inner.state_inner {
+        width: 21%;
+    }
+    .profile_state_inner {
+        margin: 0 0 1px;
+    }
+    .profile-state.service.summery {
+        margin-bottom: 6px;
+    }
+    .profile-state.linkedin-profile {
+        margin-bottom: 11px;
+        margin-top: 5px;
+    }
+    .profile-state.jobreb_profile {
+        margin: 6px 0 5px;
+    }
+    .status-profile.profile_status[_ngcontent-ivv-c6] {
+        margin-top: 23px;
+    }
+
 }
 
 @media screen and (max-width: 991px) {
@@ -236,6 +375,9 @@ textarea.share-top {
     }
     .picture-new {
         max-width: 100%;
+    }
+    .plan_outter{
+        margin: 16px 0 8px 0;
     }
 }
 
@@ -278,32 +420,83 @@ textarea.share-top {
     .header-profile {
         margin: 1px 0px 11px 2px;
     }
+    .profile-state .picture-new{
+        max-width:unset;
+    }
+    .picture-new {
+        padding: 18px 30px;
+    }
 }
 
 button.submit-btn {
-  background: #33cccc !important;
-  border: 1px solid #33cccc !important;
-  border-radius: 40px !important;
-  min-width: unset;
+    background: #33cccc !important;
+    border: 1px solid #33cccc !important;
+    border-radius: 40px !important;
+    min-width: unset;
     padding: 0 0 !important;
     float: unset;
 }
 
 .required {
-  color: red;
+    color: red;
+    font-size:12px;
 }
 
 span.picture-upload {
-  font-size: 13px;
+    font-size: 13px;
 }
-.picture-new.image-uploaded {padding: 0;}
-.picture-new.image-uploaded img {width: 100%;}
-.image-uploaded .position-absolute {position: absolute;
-  top: 4px;
-  right: 5px;
-  width: auto;
-  padding: 7px !important;
-  display: inline-block;
-  font-size: 16px;
-  width: 33px;
-  height: 33px;}
+
+// .picture-new.image-uploaded {
+//     padding: 0;
+// }
+
+.picture-new.image-uploaded img {
+    max-width: 150px;
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.image-uploaded .position-absolute {
+    position: absolute;
+    top: 4px;
+    right: 5px;
+    width: auto;
+    padding: 7px !important;
+    display: inline-block;
+    font-size: 16px;
+    width: 33px;
+    height: 33px;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.profile-state .input__group .input-cst-special {
+    margin-bottom: 7px !important;
+    height: auto !important;
+    padding: 8px;
+    border:1px solid #ccc;
+    border-radius: 5px;
+}
+.profile-state .input__group select + i.fa {
+    float: right;
+    margin-top: -35px;
+    margin-right: 5px;
+    pointer-events: none;
+    background-color: #fff;
+    padding-right: 5px;
+  }
+
+
+
+
+

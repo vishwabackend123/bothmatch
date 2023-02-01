@@ -1,0 +1,44 @@
+<div class="main-login-page">
+    <div class="login-page">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                <div class="inner-login">
+                    <div class="form-state">
+                        <label>Login-EMAIL (PRIVATE)</label>
+                        <input type="text">
+                    </div>
+                    <div class="form-state">
+                        <label>PASSWORD (PRIVATE)</label>
+                        <input type="text">
+                    </div>
+                    <div class="form-state">
+                        <label>FULL NAME (PRIVATE)</label>
+                        <input type="text">
+                    </div>
+                    <div class="form-recaptcha-size">
+                        <ngx-recaptcha2 #captchaElem [siteKey]="siteKey" class="w-100">
+                        </ngx-recaptcha2>
+                    </div>
+                    <div class="form-button">
+                        <a href=""> REGISTER </a>
+                        <a href=""> LOGIN </a>
+                    </div>
+                    <div class="forgot-button">
+                        <button Class="forgot-p">Forgot Login / Password</button>`
+                      </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+                <div class="career-image">
+                    <div class="starte-image">
+                        <img src="/assets/images/employers-group.jpg">
+                    </div>
+                    <div class="button-image">
+                        <button type="button" (click)="tabChange(1)">NEXT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -3,16 +3,16 @@
     <div class="candidate-text-new">
         <h3>Select Needed Career Professional Services</h3>
     </div>
-    <div class="main-coach-match">
+    <div class="main-coach-match career_professional_service">
         <div class="coach-match-new">
             <div class="tab-hadding">
-                <h4>To move the services between the boxes, use the arrows or drag and drop </h4>
+                <h4>To move the services between the boxes, use the arrows or drag and drop</h4>
             </div>
             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                <div class="row step-two" style="margin-top: 8px;margin-bottom: 25px;">
+                <div class="row step-two" style="margin-top: 8px;">
                     <div class="col-xl-3 col-lg-3 col-md-12 col-12" droppable (onDrop)="itemDropFromMatchAny($event)">
                         <div class="table-selector">
-                            <h3>EXCLUDE these services</h3>
+                            <h3><span>EXCLUDE</span> these services</h3>
                             <div class="list">
                                 <li draggable (click)="selector(item,1)" *ngFor="let item of include" [dragData]="item" [class.selected]="item.selected" value="Tom Smith">{{item.name}}</li>
                             </div>
@@ -56,7 +56,7 @@
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-12 col-12" droppable (onDrop)="itemDropFromInclude($event)">
                         <div class="table-selector">
-                            <h3>INCLUDE optional services</h3>
+                            <h3><span>INCLUDE</span> optional services</h3>
                             <div class="list">
                                 <li draggable (click)="selector(item,2)" *ngFor="let item of matchAny" [dragData]="item" [class.selected]="item.selected" value="Tom Smith">{{item.name}}</li>
                             </div>
@@ -101,7 +101,7 @@
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-12 col-12" droppable (onDrop)="itemDropOnMatchAll($event)">
                         <div class="table-selector">
-                            <h3>MUST have services</h3>
+                            <h3><span>MUST</span> have services</h3>
                             <div class="list">
                                 <li draggable (click)="selector(item,3)" *ngFor="let item of matchAll" [dragData]="item" [class.selected]="item.selected" value="Tom Smith">{{item.name}}</li>
                             </div>
@@ -110,10 +110,9 @@
                 </div>
             </div>
             <!--<div  *ngIf = "showNextBtn" class="button-next">-->
-            <div class="row step-two" style="margin-top: 25px;margin-bottom: 25px;">
+            <!-- <div class="row step-two" style="margin-top: 25px;margin-bottom: 25px;">
                 <div class="col-xl-3 col-lg-3 col-md-12 col-12">
                     <div class="service-box">
-
                         <img src="assets/images/Group_2.png" />
                         <h4 class="keyword-both" style="padding-top: 13px">Career services<br> not required <br>by candidate</h4>
                     </div>
@@ -132,50 +131,131 @@
                         <h4 style="padding-top: 13px">Career services<br> currently needed<br> by candidate</h4>
                     </div>
                 </div>
+            </div> -->
+            <div class="row step-two" style="margin-bottom: 25px;">
+                <div class="col-xl-3 col-lg-3 col-md-12 col-12">
+                    <div class="excluded-boxs">
+                        <div class="candidate-emp text-center">
+                            <h4>EXCLUDED</h4>
+                        </div>
+                        <div class="exclude-con">
+                            <div class="exculd-images">
+                                <img src="assets/images/minus-ss.png" />
+                            </div>
+                            <div class="exculd-text text-center">
+                                <p>Career services<br> not required by candidate</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- <div class="keyword-box">
+                        <img src="assets/images/Group_2.png" />
+                        <h4 class="keyword-both" style="padding-top: 13px">Keywords potentially <span class="underline-mode">not required</span> by both candidate and employer</h4>
+                    </div> -->
+                </div>
+                <div class="col-xl-1 col-lg-1 col-md-12 col-12"></div>
+                <div class="col-xl-3 col-lg-3 col-md-12 col-12">
+                    <div class="excluded-boxs">
+                        <div class="candidate-emp text-center">
+                            <h4>PREFERRED</h4>
+                        </div>
+                        <div class="exclude-con">
+                            <div class="exculd-images">
+                                <img src="assets/images/plus-rr.png" />
+                            </div>
+                            <div class="exculd-text text-center">
+                                <p>Optional career services that may be used by candidate later</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="keyword-box">
+                        <img src="assets/images/Group_1.png" />
+                        <h4 style="padding-top: 13px">Keywords potentially <span class="underline-mode">relevant</span> to both candidate and employer</h4>
+                    </div> -->
+                </div>
+                <div class="col-xl-1 col-lg-1 col-md-12 col-12"></div>
+                <div class="col-xl-3 col-lg-3 col-md-12 col-12">
+                    <div class="excluded-boxs">
+                        <div class="candidate-emp text-center">
+                            <h4>REQUIRED</h4>
+                        </div>
+                        <div class="exclude-con">
+                            <div class="exculd-images">
+                                <img src="assets/images/equal-to.png" />
+                            </div>
+                            <div class="exculd-text text-center">
+                                <p>Career services currently needed by candidate</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="keyword-box">
+                        <img src="assets/images/Group_3.png" />
+                        <h4 style="padding-top: 13px">Must have keywords <span class="underline-mode">required</span> by both candidate and employer</h4>
+                    </div> -->
+                </div>
             </div>
-
         </div>
-
+        <div class="making-hadding phone">
+            <h4>Recommend making adjustments to the service selection criteria based on level of matches</h4>
+        </div>
         <div class="side-form">
-            <form [formGroup]="frmDetails">
+            <form [formGroup]="frmDetails" (ngSubmit)="submitForm()">
+                <div class="form-group col-12">
+                    <label for="fname" class="orange_color">COUNTRY</label>
+                    <input type="text" id="txtCountry" formControlName="country" class="text-class state-class">
+                    <!-- <div *ngIf="frmDetails.get('country').touched && frmDetails.get('country').invalid" class="invalid-feedback">
+                        <div *ngIf="frmDetails.get('country').hasError('required')" class="required">Country is required</div>
+                    </div> -->
+                </div>
+              
+                <div class="form-group col-12">
+                    <label for="fname" class="orange_color">STATE</label> 
+                    <input type="text" id="txtState" class="state-class" name="fname" formControlName="state">
+                    <!-- <div *ngIf="frmDetails.get('state').touched && frmDetails.get('state').invalid" class="invalid-feedback">
+                        <div *ngIf="frmDetails.get('state').hasError('required')" class="required">State is required</div>
+                    </div> -->
+                </div>
+                
                 <div class="col-xl-12 col-lg-6 col-md-6 col-12">
-                    <label for="fname">COUNTRY</label> <br>
-                    <input type="text" id="txtCountry" name="fname" value="" formControlName="country">
+                    <label for="fname" class="green_color">CITY</label> <br>
+                    <input type="text" id="txtState" class="state-class" name="fname" formControlName="city">
+                </div>
+
+                <div class="form-group col-12">
+                    <label for="fname" class="orange_color">PRIMARY SERVICE</label>
+                    <input type="text" id="txtPrimaryService" name="fname" formControlName="primaryService">
+                    <!-- <div *ngIf="frmDetails.get('primaryService').touched && frmDetails.get('primaryService').invalid" class="invalid-feedback">
+                        <div *ngIf="frmDetails.get('primaryService').hasError('required')" class="required">Field is required</div>
+                    </div> -->
                 </div>
 
                 <div class="col-xl-12 col-lg-6 col-md-6 col-12">
-                    <label for="fname">STATE</label> <br>
-                    <input type="text" id="txtState" class="state-class" name="fname" value="" formControlName="state">
+                    <label for="fname" class="green_color">SPECIALIZATION</label> <br>
+                    <input type="text" id="txtSpecialization" name="fname" formControlName="specialization">
                 </div>
 
-
+                
                 <div class="col-xl-12 col-lg-6 col-md-6 col-12">
-                    <label for="fname">SPECIALIZATION</label> <br>
-                    <input type="text" id="txtSpecialization" name="fname" value="" formControlName="specialization">
-                </div>
-
-                <div class="col-xl-12 col-lg-6 col-md-6 col-12">
-                    <label for="fname">PRIMARY SERVICE</label> <br>
-                    <input type="text" id="txtPrimaryService" name="fname" value="" formControlName="primaryService">
-                </div>
-                <div class="col-xl-12 col-lg-6 col-md-6 col-12">
-                    <label for="fname">PRIMARY INDUSTRY EXPERIENCE</label> <br>
-                    <input type="text" id="txtPrimaryIndustryExperience" name="fname" value="" formControlName="primaryIndustryExperience">
+                    <label for="fname" class="skyblue_color">PRIMARY INDUSTRY EXPERIENCE</label> <br>
+                    <input type="text" id="txtPrimaryIndustryExperience" name="fname" formControlName="primaryIndustryExperience">
                 </div>
 
                 <div class="col-xl-12 col-lg-4 col-md-6 col-12 align-right">
                     <div class="button-wrap-tab-select-new">
-                        <a style="cursor:pointer" (click)="submitForm()">
-                        VIEW CAREER COACH MATCH
-                    </a>
+                        <button *ngIf="dataLoader" class="loading-btn" type="button">
+                            Loading....
+                        </button>
+                        <button *ngIf="!dataLoader" type="submit" style="cursor:pointer">
+                            VIEW CAREER COACH MATCH
+                        </button>
                     </div>
                 </div>
             </form>
-
         </div>
-
     </div>
-    <div class="making-hadding">
+    <div class="making-hadding desktop">
         <h4>Recommend making adjustments to the service selection criteria based on level of matches</h4>
     </div>
 </div>

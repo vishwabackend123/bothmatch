@@ -5,6 +5,7 @@ import { JobRepComponent } from './home/components/jobrep/jobrep.component';
 import { AboutUsComponent } from './home/components/about-us/about-us.component';
 import { MatchComponent } from './home/components/match/match.component';
 import { ForgotPasswordComponent } from './home/components/forgot-password/forgot-password.component';
+import { EmployerComponent } from './home/components/employer/employer.component';
 
 const routes: Routes = [{
   path:'',
@@ -16,10 +17,10 @@ const routes: Routes = [{
   component:JobRepComponent
 }
 ,
-{
-  path:'about-us',
-  component:AboutUsComponent
-},
+// {
+//   path:'about-us',
+//   component:AboutUsComponent
+// },
 {
   path:'match',
   component:MatchComponent
@@ -27,6 +28,10 @@ const routes: Routes = [{
 {
   path:'forgot-pwd',
   component:ForgotPasswordComponent
+},
+{
+  path:'employers',
+  component:EmployerComponent
 }
 
 ];

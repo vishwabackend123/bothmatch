@@ -1,3 +1,6 @@
+$border: #efefef;
+$table-cell-height: 30px;
+$link: #3b97ff;
 table,
 th,
 td {
@@ -41,45 +44,47 @@ table.table-new-class {
     width: calc(100% - 0px);
     background: #dbf1f5;
     margin-bottom: 49px;
-    padding: 15px 1px 11px 16px;
+    padding: 15px 24px 11px 16px;
     background: #FFF;
     margin-left: 0px;
 }
 
 .user-details-new .user-details-content h3:not(.blue-color-text) {
-    padding-top: 56px;
-    font-weight: 100;
+    padding-top: 20px;
 }
 
 .user-details-img {
     float: left;
-    width: 21%;
+    width: 28%;
 }
 
 .coach-name-new {
     position: relative;
-    left: 20px;
+    
     white-space: nowrap;
 }
 
 .user-details-new h3 {
     font-size: 14.8px;
-    margin-left: 5px;
+    // margin-left: 5px;
     color: #18164e;
+    text-transform: capitalize;
 }
 
 .user-details-new .user-details-img img {
     margin: 6px;
-    height: auto;
-    width: 159px;
+    height: 104px;
+    width: 104px;
     max-height: 100%;
     max-width: 160%;
+    border-radius: 50%;
+
 }
 
 .user-details-img h3 {
     text-align: center;
-    margin-top: 6px;
-    margin-bottom: -11px;
+    margin-top: 0px;
+    margin-bottom: 2px;
     color: #000;
     font-weight: 600;
 }
@@ -87,16 +92,16 @@ table.table-new-class {
 .user-details-content {
     float: left;
     width: 71%;
-    padding: 13px 0px 7px 81px;
+    padding: 13px 0px 7px 4px;
 }
 
 .user-details-new .user-details-content p {
     font-size: 14px;
-    text-align: center;
+    text-align: left;
     line-height: 20px;
     font-weight: 500;
     color: #000;
-    width: 294px;
+    width: 100%;
 }
 
 .candi-advance {
@@ -144,6 +149,11 @@ table.table-new-class {
     display: flex;
     justify-content: center;
     width: 100%;
+}
+
+.user-details-new .user-details-img .user_img {
+    display: block;
+    margin: 6px auto !important;
 }
 
 @media (max-width: 1850px) {
@@ -198,7 +208,7 @@ table.table-new-class {
 
 @media (max-width: 1440px) {
     .user-details-new .user-details-content p {
-        width: 253px;
+        width:auto;
         font-size: 12px !important;
     }
     .user-details-new .user-details-content .botton-content-part h3:not(.blue-color-text) {
@@ -249,7 +259,7 @@ table.table-new-class {
     }
     .user-details-new .user-details-content p {
         font-size: 11px !important;
-        width: 231px;
+        width: auto;
     }
     .user-details-new .user-details-img img {
         height: 78px !important;
@@ -339,7 +349,7 @@ table.table-new-class {
     .user-details-new .user-details-content p {
         font-size: 12px !important;
         line-height: 19px;
-        width: 246px;
+        width: auto;
     }
     .coach-name-new {
         left: 2px;
@@ -359,3 +369,170 @@ table.table-new-class {
         font-size: 18px;
     }
 }
+
+// Loading
+
+@keyframes placeHolderShimmer {
+    0% {
+     background: #ececec;
+   }
+   
+   30% {
+     background: #F7F7F7;
+   }
+  
+   50% {
+     background: #ececec;
+   }
+   
+   80% {
+     background: #F7F7F7;
+   }
+   
+   100% {
+     background: #ececec;
+   }
+ }
+ 
+ .custom-loading-box{
+    
+ .loading-animation {
+   animation: placeHolderShimmer 3s infinite;
+ }
+ 
+ 
+ .mask {
+   background: #fff;
+   position: absolute;
+   height: 10px;
+ }
+ 
+ .mask {
+   &--b-b {
+     top: 0;
+     width: 100%;
+     height: 1px;
+     right: 0;
+     background: $border;
+   }
+   
+   &--t {
+     height: 10px;
+     width: 100%
+   }
+   
+   &--b {
+     height: 10px;
+     width: 100%;
+     bottom: 0;
+   }
+   
+   &--r {
+     height: $table-cell-height;
+     width: 10px;
+     right: 0;
+   }
+   
+   
+   &--l {
+     height: $table-cell-height;
+     width: 10px;
+     left: 0;
+   }
+   
+   &--sep-1 {
+     width: 20px;
+     right: 340px;
+     height: $table-cell-height;
+   }
+   
+   &--sep-2 {
+     width: 20px;
+     right: 185px;
+     height: $table-cell-height;
+   }
+   
+   &--sep-3 {
+     width: 20px;
+     right: 73px;
+     height: $table-cell-height;
+   }
+   
+ }
+ 
+ 
+ .u-pd-y--md {
+   padding: 25px 0 25px;
+ }
+ 
+ .u-pd--xs {
+   padding: 5px;
+ }
+ 
+ .u-pd--sm {
+   padding: 10px;
+ }
+ 
+ hr {
+   display: block;
+   height: 1px;
+   border: 0;
+   border-top: 1px solid $border;
+   padding: 0;
+   margin: 0;
+ }
+ 
+ .u-mg--xs {
+   margin: 5px;
+ }
+ 
+ .u-mg--sm {
+   margin: 10px;
+ }
+ 
+ .u-mg--md {
+   margin: 15px;
+ }
+ 
+ .u-flex {
+   display: -webkit-box;
+   display: -moz-box;
+   display: -ms-flexbox;
+   display: -webkit-flex;
+   display: flex;
+ }
+ 
+ .u-flex__cell {
+   flex: 1;
+ }
+ 
+ .icon-container {
+   border-left: 1px solid $border;
+ }
+ 
+ .u-hide-small--flex {
+   display: none;
+ }
+ 
+}
+ @media only screen and (min-width : 768px) {
+    .custom-loading-box{
+   .u-hide-small--flex {
+     display: inline-block;
+   }
+}
+
+}
+.custom-loading-box{
+.u-show-large-only--flex {
+    display: none;
+}
+}
+ 
+ @media only screen and (min-width : 960px) {
+    .custom-loading-box{
+    .u-show-large-only--flex {
+     display: inline-block;
+   }
+}
+ }

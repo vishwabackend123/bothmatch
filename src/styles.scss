@@ -1,7 +1,76 @@
 /* You can add global styles to this file, and also import other style files */
 
+@font-face {
+    font-family: 'Myriad Pro Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Regular'), url('assets/fonts/myraid/MYRIADPRO-REGULAR.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Condensed';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Condensed'), url('assets/fonts/myraid/MYRIADPRO-COND.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Condensed Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Condensed Italic'), url('assets/fonts/myraid/MYRIADPRO-CONDIT.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Light';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Light'), url('assets/fonts/myraid/MyriadPro-Light.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Semibold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Semibold'), url('assets/fonts/myraid/MYRIADPRO-SEMIBOLD.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Semibold Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Semibold Italic'), url('assets/fonts/myraid/MYRIADPRO-SEMIBOLDIT.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Bold Condensed';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Bold Condensed'), url('assets/fonts/myraid/MYRIADPRO-BOLDCOND.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Bold'), url('assets/fonts/myraid/MYRIADPRO-BOLD.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Bold Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Bold Italic'), url('assets/fonts/myraid/MYRIADPRO-BOLDIT.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Bold Condensed Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Bold Condensed Italic'), url('assets/fonts/myraid/MYRIADPRO-BOLDCONDIT.woff') format('woff');
+}
+
 @import 'app/scss/main.min.scss';
-@import '~ngx-toastr/toastr';
 @media print {
     body {
         margin-top: 0 !important;
@@ -25,6 +94,32 @@ body {
     margin-top: 168px;
 }
 
+.orange_color {
+    color: #ff9000 !important;
+}
+.skyblue_color{
+    color: #33cccc !important;
+}
+.green_color {
+    color: #8eb84a !important;
+}
+
+
+
+
+.toast-container {
+    left: 0;
+    margin: 0 auto;
+    top: 44%;
+    right: 0 !important;
+}
+.toast-success.ngx-toastr {
+    margin: 0 auto !important;
+}
+.toast-container .toast-error{
+margin: auto !important;
+}
+
 @media screen and (max-width: 767px) {
     .header.slim {
         position: fixed;
@@ -32,3 +127,305 @@ body {
         left: 0;
     }
 }
+
+.table-responsive .table-job-dash {
+    min-width: 1280px;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow: auto;
+}
+
+.table-responsive::-webkit-scrollbar {
+    height: 3px;
+}
+
+#print_area::-webkit-scrollbar {
+    width: 12px;
+}
+
+
+/* Track */
+
+#print_area::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+
+/* Handle */
+
+#print_area::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #1d184c;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+#print_area::-webkit-scrollbar-thumb:window-inactive {
+    background: #28225c2f;
+}
+
+.iner-context-curate h3 {
+    color: #a70063;
+    font-family: "Bahnschrift";
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.iner-context-curate p {
+    font-size: 28px;
+    font-weight: 330;
+    width: 100%;
+    line-height: 1.3;
+    color: #777772;
+    font-family: "Bahnschrift";
+}
+
+body .incurate-tab-box .user-details {
+    background: #f4fafa;
+    padding: 13px 10px;
+    width: 100%;
+}
+
+.iner-context-curate {
+    padding-bottom: 50px;
+}
+
+.incurate-tab-box {
+    padding: 0 32px;
+}
+
+.iner-context-curate p:last-child {
+    margin-bottom: 0px;
+}
+
+.iner-context-curate:last-child {
+    padding-bottom: 0;
+}
+
+.pr-0 {
+    padding-right: 0;
+}
+
+.pl-0 {
+    padding-left: 0;
+}
+
+@media (max-width: 1800px) {
+    .table-job-dash td {
+        font-size: 14px;
+    }
+    .table-responsive .table-job-dash {
+        min-width: 100px;
+    }
+}
+
+@media (max-width: 1600px) {
+    body .incurate-tab-box .iner-context-curate p {
+        font-size: 24px;
+    }
+    body .incurate-tab-box .user-details-content {
+        width: 75%;
+        padding-left: 77px;
+    }
+    .main-step2CurateJobs {
+        margin: 0 -18px;
+    }
+    .main-step2CurateJobs .wd-50.wd-40.second-child {
+        padding-left: 0;
+    }
+    .main-step2CurateJobs .wd-50.wd-20.second-child {
+        padding-left: 0;
+    }
+    .main-step2CurateJobs div.black-w-box .wd-s-50 p {
+        font-size: 9.6px;
+    }
+    .main-step2CurateJobs form div .wd-s-50 p {
+        font-size: 9.6px;
+    }
+}
+
+@media (max-width:1400px) {
+    .main-step2CurateJobs {
+        margin: 0 -18px;
+    }
+    .iner-context-curate p {
+        font-size: 16px;
+    }
+    body .incurate-tab-box .iner-context-curate p {
+        font-size: 16px;
+    }
+    .iner-context-curate h3 {
+        font-size: 24px;
+    }
+    .incurate-tab-box {
+        padding: 0 23px;
+    }
+    // Table responsive
+    table.table-job-dash td {
+        font-size: 12px;
+        padding: 12px 4px;
+    }
+    .table-responsive .table-job-dash {
+        min-width: 983px;
+    }
+    .table-job-dash .mw-table-sm {
+        min-width: 50px;
+    }
+    .table-job-dash .mw-table-lg {
+        width: 150px;
+    }
+}
+
+@media (max-width:1100px) {
+    body .incurate-tab-box .iner-context-curate p {
+        font-size: 14px;
+    }
+    body .incurate-tab-box .iner-context-curate p {
+        font-size: 14px;
+    }
+    .incurate-tab-box {
+        padding: 0 19px;
+    }
+    .iner-context-curate h3 {
+        font-size: 20px;
+    }
+    // body .incurate-tab-box .user-details-content {
+    //     width: 75%;
+    //     padding-left: 77px;
+    // }
+}
+
+@media (max-width: 991px) {
+    body .incurate-tab-box .user-details {
+        margin-top: 30px;
+        margin-right: auto !important;
+        width: 100%;
+        max-width: 450px;
+        margin-left: auto;
+    }
+    body .incurate-tab-box .iner-context-curate p {
+        font-size: 14px;
+    }
+    .iner-context-curate h3 {
+        font-size: 18px;
+    }
+}
+
+.recaptcha-box iframe {
+    transform: scale(0.8) translate(-29px, -20px);
+}
+
+.table-job-dash td {
+    text-align: center;
+}
+
+
+.multiselect-dropdown .dropdown-btn {
+    margin-bottom: 7px !important;
+    height: auto !important;
+    padding: 8px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 5px !important;
+    background: #fff;
+    height: 111px !important;
+}
+
+.multiselect-dropdown .dropdown-btn .dropdown-multiselect__caret:before {
+     border-width: 6px 6px 0 !important;
+}
+.multiselect-dropdown span.selected-item {
+    font-size: 13px;
+    background: transparent;
+    color: #000 !important;
+    border: unset !important;
+    max-width: 100% !important;
+}
+
+
+.selected-item-container {
+    float: none !important;
+    width: 100%;
+    margin-bottom: 0;
+    border-bottom: 1px solid rgb(0 0 0 / 18%);
+    padding: 5px 0px;
+}
+.profile-state .multiselect-dropdown .dropdown-list {
+    margin-top: -7px;    z-index: 99;
+}
+.selected-item-container .selected-item {
+    background: transparent !important;
+}
+
+span.dropdown-multiselect--active {
+    display: none;
+}
+
+.selected-item-container:nth-child(3) {border-bottom: unset;}
+
+.ng_select_custom .ng-select,
+.ng_select_custom .ng-select .ng-select-container {
+    height:35px;
+}
+
+.ng_select_custom .ng-select .ng-select-container .ng-value-container .ng-input>input {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    color: #000;
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    height: 35px;
+    padding: 0 10px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.ng_select_custom .ng-dropdown-panel .scroll-host {
+    background: #FFF;
+    top: 0;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.ng_select_custom .ng-value-label {
+    padding: 0 10px;
+    line-height: 36px;
+}
+
+.ng_select_custom .ng-select .ng-clear-wrapper .ng-clear {
+    line-height: 36px;
+}
+
+@media(max-width:1366px){
+    .multiselect-dropdown .dropdown-btn {
+        height: 93px !important;
+    }
+}
+
+@media(max-width:1024px){
+    .multiselect-dropdown .dropdown-btn {
+        height: 100px !important;
+    }
+}
+
+@media(max-width:991px){
+    .multiselect-dropdown .dropdown-btn {
+        height: unset !important;
+    }
+}
+
+// coach-profile css
+
+.spec .disabled span.dropdown-btn {
+    pointer-events: none;
+    background: #fff !important;
+}
+// coach-profile css end

@@ -4,84 +4,97 @@
             <h3>Top Career Professional Match</h3>
         </div>
         <!-- <button class="btn-new" ngxprint="" printsectionid="print_area"
-            ng-reflect-print-section-id="print_area" ng-reflect-use-existing-css="true"><i _ngcontent-dvs-c7=""
-                aria-hidden="true" class="fa fa-print"></i></button> -->
-        <button [useExistingCss]="true" class="btn-new" printSectionId="print_area" ngxPrint><i class="fa fa-print"
-                aria-hidden="true"></i></button>
+        ng-reflect-print-section-id="print_area" ng-reflect-use-existing-css="true"><i _ngcontent-dvs-c7=""
+        aria-hidden="true" class="fa fa-print"></i></button> -->
+        <button [useExistingCss]="true" class="btn-new" printSectionId="print_area" ngxPrint>
+            <i class="fa fa-print" aria-hidden="true"></i></button>
         <!-- <button _ngcontent-dvs-c7=""><i _ngcontent-dvs-c7="" aria-hidden="true" class="fa fa-download"></i></button> -->
         <button><i class="fa fa-download" aria-hidden="true"></i></button>
     </div>
 
-    <div id="print_area">
-        <div class="main-view-match">
-
+    <div id="print_area" *ngIf="fun.setFilterData && fun.setFilterData.length > 0">
+        <!-- old code started -->
+        <!-- <div class="main-view-match" *ngFor="let fildata of fun.setFilterData; let i=index">
             <div class="profile-view-new">
-
                 <div class="profile-view">
                     <div class="reyan-profile">
-                        <img src="assets/images/brain_morrison.png">
-                        <h3>Ryan William</h3>
-                    </div>
+                        <img *ngIf="fildata.image" src="{{imgUrl + fildata.image}}">
 
+                        <img *ngIf="!fildata.image" src="assets/images/brain_morrison.png">
+
+                        <h3>{{fildata.name}}</h3>
+                    </div>
                     <div class="profile-view-main">
-                        <ul>
-                            <li>Profile-summary</li>
-                            <li>Primary service</li>
-                        </ul>
+
+                        <h3>{{fildata.profile_header}}</h3>
+                        <p> {{fildata.service_summary}}</p>
                     </div>
                 </div>
-
                 <div class="spacil-new">
                     <div class="profile-view-cn">
                         <ul>
-                            <li>Specialization</li>
-
+                            <h3> Specialization </h3>
+                            <p>{{fildata.top3_specialization}}</p>
                         </ul>
                     </div>
                     <div class="profile-view-nit">
                         <ul>
-                            <li>Curate match profile link</li>
-                            <li>Industry</li>
+                            <li>
+                                <h3>Both match profile link</h3>
+                            </li>
+                            <li>{{fildata.jobrep_profile_link}}</li>
+                            <li class="industry-title">
+                                <h3>Industry</h3>
+                            </li>
+                            <li>{{fildata.industry_experience}}</li>
                         </ul>
                     </div>
                 </div>
             </div>
+        </div> -->
+        <!-- old code End -->
+         <!-- new code started -->
+        <div class="main-view-match" *ngFor="let fildata of fun.setFilterData; let i=index">
+            <div class="profile-view-new">
+                <div class="profile-view profile-view-tool">
+                    <div class="reyan-profile">
+                        <img *ngIf="fildata.image" src="{{imgUrl + fildata.image}}">
 
+                        <img *ngIf="!fildata.image" src="assets/images/brain_morrison.png">
+                        <h3>{{fildata.name}}</h3>
+                    </div>
+                    <div class="profile-view-main">
+                        <h3>{{fildata.profile_header}} </h3>
+                        <p> {{fildata.service_summary}}</p>
+                    </div>
+                    <div class="profile-view-cn">
+                        <ul>
+                            <h3> Specialization </h3>
+                            <p>{{fildata.top3_specialization}}</p>
+                        </ul>
+                    </div>
+                    <div class="profile-view-nit">
+                        <ul>
+                            <li>
+                                <h3>Both match profile link</h3>
+                            </li>
+                            <li>{{fildata.jobrep_profile_link}}</li>
+                            <li class="industry-title">
+                                <h3>Industry</h3>
+                            </li>
+                            <li>{{fildata.industry_experience}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
+         <!-- New code end -->
+    </div>
+    <div id="print_area" *ngIf="fun.setFilterData.length == 0">
         <div class="main-view-match-new">
-
             <div class="profile-view-new">
-
-                <div class="profile-view">
-                    <div class="reyan-profile">
-                        <img src="assets/images/brain_morrison.png">
-                        <h3>Ryan William</h3>
-                    </div>
-
-                    <div class="profile-view-main">
-                        <ul>
-                            <li>Profile-summary</li>
-                            <li>Primary service</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="spacil-new">
-                    <div class="profile-view-cn">
-                        <ul>
-                            <li>Specialization</li>
-
-                        </ul>
-                    </div>
-                    <div class="profile-view-nit">
-                        <ul>
-                            <li>Curate match profile link</li>
-                            <li>Industry</li>
-                        </ul>
-                    </div>
-                </div>
+                <p>Data Not Found!</p>
             </div>
-
         </div>
     </div>
 </div>

@@ -1,0 +1,287 @@
+.main-user-details {
+    display: flex;
+    max-width: 1100px;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.user-details {
+    width: calc(96% - 20px);
+    background: #dbf1f5;
+    margin-bottom: 34px;
+    padding: 13px 20px;
+}
+
+.iner-context-curate {
+    padding-bottom: 34px;
+}
+
+.iner-context-curate p {
+    line-height: 36px;
+    font-size: 27px;
+}
+
+.user-details-content h3:not(.blue-color-text) {
+    padding-top: 32px;
+    font-weight: 100;
+}
+
+.incurate-tab-box {
+    padding: 0 18px;
+}
+
+.user-details-img {
+    float: left;
+    width: 21%;
+    cursor: pointer;
+}
+
+.pb-80 {
+    padding-bottom: 80px
+}
+
+.user-details h3 {
+    font-size: 16.8px;
+}
+
+.user-details-img img {
+    margin: 6px;
+    height: 156px;
+    width: 156px;
+    max-height: 100%;
+    max-width: 160%;
+}
+
+.user-details-img h3 {
+    text-align: center;
+    margin-top: 6px;
+    margin-bottom: -11px;
+    color: #000;
+    font-weight: 600;
+}
+
+.user-details-content {
+    float: left;
+    width: 75%;
+    padding-left: 70px;
+    padding-top: 16px;
+}
+
+.user-details-content p {
+    font-size: 15px;
+    text-align: center;
+    line-height: 20px;
+    font-weight: 500;
+    color: #000;
+}
+
+.refaq h2 {
+    text-align: center;
+    margin: 0px 0;
+    font-weight: 400;
+    color: #18164e;
+    font-family: "Open Sans", sans-serif;
+    font-size: 34px;
+    margin-top: 98px;
+}
+
+.blue-color-text {
+    color: #22205f;
+    text-align: center;
+}
+
+.botton-content-part {
+    padding-left: 26px;
+}
+
+.inner-image-curate {
+    max-width: 98.2%;
+}
+
+.coach-name {
+    position: relative;
+    left: 25px;
+    white-space: nowrap;
+}
+
+.serivce-text p {
+    font-weight: 500;
+    color: #a70063;
+    font-size: 15px;
+    padding: 0px 0px 2px 53px;
+}
+
+.refaq p.need-para {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #a70063;
+    margin-top: -10px;
+    font-family: "Open Sans", sans-serif;
+    margin-bottom: 69px;
+}
+
+.job-post-profile {
+    padding: 9px 21px 0px 21px;
+    margin-top: 0;
+    background: #dbf0f6;
+}
+
+.iner-context-curate h3 {
+    line-height: 26px;
+    padding-bottom: 15px;
+}
+
+.p-0 {
+    padding: 0 !important
+}
+
+.button-image button {
+    background-color: #33cccc !important;
+    border-radius: 50px !important;
+    height: 54px;
+    width: 133px;
+    padding: 10px 20px !important;
+    min-width: auto;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 27px;
+}
+
+.button-image {
+    float: right;
+    margin: 0 auto;
+    margin-right: 71px;
+}
+
+.iner-context-curate p:last-child {
+    margin-top: 26px;
+}
+
+@media (max-width: 1600px) {
+    .job-post-profile {
+        padding: 62px 15px 62px 15px;
+    }
+    .pb-80 {
+        padding-bottom: 58px;
+    }
+    .user-details {
+        margin-bottom: 17px;
+    }
+    .iner-context-curate p {
+        line-height: 25px;
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 1399px) {
+    .pb-80 {
+        padding-bottom: 20px;
+    }
+    .user-details {
+        margin-bottom: 6px !important;
+    }
+    body .incurate-tab-box .iner-context-curate p {
+        font-size: 16px !important;
+    }
+    .incurate-tab-box .user-details-content br {
+        display: none;
+    }
+    .user-details-img .coach-name {
+        left: 0;
+    }
+    .user-details-content h3 {
+        padding-top: 2px !important;
+    }
+    .user-details-img img {
+        height: auto !important;
+        max-width: 136% !important;
+    }
+    .user-details-content {
+        padding-top: 12px;
+    }
+    .user-details-content p {
+        line-height: 1.2 !important;
+    }
+    .user-details-img .coach-name {
+        left: 8px;
+    }
+    .blue-color-text {
+        text-align: left;
+    }
+    .botton-content-part {
+        padding-left: 0;
+    }
+    .iner-context-curate p {
+        line-height: 22px;
+        font-size: 21px;
+    }
+    .iner-context-curate p {
+        line-height: 21px;
+        font-size: 15px;
+    }
+    .iner-context-curate p:last-child {
+        margin-top: 0px;
+    }
+}
+
+@media (max-width: 1260px) {
+    .job-post-profile {
+        padding: 62px 15px 62px 15px;
+    }
+    .incurate-tab-box .user-details-content br {
+        display: none;
+    }
+    .user-details h3 {
+        font-size: 11.4px !important;
+    }
+}
+
+@media only screen and (min-device-width: 767px) and (max-device-width: 1024px) {
+    .job-post-profile {
+        padding: 21px 15px 8px 15px;
+    }
+    .pb-80 {
+        padding-bottom: 20px;
+    }
+    .user-details {
+        margin-bottom: -8px !important;
+    }
+    .incurate-tab-box .user-details-content br {
+        display: none;
+    }
+    .user-details-img .coach-name {
+        left: 0;
+    }
+    .iner-context-curate {
+        padding-bottom: 20px;
+    }
+    .iner-context-curate img {
+        width: 25px !important;
+    }
+    .inner-image-curate img {
+        margin-top: 25px;
+    }
+}
+
+@media (min-width: 1366px) and (max-width: 1400px) {
+    .user-details h3 {
+        font-size: 11.8px !important;
+    }
+}
+
+@media (min-width: 1400px) and (max-width: 1620px) {
+    .user-details h3 {
+        font-size: 13.8px !important;
+    }
+    .user-details-content p {
+        font-size: 13px !important;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1366px) {
+    .user-details-content {
+        width: 79% !important;
+        padding-left: 60px !important;
+    }
+}

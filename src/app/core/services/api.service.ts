@@ -13,28 +13,20 @@ export class ApiService {
       // 'User-Agent': 'grow@curateventures.com',
       'Authorization-Key': 'vsvO9VtJEAuoIGx4qQLzTXmY0z9bsHFccK6yk+4zL2M='
     });
-    const link = `${environment.baseUrl}/${arg.url}`;
+    const link = `${environment.usaJobsUrl}/${arg.url}`;
     const data = { params: arg.params }
     const options = { params: arg.params, headers: headerDict };
     return this.http.get(link, options)
   }
-  
-  httpPost(url :any, body : any ): Observable<any> {
-    console.log("This is URL::", url, "And This is the whole file data::", body)
-    const headers = { 
-    'content-type': 'application/json',
-    // 'Authorization-Key': 'vsvO9VtJEAuoIGx4qQLzTXmY0z9bsHFccK6yk+4zL2M=',
-    // 'mode': 'no-cors'
-    }
-     debugger;
-     const completeUrl = `${environment.backendBaseUrl}/${url}`;
-    // const completeUrl = `${url}`;
-    return this.http.post( completeUrl, body,{'headers':headers})
+
+  httpPost(url: any, body: any): Observable<any> {
+    let headers = { 'content-type': 'application/json' }
+    const completeUrl = `${environment.baseUrl}${url}`;
+    return this.http.post(completeUrl, body, { 'headers': headers })
   }
-  
   httpPostForUplaod(url: any, body: any): Observable<any> {
     let headers = {}
-    const completeUrl = `${environment.backendBaseUrl}${url}`;
+    const completeUrl = `${environment.baseUrl}${url}`;
     return this.http.post(completeUrl, body, { 'headers': headers })
   }
 }

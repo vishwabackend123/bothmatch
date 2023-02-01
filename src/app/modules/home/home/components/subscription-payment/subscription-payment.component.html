@@ -1,0 +1,278 @@
+<div class="main-login-page">
+    <div class="login-page">
+        <div class="row">
+            <!-- <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+
+               <div class="payment-image">
+                   <img src="/assets/images/discount.png" alt="">
+               </div>
+            </div>
+
+            <div class="col-12 col-sm-12 col-md-12 col-lg-5 offset-lg-1">
+                <div id="mymodal" class="modal-popup right payment-popup-curate fade">
+                    <div class="modal-dialogs  modal-dialog-centereds">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <form id="payment-form">
+                                    <div class="ProductSummary-info">
+                                        <p><b class="color-voilet">Monthly Subscription:</b>
+                                            <span><strong>50</strong></span>
+                                        </p>
+                                        <p>Subscription start date: <span><strong>$20</strong></span></p>
+                                        <p>Subscription end date: <span><strong>$20</strong></span></p>
+                                        <p>Per match daily dollar limit: <span><strong>$20</strong></span></p>
+                                        <p>Pause subscription: <span><strong>$20</strong></span></p>
+                                    </div>
+                                    <div class="card-strip-box">
+                                        <div class="underline-list">
+                                            <div class="powered">
+                                                <img width="160" src="assets/images/stripe-water.svg" />
+                                            </div>
+
+                                        </div>
+                                        <div class="main-stripe">
+                                            <ul>
+                                                <li><img src="assets/images/visa-card-v2.png" /></li>
+                                                <li><img src="assets/images/master-card-v2.png" /></li>
+                                                <li><img src="assets/images/american-express-card-v2.png" />
+                                                </li>
+                                                <li><img src="assets/images/discover-card-v2.png" /></li>
+                                            </ul>
+                                            <div *ngIf="!showDemo" id="card-number" class="strip-input-field">
+                                            </div>
+                                            <div *ngIf="!showDemo" id="card-expiry" class="strip-input-field">
+                                            </div>
+                                            <div *ngIf="!showDemo" id="card-cvc" class="strip-input-field" style="background-image: url(assets/images/cvv-card-v2.png);">
+                                            </div>
+
+
+
+                                            <div *ngIf="showDemo" class="card-dummy-number">
+                                                <input type="text" id="number" name="number" placeholder="1234 1234 1234" mask="0000 0000 0000 0000">
+                                            </div>
+
+                                            <div *ngIf="showDemo" class="card-dummy-input">
+                                                <div>
+                                                    <input type="text" id="expiry" name="expiry" placeholder="MM/YY" mask="00/00">
+                                                </div>
+                                                <div style="background-image: url(assets/images/cvv-card-v2.png);">
+                                                    <input type="number" id="cvc" name="cvc" placeholder="CVC" mask="000">
+                                                </div>
+                                            </div>
+
+                                            <div class="card-dummy-number">
+                                                <input type="text" id="address" name="address" placeholder="Address*" value="">
+                                                <div class="alert1 alert-danger">
+                                                    <div>
+                                                        Address is required.
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="City-number">
+                                                <input type="text" id="city" name="city" placeholder="City*">
+                                                <div>
+                                                    <div>
+                                                        City is required.
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="new-input-feild">
+                                                <div class="state-input">
+                                                    <input type="text" id="state" name="state" placeholder="State*">
+                                                    <div class="alert1 alert-danger">
+                                                        <div>
+                                                            State is required.
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="state-input-right">
+                                                    <input type="text" id="zip" name="zip" placeholder="ZIP*">
+                                                    <div class="alert1 alert-danger">
+                                                        <div>
+                                                            Zip is required.
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="state-input-country">
+                                                    <input type="text" id="country" name="country" [readonly]="true" value="USA" placeholder="USA">
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div *ngIf="!showDemo" class="submit-button-bx">
+                                            <button id="submit">
+                                                <span id="button-text">Pay $20</span>
+                                                <span class="buttonload hidden" id="spinner"><i
+                                                        class="fa fa-spinner fa-spin"></i>Loading</span>
+                                            </button>
+                                        </div>
+                                        <div *ngIf="showDemo" class="submit-button-bx">
+                                            <button id="submit">
+                                                <span id="button-text">Pay $50</span>
+                                                <span class="buttonload hidden" id="spinner"><i
+                                                        class="fa fa-spinner fa-spin"></i>Loading</span>
+                                            </button>
+                                        </div>
+                                        <div id="card-error" role="alert"></div>
+                                        <p>No refunds once a digital product is processed</p>
+                                        <p>Payment information is not stored on Both Match</p>
+                                        <p>Billing processed by JobRep Network LLC</p>
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="flex-box-imgcon">
+
+                <div class="image-col">
+
+                    <div class="payment-image">
+                        <img src="assets/images/discount-v4.png" alt="">
+                    </div>
+                </div>
+
+                <div class="content-col">
+                    <div id="mymodal" class="modal-popup right payment-popup-curate fade h-100">
+                        <div class="modal-dialogs h-100 modal-dialog-centereds">
+                            <div class="modal-content h-100">
+                                <div class="modal-body h-100">
+                                    <form id="payment-form" class="h-100">
+                                        <div class="ProductSummary-info">
+                                            <p class="pb-bottom"><b class="color-voilet">Monthly Subscription:</b>
+                                                <span><strong>$50</strong></span>
+                                            </p>
+                                            <p>Subscription start date : <span><strong></strong></span></p>
+                                            <p>Subscription end date : <span><strong></strong></span></p>
+                                            <p>Per match daily dollar limit : <span><strong></strong></span></p>
+                                            <p>Pause subscription : <span><strong>Yes/No</strong></span></p>
+                                        </div>
+                                        <div class="card-strip-box">
+                                            <div class="underline-list">
+                                                <div class="powered">
+                                                    <img width="160" src="assets/images/stripe-water.svg" />
+                                                </div>
+                                                <ul>
+                                                    <li><img src="assets/images/visa-card-v2.png" /></li>
+                                                    <li><img src="assets/images/master-card-v2.png" /></li>
+                                                    <li><img src="assets/images/american-express-card-v2.png" /></li>
+                                                    <li><img src="assets/images/discover-card-v2.png" /></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="card-strip-box">
+                                            <div class="main-stripe">
+                                                <div *ngIf="!showDemo" id="card-number" class="strip-input-field">
+                                                    <!--a Stripe Element will be inserted. -->
+                                                </div>
+                                                <div *ngIf="!showDemo" id="card-expiry" class="strip-input-field">
+                                                    <!--a Stripe Element will be inserted. -->
+                                                </div>
+                                                <div *ngIf="!showDemo" id="card-cvc" class="strip-input-field" style="background-image: url(assets/images/cvv-card-v2.png);">
+                                                    <!--a Stripe Element will be inserted. -->
+                                                </div>
+                                                <!--given inputs will show only when user selets demo -->
+
+                                                <div *ngIf="showDemo" class="card-dummy-number">
+                                                    <input type="text" id="number" name="number" placeholder="1234 1234 1234" mask="0000 0000 0000 0000">
+                                                </div>
+
+                                                <div *ngIf="showDemo" class="card-dummy-input">
+                                                    <div>
+                                                        <input type="text" id="expiry" name="expiry" placeholder="MM/YY" mask="00/00">
+                                                    </div>
+                                                    <div style="background-image: url(assets/images/cvv-card-v2.png);">
+                                                        <input type="number" id="cvc" name="cvc" placeholder="CVC" mask="000">
+                                                    </div>
+                                                </div>
+
+                                                <div class="card-dummy-number">
+                                                    <input type="text" id="address" name="address" placeholder="Address*" value="">
+                                                    <div class="alert1 alert-danger">
+                                                        <div>
+                                                            Address is required.
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="City-number">
+                                                    <input type="text" id="city" name="city" placeholder="City*">
+                                                    <div class="alert1 alert-danger">
+                                                        <div>
+                                                            City is required.
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="new-input-feild">
+                                                    <div class="state-input">
+                                                        <input type="text" id="state" name="state" placeholder="State*">
+                                                        <div class="alert1 alert-danger">
+                                                            <div>
+                                                                State is required.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="state-input-right">
+                                                        <input type="text" id="zip" name="zip" placeholder="ZIP*">
+                                                        <div class="alert1 alert-danger">
+                                                            <div>
+                                                                Zip is required.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="state-input-country">
+                                                        <input type="text" id="country" name="country" [readonly]="true" value="USA" placeholder="USA">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div *ngIf="!showDemo" class="submit-button-bx">
+                                                <button id="submit">
+                                                    <span id="button-text">Pay $20</span>
+                                                    <span class="buttonload hidden" id="spinner"><i
+                                                            class="fa fa-spinner fa-spin"></i>Loading</span>
+                                                </button>
+                                            </div>
+                                            <div *ngIf="showDemo" class="submit-button-bx">
+                                                <button id="submit">
+                                                    <span id="button-text">Save & Pay</span>
+                                                    <span class="buttonload hidden" id="spinner"><i
+                                                            class="fa fa-spinner fa-spin"></i>Loading</span>
+                                                </button>
+                                            </div>
+                                            <div id="card-error" role="alert"></div>
+                                        </div>
+                                        <div class="main-stripe">
+                                            <div class="pl-8 font-small">
+                                                <p><span>*</span> <span class="underline-mode"> No refunds </span> once a digital product is processed</p>
+                                                <!-- <p>Payment data is <span class="underline-mode">not</span> stored on Both Match</p> -->
+                                                <p><span>*</span> Payment data is <span class="underline-mode">not</span> stored on Both Match</p>
+                                                <p class="pb-3"><span>*</span> Billing processed by <span class="underline-mode">JobRep Network LLC</span></p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

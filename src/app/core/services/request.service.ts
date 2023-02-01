@@ -31,7 +31,6 @@ export class RequestService {
   }
 
   post(path: string, body: Object = {}): Observable<any> {
-    debugger
     const headers = { 'content-type': 'application/json'}
     return this.http.post(
       `${environment.backendBaseUrl}${path}`, body,{'headers':headers}

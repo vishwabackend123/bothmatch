@@ -15,21 +15,7 @@ export class FilesService {
 
   userFileUpload(data: any) {
     return new Promise((resolve, rejects) => {
-      this.apiService.httpPostForUplaod("userprofile/upload_image/", data).subscribe(
-        (data) => {
-          resolve(data);
-        },
-        (error) => {
-          rejects(error);
-        }
-      );
-    });
-  }
-
-  resumeUpload(data: any) {
-    return new Promise((resolve, rejects) => {
-      debugger
-      this.apiService.httpPostForUplaod("dev/govt_match_app/uploadResume", data).subscribe(
+      this.apiService.httpPostForUplaod("account/saveImageFile", data).subscribe(
         (data) => {
           resolve(data);
         },
@@ -42,7 +28,7 @@ export class FilesService {
 
   getExpertise() {
     return new Promise((resolve, rejects) => {
-      this.requestService.post("userprofile/get_user_expertise/").subscribe(
+      this.requestService.get("account/getExpertiseDetails").subscribe(
         (data) => {
           resolve(data);
         },
@@ -53,9 +39,9 @@ export class FilesService {
     });
   }
 
-  updateExpertise(data: any) {
+  getExpertiseWithoutAuth() {
     return new Promise((resolve, rejects) => {
-      this.requestService.post("userprofile/update_user_expertise/", data).subscribe(
+      this.requestService.get("account/getExpertiseWithoutAuth").subscribe(
         (data) => {
           resolve(data);
         },
@@ -65,4 +51,70 @@ export class FilesService {
       );
     });
   }
+
+  getAllExpertis() {
+    return new Promise((resolve, rejects) => {
+      this.requestService.get("account/getAllMatch").subscribe(
+        (data) => {
+          resolve(data);
+        },
+        (error) => {
+          rejects(error);
+        }
+      );
+    });
+  }
+
+  getAllUsers() {
+    return new Promise((resolve, rejects) => {
+      this.requestService.get("account/getApprovedUser").subscribe(
+        (data) => {
+          resolve(data);
+        },
+        (error) => {
+          rejects(error);
+        }
+      );
+    });
+  }
+
+  
+  updateExpertise(data: any) {
+    return new Promise((resolve, rejects) => {
+      this.requestService.post("account/updateExpertise", data).subscribe(
+        (data) => {
+          resolve(data);
+        },
+        (error) => {
+          rejects(error);
+        }
+      );
+    });
+  }
+
+  filterCareerProfessional(data: any) {
+    return new Promise((resolve, rejects) => {
+      this.requestService.post("account/filterSkills", data).subscribe(
+        (data) => {
+          resolve(data);
+        },
+        (error) => {
+          rejects(error);
+        }
+      );
+    });
+  }
+
+  // resumeUpload(data: any) {
+  //   return new Promise((resolve, rejects) => {
+  //     this.apiService.httpPostForUplaod("govt_match_app/uploadResume", data).subscribe(
+  //       (data) => {
+  //         resolve(data);
+  //       },
+  //       (error) => {
+  //         rejects(error);
+  //       }
+  //     );
+  //   });
+  // }
 }

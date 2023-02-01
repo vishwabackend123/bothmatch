@@ -21,7 +21,7 @@ export class ChallengesSolutionComponent implements OnInit {
   }
   tabIndex = 0;
   height = 0;
-  ourMissionImag: string = "bg-right (2).jpg";
+  ourMissionImag: string = "https://res.cloudinary.com/dprocdn/image/upload/v1654238203/bg-right-new_u4szrr.jpg";
   ngOnInit(): void {
     this.setImageHeight("");
     this.changeOurMissionImage();
@@ -35,24 +35,22 @@ export class ChallengesSolutionComponent implements OnInit {
   setImageHeight(event: any) {
     if ((event == "") || (event && event.target && event.target.innerWidth > 767)) {
       let that = this;
-      that.isLoading = true;
       setTimeout(function () {
+      
         if (document.getElementsByClassName('my-img')[0]?.clientHeight > 0) {
           that.height = document.getElementsByClassName('my-img')[0]?.clientHeight - document.getElementsByClassName('my-head')[0]?.clientHeight;
-          that.isLoading = false
         } else {
           that.isLoading = false;
           that.height = 624;
         }
-        that.isLoading = false
-      }, 5000);
+      }, 100);
     }
   }
 
   changeOurMissionImage() {
     let that = this;
     setTimeout(function () {
-      that.ourMissionImag = "puzzle1.png";
+      that.ourMissionImag = "assets/images/Layers-v.png";
     }, 15000);
   }
   goTopJobs() {

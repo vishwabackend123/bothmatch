@@ -29,12 +29,27 @@ import { USCompanyMatchStep3FormComponent } from './home/components/us-company-m
 import { HeaderComponent } from '../layout/layout/components/header/header.component';
 import { MatchComponent } from './home/components/match/match.component';
 import { ForgotPasswordComponent } from './home/components/forgot-password/forgot-password.component';
+import { EmployerComponent } from './home/components/employer/employer.component';
+import { EmployerProfileComponent } from './home/components/employer-profile/employer-profile.component';
+import { EmployerLoginComponent } from './home/components/employer-login/employer-login.component';
+import { SubscriptionPaymentComponent } from './home/components/subscription-payment/subscription-payment.component';
+import { OpenJobsComponent } from './home/components/employer/openjobs/openjobs.component';
+import { CurateJobsComponent } from './home/components/employer/curatejobs/curatejobs.component';
+import { SubmittedResumeComponent } from './home/components/employer/submittedresume/submittedresume.component';
+import { RecruitingOverviewComponent } from './home/components/employer/recruiting-overview/recruiting-overview.component';
+import { Step2CurateJobsComponent } from './home/components/employer/step2-curate-jobs/step2-curate-jobs.component';
+import { Step3ReviewAndPayComponent } from './home/components/employer/step3-review-and-pay/step3-review-and-pay.component';
+import { SubmitResumeComponent } from './home/components/submit-resume/submit-resume.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 
 @NgModule({
   declarations: [HomeComponent, HeaderSliderComponent, ResumeUploadComponent, ChallengesSolutionComponent, FederalJobsComponent, JobRepComponent, AboutUsComponent,FooterComponent,
-    CareerAdvancement,CandidateCoachMatch,ViewMatchedCoaches,CoachLoginComponent,CoachProfileComponent,CoachExpertiseComponent,USCompanyMatchStep3FormComponent,HeaderComponent, MatchComponent, ForgotPasswordComponent],
+    CareerAdvancement,CandidateCoachMatch,ViewMatchedCoaches,CoachLoginComponent,CoachProfileComponent,CoachExpertiseComponent,USCompanyMatchStep3FormComponent,HeaderComponent, MatchComponent, ForgotPasswordComponent
+    ,EmployerComponent,EmployerProfileComponent,EmployerLoginComponent,SubscriptionPaymentComponent,OpenJobsComponent,CurateJobsComponent,SubmittedResumeComponent,RecruitingOverviewComponent
+    ,Step2CurateJobsComponent,Step3ReviewAndPayComponent, SubmitResumeComponent,SubmitResumeComponent],
   imports: [
     CommonModule,
     SliderModule,
@@ -45,6 +60,8 @@ import { ForgotPasswordComponent } from './home/components/forgot-password/forgo
     SlickCarouselModule,
     NgxPrintModule,
     NgDragDropModule.forRoot(),
+    NgMultiSelectDropDownModule.forRoot(),
+    NgSelectModule,
     NgxCaptchaModule,
     AngularDraggableModule,
     NgbModule,

@@ -15,16 +15,22 @@ export class HeaderComponent implements OnInit {
     if (this.router.url != "") {
       if (this.router.url == "/jobrep") {
         this.tabIndex = 1;
-      } else if (this.router.url == "/about-us") {
-        this.tabIndex = 2;
-      } else if (this.router.url == "/match") {
+      }
+      // else if (this.router.url == "/about-us") {
+      //   this.tabIndex = 2;
+      // }
+      else if (this.router.url == "/match") {
         this.tabIndex = 3;
-      } else if (this.headerTabIndex) {
+      } else if (this.router.url == "/employers") {
+        this.tabIndex = 4;
+      }else if (this.headerTabIndex) {
         this.tabIndex = this.headerTabIndex
       } else {
         this.tabIndex = 0
       }
     }
+
+    
     // else {
     //   this.tabIndex = 0;
     // }
@@ -54,9 +60,9 @@ export class HeaderComponent implements OnInit {
     }
   }
   tabChange(index: number, path: string): void {
-    debugger;
+
     this.tabIndex = index;
-    this.onClickMenu();    
+    this.onClickMenu();
       this.router.navigate([path]);
   }
   onClickMenu() {

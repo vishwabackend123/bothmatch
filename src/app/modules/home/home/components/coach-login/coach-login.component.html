@@ -1,193 +1,236 @@
 <div class="main-login-page">
-  <div class="login-page">
-    <div class="row">
-      <div class="col-12 col-sm-12 col-md-12 col-lg-4">
-        <form [formGroup]="Loginform">
-          <div class="inner-login cp-enroll">
-            <div class="form-state">
-              <label>Login-EMAIL (PRIVATE)</label>
-              <input type="email" formControlName="email" class="form-control" placeholder="Enter your email">
-              <div class="error-fields">
-                <div *ngIf="Loginform.get('email').touched && Loginform.get('email').invalid">
-                  <p *ngIf="Loginform.get('email').hasError('required')" class="required">
-                    Email is required
-                  </p>
-                  <p class="required" *ngIf="Loginform.controls.email.errors?.email">Email format is invalid</p>
+    <div class="login-page">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                <form [formGroup]="Loginform" [ngClass]="{'capHide': isUserVerify}">
+                    <div class="inner-login cp-enroll">
+                        <h2 class="form_heading">STEP 1: Register or Login</h2>
+                        <div class="form-state" [ngClass]="{'disableLoginForm': fun.checkToken}">
+                            <label>Login-EMAIL (PRIVATE)</label>
+                            <input type="email" (keyup)="keyPress($event)" formControlName="email" class="form-control" placeholder="Enter your email">
+                            <div class="error-fields">
+                                <div *ngIf="Loginform.get('email').touched && Loginform.get('email').invalid">
+                                    <p *ngIf="Loginform.get('email').hasError('required')" class="required">
+                                        Email is required
+                                    </p>
+                                    <p class="required" *ngIf="Loginform.controls.email.errors?.pattern">Email format is invalid</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-state" [ngClass]="{'disableLoginForm': fun.checkToken}">
+                            <label>PASSWORD (PRIVATE)</label>
+                            <input type="password" formControlName="password" minlength="8" class="form-control" placeholder="Enter your password">
+                            <div class="error-fields">
+                                <div *ngIf="Loginform.get('password').touched && Loginform.get('password').invalid">
+                                    <p class="required validate-err">
+                                        <span *ngIf="Loginform.get('password').hasError('required')" class="required">
+                                        Password is required
+                                        </span>
+                                        <span *ngIf="Loginform.controls.password.errors?.minlength" class="required">
+                                        Password at least 8 characters required!
+                                        </span>
+                                        <span *ngIf="Loginform.controls.password.errors?.hasNumber" class="required">
+                                        Must have at least 1 number!
+                                        </span>
+                                        <span *ngIf="Loginform.controls.password.errors?.hasCapitalCase" class="required">
+                                        Must contain at least 1 in Capital Case!
+                                        </span>
+                                        <span *ngIf="Loginform.controls.password.errors?.hasSmallCase" class="required">
+                                        Must contain at least 1 Letter in Small Case!
+                                        </span>
+                                        <span *ngIf="Loginform.controls.password.errors?.hasSpecialCharacters" class="required">
+                                        Must contain at least 1 Special Character!
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-state" [ngClass]="{'disableLoginForm': fun.checkToken}">
+                            <label>FULL NAME (PRIVATE)</label>
+                            <input type="text" formControlName="fullname" class="form-control" placeholder="Enter your name">
+                            <!-- <div class="error-fields">
+                                <div *ngIf="Loginform.get('fullname').touched && Loginform.get('fullname').invalid">
+                                    <p *ngIf="Loginform.get('fullname').hasError('required')" class="required">
+                                        Full Name is required
+                                    </p>
+                                </div>
+                            </div> -->
+                        </div>
+                        <div class="form-recaptcha-size" [ngClass]="{'capHide': fun.checkToken}">
+                            <div #recaptcha [ngClass]="{'capHide': isUserVerify}"></div>
+                        </div>
+
+                        <div class="form-button">
+                            <ng-container *ngIf="!loginCheck">
+                                <ng-container *ngIf="!fun.checkToken">
+                                    <button *ngIf="!isRegisterLoader" class="submit-btn" type="submit" (click)="registerUser()">REGISTER</button>
+                                </ng-container>
+                                <button *ngIf="isRegisterLoader" type="button" class="submit-btn">Loading...</button>
+                            </ng-container>
+                            <ng-container *ngIf="!resgisterCheck">
+                                <ng-container *ngIf="!fun.checkToken">
+                                    <button *ngIf="!isLoader" type="submit" class="submit-btn" (click)="submitLogin()">Login</button>
+                                </ng-container>
+                            </ng-container>
+                            <ng-container *ngIf="fun.checkToken">
+                                <button *ngIf="!isLoader" class="submit-btn logout" (click)="logout()">Logout</button>
+                            </ng-container>
+                            <button *ngIf="isLoader" type="reset" class="submit-btn">Loading...</button>
+                        </div>
+
+                        <div class="forgot-button" *ngIf="!fun.checkToken">
+                            <button Class='forgot-p' (click)="openVerticallyCentered(content)">Forgot Login / Password</button>`
+                        </div>
+                    </div>
+                </form>
+                <form [formGroup]="otpForm" [ngClass]="{'capHide': !isUserVerify}">
+                    <div class="inner-login cp-enroll otpbox_outter">
+                        <h2 class="form_heading">STEP 2: Enter OTP Code</h2>
+                        <div class="form-state">
+                            <label>Login-EMAIL (PRIVATE)</label>
+                            <input type="email" formControlName="emailOtp" class="form-control" placeholder="Enter your email" readonly>
+                            <div class="error-fields">
+                                <div *ngIf="otpForm.get('emailOtp').touched && otpForm.get('emailOtp').invalid">
+                                    <p *ngIf="otpForm.get('emailOtp').hasError('required')" class="required">
+                                        Email is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-state">
+                            <label>OTP CODE</label>
+                            <input type="text" formControlName="otp" minlength="6" class="form-control">
+                            <div class="error-fields">
+                                <div *ngIf="otpForm.get('otp').touched && otpForm.get('otp').invalid">
+                                    <p *ngIf="otpForm.get('otp').hasError('required')" class="required">
+                                        OTP CODE is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="spam_msg">Check your email spam folder if you do not see the OTP code in you inbox</p>
+                        <div class="form-recaptcha-size">
+                            <div #reUser [ngClass]="{'capHide': !isUserVerify}"></div>
+                        </div>
+
+                        <div class="form-button">
+                            <button *ngIf="!isResendLoader" class="submit-btn" type="button" (click)="resendOtp()">Resend OTP</button>
+                            <button *ngIf="isResendLoader" type="reset" class="submit-btn">Loading...</button>
+                            <button *ngIf="!isVerifyLoader" class="submit-btn" type="submit" (click)="verifyOtp()">Submit</button>
+                            <button *ngIf="isVerifyLoader" type="reset" class="submit-btn">Loading...</button>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+
+            <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+                <div class="career-image">
+                    <div class="starte-image">
+                        <img src="/assets/images/employers-groups.png">
+                    </div>
+
+                    <!--  *ngIf="checkToken" this condition will added bellow tab when API start working -->
+                    <div class="button-image">
+                        <button class="submit-btn next next-btn" type="submit" (click)="tabChange(1)">NEXT</button>
+                        <!-- <button *ngIf="isLoader">Loading...</button> -->
+                    </div>
                 </div>
-              </div>
             </div>
-
-            <div class="form-state">
-              <label>PASSWORD (PRIVATE)</label>
-              <input type="password" formControlName="password" minlength="8" class="form-control"
-                placeholder="Enter your password">
-              <div class="error-fields">
-                <div *ngIf="Loginform.get('password').touched && Loginform.get('password').invalid">
-                  <p class="required validate-err">
-                    <span *ngIf="Loginform.get('password').hasError('required')" class="required">
-                      Password is required
-                    </span>
-                    <span *ngIf="Loginform.controls.password.errors?.minlength" class="required">
-                      Password at least 8 characters required!
-                    </span>
-                    <span *ngIf="Loginform.controls.password.errors?.hasNumber" class="required">
-                      Must have at least 1 number!
-                    </span>
-                    <span *ngIf="Loginform.controls.password.errors?.hasCapitalCase" class="required">
-                      Must contain at least 1 in Capital Case!
-                    </span>
-                    <span *ngIf="Loginform.controls.password.errors?.hasSmallCase" class="required">
-                      Must contain at least 1 Letter in Small Case!
-                    </span>
-                    <span *ngIf="Loginform.controls.password.errors?.hasSpecialCharacters" class="required">
-                      Must contain at least 1 Special Character!
-                    </span>
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-state">
-              <label>FULL NAME (PRIVATE)</label>
-              <input type="text" formControlName="fullname" class="form-control" placeholder="Enter your name">
-              <div class="error-fields">
-                <div *ngIf="Loginform.get('fullname').touched && Loginform.get('fullname').invalid">
-                  <p *ngIf="Loginform.get('fullname').hasError('required')" class="required">
-                    Full Name is required
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="form-recaptcha-size">
-              <div #recaptcha></div>
-            </div>
-
-            <div class="form-button">
-              <button type="button" *ngIf="!checkToken" class="submit-btn" type="submit"
-                (click)="registerUser()">REGISTER</button>
-              <!-- <a href="javascript:void(0)">Login</a> -->
-              <ng-container *ngIf="!checkToken">
-                <button *ngIf="!isLoader" type="submit" class="submit-btn" (click)="submitLogin()">Login</button>
-              </ng-container>
-              <ng-container *ngIf="checkToken">
-                <button *ngIf="!isLoader" class="submit-btn logout" (click)="logout()">Logout</button>
-              </ng-container>
-              <button *ngIf="isLoader" type="reset" class="submit-btn">Loading...</button>
-            </div>
-
-            <div class="forgot-button" *ngIf="!checkToken">
-              <button Class='forgot-p' (click)="openVerticallyCentered(content)">Forgot Login / Password</button>`
-            </div>
-
-          </div>
-        </form>
-      </div>
-
-      <div class="col-12 col-sm-12 col-md-12 col-lg-8">
-        <div class="career-image">
-          <div class="starte-image">
-            <img src="/assets/images/career-img.PNG">
-          </div>
-
-          <div class="button-image" *ngIf="checkToken">
-            <button class="submit-btn next next-btn" type="submit" (click)="tabChange(1)">NEXT</button>
-            <!-- <button *ngIf="isLoader">Loading...</button> -->
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 
 
 <ng-template #content>
-  <div class="crediential_wrapper">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-6 col-sm-12 forgot-conatiner">
-          <div class="forgot-header p">
-            <h4 class="forgot-heading">Forgot your password?</h4>
-          </div>
-          <div class="forgot-wrap">
-            <form [formGroup]="ForgotPsdform">
-              <div class="row">
-                <div class="col-lg-6">
-                  <div class="envolpe-icon">
-                    <img src="/assets/images/wrong-password.png">
-                  </div>
-                </div>
-                <div class="col-lg-6 pl-0 align-item d-flex">
-                  <div class="col-lg-12 pl-0">
-                    <div class="text-info">
-                      <p>Enter your email address and we will send you the reset password link on your email address.
-                      </p>
+    <div class="crediential_wrapper">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-sm-12 forgot-conatiner">
+                    <div class="forgot-header p">
+                        <h4 class="forgot-heading">Forgot your password?</h4>
                     </div>
-                    <div class="forgot-fields">
-                      <label>Enter Your Email ID</label>
-                      <input type="email" formControlName="email" class="email-field">
-                      <div class="error-fields">
-                        <div *ngIf="ForgotPsdform.get('email').touched && ForgotPsdform.get('email').invalid">
-                          <p *ngIf="ForgotPsdform.get('email').hasError('required')" class="required">
-                            Email is required
-                          </p>
-                          <p class="required" *ngIf="ForgotPsdform.controls.email.errors?.email">Email format is invalid
-                          </p>
-                        </div>
-                      </div>
+                    <div class="forgot-wrap">
+                        <form [formGroup]="ForgotPsdform">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="envolpe-icon">
+                                        <img src="/assets/images/wrong-password.png">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 pl-0 align-item d-flex">
+                                    <div class="col-lg-12 pl-0">
+                                        <div class="text-info">
+                                            <p>Enter your email address and we will send you the reset password link on your email address.
+                                            </p>
+                                        </div>
+                                        <div class="forgot-fields">
+                                            <label>Enter Your Email ID</label>
+                                            <input type="email" formControlName="email" class="email-field">
+                                            <div class="error-fields">
+                                                <div *ngIf="ForgotPsdform.get('email').touched && ForgotPsdform.get('email').invalid">
+                                                    <p *ngIf="ForgotPsdform.get('email').hasError('required')" class="required">
+                                                        Email is required
+                                                    </p>
+                                                    <p class="required" *ngIf="ForgotPsdform.controls.email.errors?.email">Email format is invalid
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="submit-fields">
+                                            <button *ngIf="!forLoad" class="submitbtn" type="submit" (click)="forgotPsd(content2)">Submit</button>
+                                            <button *ngIf="forLoad" class="submitbtn load" type="button">Loading...</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <div class="submit-fields">
-                      <button *ngIf="!forLoad" class="submitbtn" type="submit"
-                        (click)="forgotPsd(content2)">Submit</button>
-                      <button *ngIf="forLoad" class="submitbtn load" type="button">Loading...</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-          <button type="button" class="close" aria-label="Close" (click)="close()">
+                    <button type="button" class="close" aria-label="Close" (click)="close()">
             <span><img src="/assets/images/close.png"></span>
           </button>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </ng-template>
 
 <ng-template #content2>
-  <div class="crediential_wrapper">
-    <div class="container">
-      <div class="row reset-password justify-content-center">
-        <div class="col-lg-6 col-sm-12 forgot-conatiner">
-          <div class="forgot-header p">
-            <h4 class="forgot-heading">Request Sent!</h4>
-          </div>
-          <div class="forgot-wrap">
-            <div class="row">
-              <div class="col-lg-6">
-                <div class="envolpe-icon">
-                  <img src="/assets/images/paper-plane.png">
-                </div>
-              </div>
-              <div class="col-lg-6 pl-0 align-item d-flex">
-                <div class="col-lg-12 pl-0">
-                  <div class="forgot-header p">
-                    <h4 class="forgot-heading">Thank You!</h4>
-                  </div>
-                  <div class="text-info">
-                    <p>An email has been sent to {{ForgotPsdform.value.email}} for resetting your password. Please check
-                      your
-                      inbox.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="close" aria-label="Close" (click)="close()">
+    <div class="crediential_wrapper">
+        <div class="container">
+            <div class="row reset-password justify-content-center">
+                <div class="col-lg-6 col-sm-12 forgot-conatiner">
+                    <div class="forgot-header p">
+                        <h4 class="forgot-heading">Request Sent!</h4>
+                    </div>
+                    <div class="forgot-wrap">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="envolpe-icon">
+                                    <img src="/assets/images/paper-plane.png">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 pl-0 align-item d-flex">
+                                <div class="col-lg-12 pl-0">
+                                    <div class="forgot-header p">
+                                        <h4 class="forgot-heading">Thank You!</h4>
+                                    </div>
+                                    <div class="text-info">
+                                        <p>An email has been sent to {{ForgotPsdform.value.email}} for resetting your password. Please check your inbox.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="close" aria-label="Close" (click)="close()">
             <span><img src="/assets/images/close.png"></span>
           </button>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </ng-template>

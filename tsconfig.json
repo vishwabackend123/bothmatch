@@ -5,18 +5,19 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
+    "strict": false,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
-    "strictPropertyInitialization": false,
     "noImplicitAny": false,
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
+    "suppressImplicitAnyIndexErrors": true,
     "strictNullChecks":false,
+    "strictPropertyInitialization": false,
     "target": "es2015",
     "module": "es2020",
     "lib": [
@@ -26,8 +27,11 @@
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
-    "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictInjectionParameters": false,
+    "strictInputAccessModifiers": false,
+    "strictTemplates": false
+  },
+  "@schematics/angular:application": {
+    "strict": false
   }
 }

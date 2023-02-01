@@ -40,7 +40,8 @@
             "styles": [
               "node_modules/slick-carousel/slick/slick.scss",
               "node_modules/slick-carousel/slick/slick-theme.scss",
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
@@ -110,6 +111,7 @@
               "node_modules/slick-carousel/slick/slick.scss",
               "node_modules/slick-carousel/slick/slick-theme.scss",
               "src/styles.scss"
+
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",

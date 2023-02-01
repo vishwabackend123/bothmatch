@@ -1,0 +1,152 @@
+.table-job-dash,
+.table-job-dash td,
+.table-job-dash th {
+    border: 1px solid #AFABAA;
+}
+
+.table-job-dash td {
+    height: 24px;
+}
+
+.table-job-dash tr {
+    border: none;
+}
+
+.table-job-dash thead tr {
+    background-color: #DCDBDB;
+}
+
+.table-job-dash thead tr th {
+    color: #6F3996;
+    text-transform: capitalize;
+    text-align: center;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.mw-table-lg {
+    width: 300px;
+}
+
+.mw-table-sm {
+    width: 100px;
+}
+
+.mw-table-md {
+    width: 200px;
+}
+
+.ProductSummary-info span {
+    background: #fff;
+    width: 80px;
+    padding: 4px 0;
+    text-align: center;
+}
+
+.job-post-profile {
+    padding: 60px;
+    margin-top: 0;
+    background: #dbf0f6;
+}
+
+.table-job-dash tbody tr:nth-child(odd) {
+    background: #fff;
+}
+
+.job-employer-main {
+    padding: 60px !important;
+}
+
+.job-employer-main .nav-pills .nav-link {
+    padding: 5px 30px;
+}
+
+.table-job-dash tbody tr:nth-child(even) {
+    background: #F2F2F2;
+}
+
+.button-image {
+    margin-top: 7px;
+    float: right;
+    margin-right: 110px;
+    margin-bottom: -17px;
+}
+
+.mt-40 {
+    margin-top: 18px;
+    margin-bottom: 2px;
+    // margin-bottom: 13px;
+}
+
+.information {
+    color: #a71f66;
+    line-height: 1.2;
+    font-size: 26px;
+    padding-top: 22px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    // margin-bottom: 2px;
+}
+
+.mr-auto,
+.mx-auto {
+    margin-right: auto!important;
+}
+
+.button-image button {
+    background-color: #33cccc;
+    width: 133px;
+    height: 54px;
+    display: flex;
+    justify-content: center;
+    font-size: 22px;
+    align-items: center;
+    border: 1px solid #afabab;
+    border-radius: 44px;
+    color: #fff;
+}
+
+.bulb-image img {
+    margin-bottom: 10px;
+    margin-right: 5px;
+    vertical-align: baseline;
+}
+
+@media (max-width: 1600px) {
+    .mw-table-lg {
+        width: 200px;
+    }
+    .button-image {
+        margin-top: 50px;
+        float: right;
+        margin-right: 90px;
+        margin-bottom: 0px;
+    }
+    .button-image button {
+        width: 118px;
+        height: 48px;
+        font-size: 20px;
+    }
+    .mw-table-md {
+        width: 120px;
+    }
+}
+
+@media (max-width: 1260px) {
+    .table-job-dash thead tr th {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 1023px) {
+    .mw-table-sm {
+        width: 70px;
+    }
+    .mw-table-lg {
+        width: 120px;
+    }
+    .information span.bulb-image {
+        float: left;
+    }
+}

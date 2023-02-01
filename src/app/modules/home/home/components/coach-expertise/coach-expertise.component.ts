@@ -11,7 +11,9 @@ import { FunctionService } from 'src/app/core/services/function.service';
 })
 export class CoachExpertiseComponent implements OnInit, OnChanges {
   allExpertise: any = [];
+  isLoader: boolean = false
   allData: any = [];
+  allExpertiseDefult: any = []
   lastDate:any = '';
   @Input() userData: any;
   constructor(
@@ -21,19 +23,35 @@ export class CoachExpertiseComponent implements OnInit, OnChanges {
     public fun: FunctionService
   ) { }
 
+
   ngOnInit() {
-    this.getExpertize();
+    if(this.fun.isLoggedIn){
+      this.getExpertize();
+    }else{
+      this.getExpertizeWithoutAuth()
+    }
   }
 
   getExpertize() {
     this.fileService.getExpertise().then((res: any) => {
-      if (res && res.success) {
-        this.allExpertise = res.data;
+      if (res && res.status) {
+        this.allExpertise = res.data.data;
         this.allExpertise.sort(function(a, b) {
           return a.id - b.id;
         });
-        let maxDate = res.data.sort((a, b) => a.updated_at - b.updated_at);
-        this.lastDate = this.fun.transformDate(maxDate[res.data.length-1].updated_at, 'MMM d y');
+        let allUpdateDate:any = []
+        if(this.allExpertise && this.allExpertise.length > 0){
+          this.allExpertise.forEach(element => {
+            if(element && element.updated_at){
+              allUpdateDate.push(element.updated_at)
+            }
+          });
+          if(allUpdateDate && allUpdateDate.length > 0){
+            const maxDate = new Date(Math.max(...allUpdateDate.map(element => {return new Date(element);}),),);
+            // this.lastDate = this.fun.transformDate(maxDate[res.data.data.length-1].updated_at, 'MMM d y');
+            this.lastDate = this.fun.transformDate(maxDate, 'MMM d y');
+          }
+        }
       }
       else if(res && res.message === "Token has Expired"){
         this.auth.logout();
@@ -47,24 +65,52 @@ export class CoachExpertiseComponent implements OnInit, OnChanges {
     })
   }
 
+  getExpertizeWithoutAuth() {
+    this.fileService.getExpertiseWithoutAuth().then((res: any) => {
+      if (res && res.status) {
+        let data= res.data.data;
+        const unique = [...new Map(data.map((m) => [m.service_name, m])).values()];
+        this.allExpertiseDefult = unique
+      }
+      else {
+        console.log('Err somthing went wrong');
+      }
+    }).catch((err: any) => {
+      console.log(err);
+    })
+  }
+
   ngOnChanges(): void {
-    this.getExpertize();
+    if(this.fun.isLoggedIn){
+      this.getExpertize();
+    }else{
+      this.getExpertizeWithoutAuth()
+    }
   }
 
   viewCareerCoaches() {
-    let data = { expertiseList: this.allData }
+    this.isLoader = true;
+    let data = { expertiseDetails: this.allData }
     this.fileService.updateExpertise(data).then((res: any) => {
       console.log(res);
-      if (res && res.success) {
-        this.toast.success(res.message);
-        this.lastDate = this.fun.transformDate(res.data, 'MMM d y');;
+      this.isLoader = false
+      if (res && res.status) {
+        // this.toast.success('Expertise Level Updated Successfully');
+        this.lastDate = this.fun.transformDate(res.data.data, 'MMM d y');
+        console.log(this.lastDate);
       }
       else {
+        this.isLoader = false
         this.toast.error(res.message)
       }
     }).catch((err: any) => {
       console.log(err);
-      this.toast.error(err.message)
+      this.isLoader = false
+      if(err&& err.message === "Invalid Params"){
+        this.toast.error('Please Select Expertise Level')
+      }else{
+        this.toast.error(err.message)
+      }
     })
   }
 

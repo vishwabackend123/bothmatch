@@ -12,6 +12,7 @@ import { SliderAngularModule } from 'slider-angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
+import { NgSelectModule } from '@ng-select/ng-select';
 import { AuthInterceptor } from './app.interceptor';
 
 declare module "@angular/core" {
@@ -32,12 +33,15 @@ declare module "@angular/core" {
     FormsModule,
     NgbModule,
     NgxPrintModule,
+    NgSelectModule,
     NgDragDropModule.forRoot(),
+    // NgMultiSelectDropDownModule.forRoot(),
     AngularDraggableModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
+      // timeOut: 30000
     }),
     SliderAngularModule
   ],

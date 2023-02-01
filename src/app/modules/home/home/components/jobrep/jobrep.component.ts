@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { FilesService } from 'src/app/core/services/files.service';
 import { FunctionService } from 'src/app/core/services/function.service';
 
 @Component({
@@ -31,22 +32,24 @@ export class JobRepComponent implements OnInit, OnChanges {
   coachTabIndex = 0;
   enrollmentTabIndex = 0;
   slide = 0;
+  userType:string;
   constructor(
     public fun: FunctionService,
     public auth: AuthService,
-    public toast: ToastrService
+    public toast: ToastrService,
+    public fileService: FilesService
   ) {
     let outerTab = localStorage.getItem('tabOuter');
     let innerTab = localStorage.getItem('tabInner');
-    console.log('innerTab => ', innerTab, outerTab);
+    // localStorage.removeItem('jSlideValue')
+    
     if (outerTab === 'tab_0') {
       this.tabIndex = 0
     }
     else if (outerTab === 'tab_1') {
       this.tabIndex = 1
-      if (innerTab === 'tab_0'){
+      if (innerTab === 'tab_0')
         this.coachTabIndex = 0
-      }
       else if (innerTab === 'tab_1') {
         this.coachTabIndex = 1
       }
@@ -57,14 +60,20 @@ export class JobRepComponent implements OnInit, OnChanges {
     else if (outerTab === 'tab_2') {
       this.tabIndex = 2
     }
+    else {
+      this.tabIndex = 0
+      this.coachTabIndex = 0
+    }
   }
 
   ngOnInit() {
     this.setImageData();
     window.scrollTo(0, 0);
+    this.userType="jobrep"
   }
 
   tabChange(index: number): void {
+    
     this.tabIndex = index;
     localStorage.setItem('tabOuter', `tab_${this.tabIndex}`)
     if (index == 0) {
@@ -73,18 +82,51 @@ export class JobRepComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    
     console.log(changes);
   }
 
   innerTabChange(index: number): void {
-    if (this.fun.isLoggedIn) {
-      this.userProfile();
-      this.coachTabIndex = index;
+    // if (this.fun.isLoggedIn) {
+    //   this.userProfile();
+    //   this.coachTabIndex = index;
+    //   localStorage.setItem('tabInner', `tab_${this.coachTabIndex}`)
+    // }
+    // else {
+    //   this.toast.error('Please login or register')
+    // }
+    // if(loginToken && loginToken != ''){
+      console.log('userData =>', this.fun.userData);
+      
+      if(index === 0){
+        this.coachTabIndex = index;
+      }
+      else if(index === 1){
+        this.coachTabIndex = index;
+      }
+      else if(index === 2){
+        let dt = this.fun.userData
+        if(dt && dt.name && dt.email && dt.city && dt.country && dt.state && dt.service_summary && dt.image && dt.profile_header && dt.total_years_in_career_service){
+          this.coachTabIndex = index;
+        }
+        else{
+          if(this.fun.isLoggedIn){
+            this.toast.error('Update Required Fields')
+          }
+          else{
+            this.coachTabIndex = index;
+          }
+        }
+      }
+      else{
+        this.coachTabIndex = index;
+      }
+     
       localStorage.setItem('tabInner', `tab_${this.coachTabIndex}`)
-    }
-    else {
-      this.toast.error('Please login or register')
-    }
+    // }
+    // else{
+    //   this.toast.error('Please Login To Update Your Profile')
+    // }
   }
   enrollmentTabChange(index: number): void {
     this.enrollmentTabIndex = index;
@@ -94,6 +136,7 @@ export class JobRepComponent implements OnInit, OnChanges {
     if (localStorage.getItem('jSlideValue') != undefined && localStorage.getItem('jSlideValue') != null && localStorage.getItem('jSlideValue') != '') {
       let current: any = localStorage.getItem('jSlideValue') ? localStorage.getItem('jSlideValue') : '';
       if (JSON.parse(current).slide == 9) {
+        // this.imageData.push(this.images[this.images.length-1]);
         this.imageData.push(this.images[9]);
         this.imageData.push(this.images[6]);
         this.imageData.push(this.images[3]);
@@ -118,11 +161,12 @@ export class JobRepComponent implements OnInit, OnChanges {
   changeCareerProfessionalChildTab(tab: any) {
     this.coachTabIndex = tab;
     if (this.coachTabIndex) {
-      this.userProfile()
+       this.userProfile()
     } else {
       console.log('err');
     }
   }
+
 
   userProfile() {
     this.fun.getUserData().then((res: any) => {

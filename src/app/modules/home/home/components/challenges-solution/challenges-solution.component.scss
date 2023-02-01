@@ -1,63 +1,61 @@
 .loading-box {
-  background: #efefef;
-  width: 100%;
-  height: 20px;
-  margin-bottom: 20px;
-  animation: pulse 1s infinite ease-in-out;
-  -webkit-animation:pulse 1s infinite ease-in-out;
-}
-@keyframes pulse
-{
-  0%{
-    background-color: rgba(165,165,165,.1);
-  }
-  50%{
-    background-color: rgba(165,165,165,.3);
-  }
-  100%{
-    background-color: rgba(165,165,165,.1);
-  }
-}
-@-webkit-keyframes pulse
-{
-  0%{
-    background-color: rgba(165,165,165,.1);
-  }
-  50%{
-    background-color: rgba(165,165,165,.3);
-  }
-  100%{
-    background-color: rgba(165,165,165,.1);
-  }
-}
-@media only screen and (max-width: 767px){
-
-.nav.nav-pills .nav-item a {
-    font-size: 14px;
-    padding: 10px 5px;
+    background: #efefef;
+    width: 100%;
+    height: 20px;
+    margin-bottom: 20px;
+    animation: pulse 1s infinite ease-in-out;
+    -webkit-animation: pulse 1s infinite ease-in-out;
 }
 
-.cnt-wrap-curate h2 {
-    font-size: 15px !important;
-}
-.deepholis {
-    font-size: 10px !important;
-    padding: 10px;
-}
-ul.nav.nav-pills-dots.mb-3 {
-    display: flex;
-}
-p.deepholis {
-    padding-top: 30px !important;
-    padding-bottom: 47px !important;
-    overflow: hidden !important;
-}
-}
-sup{
-    font-size: 60%;
+@keyframes pulse {
+    0% {
+        background-color: rgba(165, 165, 165, .1);
+    }
+    50% {
+        background-color: rgba(165, 165, 165, .3);
+    }
+    100% {
+        background-color: rgba(165, 165, 165, .1);
+    }
 }
 
+@-webkit-keyframes pulse {
+    0% {
+        background-color: rgba(165, 165, 165, .1);
+    }
+    50% {
+        background-color: rgba(165, 165, 165, .3);
+    }
+    100% {
+        background-color: rgba(165, 165, 165, .1);
+    }
+}
 
+@media only screen and (max-width: 767px) {
+    .nav.nav-pills .nav-item a {
+        font-size: 14px;
+        padding: 10px 5px;
+    }
+    .cnt-wrap-curate h2 {
+        font-size: 15px !important;
+    }
+    .deepholis {
+        font-size: 10px !important;
+        padding: 10px;
+    }
+    ul.nav.nav-pills-dots.mb-3 {
+        display: flex;
+    }
+    p.deepholis {
+        padding-top: 30px !important;
+        padding-bottom: 47px !important;
+        overflow: hidden !important;
+    }
+}
+
+sup {
+    font-size: 51%;
+}
 
 p.deepholis {
     padding-top: 47px !important;
@@ -68,52 +66,53 @@ p.deepholis {
     line-height: 1;
 }
 
-@media screen and (min-width: 1200px){
-a.nav-link.round-indicator {
-    width: 25px !important;
-    height: 25px !important;
-}
-ul.nav.nav-pills-dots.mb-3 {
-    display: flex;
-}
-}
-
-@media screen and (max-width: 1200px){
-
-   ul.nav.nav-pills-dots.mb-3 {
-    display: flex;
-}
-
-}
-@media screen and (max-width: 900px){
-
-
-    p.deepholis {
-
-    // height: 397px !important;
-    font-size: 16px !important;
+@media screen and (min-width: 1200px) {
+    a.nav-link.round-indicator {
+        width: 25px !important;
+        height: 25px !important;
+    }
+    ul.nav.nav-pills-dots.mb-3 {
+        display: flex;
     }
 }
-@media only screen and (max-width: 425px){
 
-    .cnt-wrap-curate h2 {
-    font-size: 25px !important;
+@media screen and (max-width: 1200px) {
+    ul.nav.nav-pills-dots.mb-3 {
+        display: flex;
+    }
 }
-.cnt-wrap-curate h2:before {
-    width: 51px;
-    top: 27px;
-}
-ul.nav.nav-pills-dots.mb-3 {
-    display: flex;
-}
-}
-@media only screen and (max-width: 320px){
 
+@media screen and (max-width: 900px) {
+    p.deepholis {
+        // height: 397px !important;
+        font-size: 16px !important;
+    }
+}
+
+@media only screen and (max-width: 425px) {
     .cnt-wrap-curate h2 {
-    font-size: 23px !important;
+        font-size: 25px !important;
+    }
+    .cnt-wrap-curate h2:before {
+        width: 51px;
+        top: 27px;
+    }
+    ul.nav.nav-pills-dots.mb-3 {
+        display: flex;
+    }
 }
+
+@media only screen and (max-width: 320px) {
+    .cnt-wrap-curate h2 {
+        font-size: 23px !important;
+    }
 }
-.my-head {
-    display: inline-block;
-    width: 100%;
-}
+
+// .my-head {
+//     display: inline-block;
+//     width: 100%;
+// }
+// .right-img-svg svg {
+//     width: 100%;
+//     height: auto;
+// }

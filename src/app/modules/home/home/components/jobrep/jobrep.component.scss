@@ -17,6 +17,13 @@
     font-weight: 100;
 }
 
+.profile-page-form input::placeholder,
+.profile-page-form textarea::placeholder {
+    font-size: 13px;
+    color: #a19c9c;
+    line-height: 1.2;
+}
+
 .user-details-img {
     float: left;
     width: 21%;
@@ -65,7 +72,7 @@
     color: #18164e;
     font-family: "Open Sans", sans-serif;
     font-size: 34px;
-    margin-top: 98px;
+    margin-top: 89px;
 }
 
 .blue-color-text {
@@ -87,22 +94,25 @@
     font-weight: 500;
     color: #a70063;
     font-size: 15px;
-    padding: 0px 0px 2px 53px;
+    line-height: 21px;
+    // padding: 0px 0px 2px 53px;
 }
 
 .refaq p.need-para {
     text-align: center;
-    font-size: 20px;
+    font-size: 26px;
     font-weight: 700;
     color: #a70063;
     margin-top: -10px;
     font-family: "Open Sans", sans-serif;
-    margin-bottom: 69px;
+    margin-bottom: 78px;
 }
 
 // .refaq {
 //     padding-bottom: 70px;
 // }
+
+
 @media screen and (max-width: 767px) {
     .user-details-content {
         float: left;
@@ -244,13 +254,14 @@ h3.advancement-title {
     font-family: "Bahnschrift";
     font-size: 30px;
     font-weight: 500;
+    line-height: 1.2;
 }
 
 .jobrep-txt p.candidate-job {
-    font-size: 28px;
+    font-size: 27px;
     font-weight: 330;
     width: 100%;
-    line-height: 130%;
+    line-height: 135%;
     color: #777772;
     font-family: "Bahnschrift";
 }
@@ -261,11 +272,11 @@ h3.advancement-title {
 
 .line-new {
     position: absolute;
-    width: 142px;
+    width: 130px;
     height: 3px;
     background-color: #33cccc;
-    top: 110px;
-    left: 41%;
+    top: 122px;
+    left: 40%;
     right: 40%;
     margin: auto;
 }
@@ -325,19 +336,34 @@ th.level-new {
 }
 
 .jobrep-txt.cnt-wrap-curate {
-    margin: 12px 53px;
+    margin: 0px 53px;
 }
 
-.login-new {
-    margin: 0px 43px 7px 43px;
+.m-10 {
+    margin: 68px 0 20px 0px;
 }
 
+// .login-new {
+//     margin: 0px 32px 7px 32px;
+// }
 .inner-tab-bg.main-profile {
-    padding: 63px 43px 81px 43px !important;
+    // padding: 63px 41px 81px 41px !important;
+    padding: 23px 21px 81px 21px !important;
 }
 
 .prof-tab .nav-link {
     padding: 4px 16px;
+}
+
+.tab-content.pillscont.job-rap.jobrap-first {
+    padding: 40px 30px 50px !important;
+}
+
+.serivce-text {
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+    padding: 0px 44px;
 }
 
 @media screen and (max-width: 1800px) {

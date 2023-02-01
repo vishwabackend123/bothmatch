@@ -3,23 +3,20 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  baseUrl: "https://data.usajobs.gov/api",
-  // baseUrl:"http://localhost:8000/",
-  siteKey: "6LcD6aAcAAAAAFucR0IcVnwv4AuVDve7wEbN0dnd",
+  usaJobsUrl: "https://data.usajobs.gov/api",
+  baseUrl:"https://2nfrmwo081.execute-api.us-east-1.amazonaws.com/dev/",
+  // siteKey: "6LcD6aAcAAAAAFucR0IcVnwv4AuVDve7wEbN0dnd",
+  siteKey: "6LdMJdcZAAAAACxFRcp-pOKFICutsSI_DZkZUo6y",
   passwordEncryptionKey: "ZKzeE1JApIA_ycm-nuaI5R8PrZDNgofKH05FOOgCsmI=",
-  // backendBaseUrl :"http://ec2-18-210-218-55.compute-1.amazonaws.com:8000/",
-  // backendBaseUrl :"http://127.0.0.1:8000/",
-  backendBaseUrl :"https://2nfrmwo081.execute-api.us-east-1.amazonaws.com/",
-  imgBaseUrl:"http://ec2-18-210-218-55.compute-1.amazonaws.com:8000",
-  imageUrl: "http://localhost:8000/media/profileImages/",
+  backendBaseUrl :"https://2nfrmwo081.execute-api.us-east-1.amazonaws.com/dev/",
+  imgBaseUrl:"http://ec2-54-211-175-15.compute-1.amazonaws.com:8080",
+  imageUrl: "https://curate-files.s3.ap-south-1.amazonaws.com/",
+  imgPathUrl: "https://curate-files.s3.ap-south-1.amazonaws.com/",
+  // imageUrl: "http://localhost:8000/media/profileImages/",
   production: false,
   maxImageSize: 1000000
-  
-  // baseUrl: "https://data.usajobs.gov/api",
-  // backendBaseUrl :"http://ec2-18-210-218-55.compute-1.amazonaws.com:8080",
-  // imgBaseUrl:"http://ec2-54-211-175-15.compute-1.amazonaws.com:8080",
-  // production: false
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file

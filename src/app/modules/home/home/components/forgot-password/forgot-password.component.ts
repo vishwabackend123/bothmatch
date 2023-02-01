@@ -54,7 +54,7 @@ export class ForgotPasswordComponent implements OnInit {
     })
     if (this.resetform.valid) {
       this.auth.resetPassword(this.resetform.value).then((res: any) => {
-        if (res && res.success) {
+        if (res && res.status) {
           this.resetPasswrod = true;
           // this.toast.success(res.message)
         } else {
