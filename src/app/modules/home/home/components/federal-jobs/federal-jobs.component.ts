@@ -1300,14 +1300,14 @@ export class FederalJobsComponent implements OnInit {
       this.federalJobSubHeading = 'Identity Protected Matching';
       this.showJobMatchesSteps = true;
       this.showDemo = true;
-      this.showSelectAndPay = true;
-      this.showCompanyMatch = false;
+      this.showSelectAndPay = false;
+      this.showCompanyMatch = true;
       this.showPrivateForm = false;
       this.showJobRepComm = false;
       this.showCareerPro = false;
-      this.showGovt = false;
+      this.showGovt = true;
       this.showTopCandidate = false;
-      this.step = 5;
+      this.step = 4;
       this.resetAllSteps();
       this.setDemoData();
       this.tabChange(0);

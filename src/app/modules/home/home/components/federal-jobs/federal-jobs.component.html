@@ -6,42 +6,70 @@
         <div id="tabarea" class="pt-5 ">
             <ul class="nav nav-pills mb-3 nav-fill" id="pills-tab" role="tablist" *ngIf="!showTopCandidate && showJobMatchesSteps">
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link  tab-size" [ngClass]="{'active': tabIndex === 0}" (click)="tabChange(0)" role="tab" aria-controls="pills-home" aria-selected="true">Step 1 - Start Matching</a>
+                    <a class="nav-link  tab-size" [ngClass]="{'active': tabIndex === 0}" (click)="tabChange(0)" role="tab" aria-controls="pills-home" aria-selected="true">
+                        <div>Step 1</div>
+                        <div>Start Matching</div>
+                    </a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link tab-size" [ngClass]="{'active': tabIndex === 1}" (click)="tabChange(1)" role="tab" aria-controls="pills-profile" aria-selected="false">Step 2 - Review & Edit </a>
+                    <a class="nav-link tab-size" [ngClass]="{'active': tabIndex === 1}" (click)="tabChange(1)" role="tab" aria-controls="pills-profile" aria-selected="false">
+                        <div>Step 2</div>
+                        <div>Review & Edit</div> 
+                    </a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link tab-size" [ngClass]="{'active': tabIndex === 2}" (click)="tabChange(2)" role="tab" aria-controls="pills-contact" aria-selected="false">Step 3 - Additional Input</a>
+                    <a class="nav-link tab-size" [ngClass]="{'active': tabIndex === 2}" (click)="tabChange(2)" role="tab" aria-controls="pills-contact" aria-selected="false">
+                        <div>Step 3</div> 
+                        <div>Additional Input</div>
+                    </a>
                 </li>
                 <li class="nav-item" role="presentation" *ngIf="showSelectAndPay">
-                    <a class="nav-link tab-size" [ngClass]="{'active': tabIndex === 3}" (click)="tabChange(3)" role="tab" aria-controls="pills-contact" aria-selected="false">Step 4 - Select & Pay</a>
+                    <a class="nav-link tab-size" [ngClass]="{'active': tabIndex === 3}" (click)="tabChange(3)" role="tab" aria-controls="pills-contact" aria-selected="false">
+                        <div>Step 4</div> 
+                        <div>Select & Pay</div>
+                    </a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link tab-size" [ngClass]="{'active': tabIndex === 4}" (click)="tabChange(4)" role="tab" aria-controls="pills-contact" aria-selected="false">Step {{step}} - Curated
-                        Report</a>
+                    <a class="nav-link tab-size" [ngClass]="{'active': tabIndex === 4}" (click)="tabChange(4)" role="tab" aria-controls="pills-contact" aria-selected="false">
+                        <div>Step {{step}}</div> 
+                        <div>Curated Report</div>
+                    </a>
                 </li>
                 <!-- <li class="nav-item" role="presentation" *ngIf="showGovt">
                     <a class="nav-link tab-size" [ngClass]="{'active': tabIndex === 8}" (click)="tabChange(8)" role="tab" aria-controls="pills-contact" aria-selected="false">Step 5 - Submit Resume</a>
                 </li> -->
                 <li class="nav-item" role="presentation" *ngIf="showCompanyMatch">
-                    <a class="nav-link tab-size" [ngClass]="{'active': tabIndex === 8}" (click)="tabChange(8)" role="tab" aria-controls="pills-contact" aria-selected="false">Step 5 - Submit Resume</a>
+                    <a class="nav-link tab-size" [ngClass]="{'active': tabIndex === 8}" (click)="tabChange(8)" role="tab" aria-controls="pills-contact" aria-selected="false">
+                        <div>Step 5</div> 
+                        <div>Submit Resume</div>
+                    </a>
                 </li>
                 <li class="nav-item" role="presentation" *ngIf="!showGovt && !showCompanyMatch">
-                    <a class="nav-link tab-size" [ngClass]="{'active': tabIndex === 8}" (click)="tabChange(8)" role="tab" aria-controls="pills-contact" aria-selected="false">Step 6 - Submit Resume</a>
+                    <a class="nav-link tab-size" [ngClass]="{'active': tabIndex === 8}" (click)="tabChange(8)" role="tab" aria-controls="pills-contact" aria-selected="false">
+                        <div>Step 6</div> 
+                        <div>Submit Resume</div>
+                    </a>
                 </li>
             </ul>
             <!--START Professionals Version2.docx -->
             <ul class="nav nav-pills mb-3 nav-fill" id="pills-tab" role="tablist" *ngIf="!showTopCandidate && !showJobMatchesSteps">
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link tab-size" [ngClass]="{'active': tabIndex === 5}" (click)="tabChange(5)" role="tab" aria-controls="pills-contact" aria-selected="false">Step 1 - CAREER ADVANCEMENT</a>
+                    <a class="nav-link tab-size" [ngClass]="{'active': tabIndex === 5}" (click)="tabChange(5)" role="tab" aria-controls="pills-contact" aria-selected="false">
+                        <div>Step 1</div> 
+                        <div>CAREER ADVANCEMENT</div>
+                    </a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link tab-size" [ngClass]="{'active': tabIndex === 6}" (click)="tabChange(6)" role="tab" aria-controls="pills-contact" aria-selected="false">Step 2 - CANDIDATE-COACH
-                        MATCH</a>
+                    <a class="nav-link tab-size" [ngClass]="{'active': tabIndex === 6}" (click)="tabChange(6)" role="tab" aria-controls="pills-contact" aria-selected="false">
+                        <div>Step 2</div> 
+                        <div>CANDIDATE-COACH MATCH</div>
+                    </a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link tab-size" [ngClass]="{'active': tabIndex === 7}" (click)="tabChange(7)" role="tab" aria-controls="pills-contact" aria-selected="false">Step 3 - VIEW MATCHED COACHES</a>
+                    <a class="nav-link tab-size" [ngClass]="{'active': tabIndex === 7}" (click)="tabChange(7)" role="tab" aria-controls="pills-contact" aria-selected="false">
+                        <div>Step 3</div>  
+                        <div>VIEW MATCHED COACHES</div>
+                    </a>
                 </li>
                 <!--END Professionals Version2.docx -->
             </ul>
@@ -1390,7 +1418,7 @@
 
             </div>
 
-            <div class="employer-section">
+            <!-- <div class="employer-section">
 
 
                 <div class="employer-match-profile">
@@ -1559,7 +1587,7 @@
                 </div>
 
 
-            </div>
+            </div> -->
             <div class="button-next mt-2" style="padding: 40px 0;">
                 <a href="javascript:void(0)" style="cursor:pointer">
                             NEXT
