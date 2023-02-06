@@ -35,9 +35,12 @@
                         <div>Curated Report</div>
                     </a>
                 </li>
-                <!-- <li class="nav-item" role="presentation" *ngIf="showGovt">
-                    <a class="nav-link tab-size" [ngClass]="{'active': tabIndex === 8}" (click)="tabChange(8)" role="tab" aria-controls="pills-contact" aria-selected="false">Step 5 - Submit Resume</a>
-                </li> -->
+                <li class="nav-item" role="presentation" *ngIf="showGovt">
+                    <a class="nav-link tab-size" [ngClass]="{'active': tabIndex === 8}" (click)="tabChange(8)" role="tab" aria-controls="pills-contact" aria-selected="false">
+                        <div>Step 5</div> 
+                        <div>Submit Resume</div>
+                    </a>
+                </li>
                 <li class="nav-item" role="presentation" *ngIf="showCompanyMatch">
                     <a class="nav-link tab-size" [ngClass]="{'active': tabIndex === 8}" (click)="tabChange(8)" role="tab" aria-controls="pills-contact" aria-selected="false">
                         <div>Step 5</div> 
@@ -633,7 +636,7 @@
                             <div class="col-xl-6 col-lg-6 col-md-6 col-12 ng_select_custom">
                                 <label for="fname">Field / industry</label> <br>
                                 <ng-select bindLabel="name" bindValue="key" [items]="industryList" 
-                                notFoundText="No Found!" formControlName="industry">
+                                notFoundText="No Found!" formControlName="industry"> 
                               </ng-select>
                                 <div *ngIf="getControls.industry.invalid" class="alert alert-danger">
                                     <div *ngIf="(getControls.industry.errors?.required && getControls.industry.touched) || isInvalid">
@@ -1589,7 +1592,7 @@
 
             </div> -->
             <div class="button-next mt-2" style="padding: 40px 0;">
-                <a href="javascript:void(0)" style="cursor:pointer">
+                <a (click)="submitNext()" style="cursor:pointer">
                             NEXT
                         </a>
             </div>

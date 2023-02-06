@@ -95,6 +95,8 @@ export class FederalJobsComponent implements OnInit {
   card: any;
   printGeneratedon: any = new Date().toLocaleString();
 
+
+
   services = [
     { name: 'Benefits' },
     { name: 'Certification' },
@@ -114,6 +116,91 @@ export class FederalJobsComponent implements OnInit {
     { name: 'No Vaccine' },
     { name: 'Salary' },
   ];
+
+  demoDataList = [
+    {
+        "word": "Budgeting",
+        "word_type": "any"
+    },
+    {
+        "word": "Data",
+        "word_type": "any"
+    },
+    {
+        "word": "Finance",
+        "word_type": "any"
+    },
+    {
+        "word": "Insurance",
+        "word_type": "any"
+    },
+    {
+        "word": "Investments",
+        "word_type": "any"
+    },
+    {
+        "word": "Management",
+        "word_type": "any"
+    },
+    {
+        "word": "Outsourcing",
+        "word_type": "any"
+    },
+    {
+        "word": "Project Manager",
+        "word_type": "any"
+    },
+    {
+        "word": "Python",
+        "word_type": "any"
+    },
+    {
+        "word": "modular",
+        "word_type": "any"
+    },
+    {
+        "word": "mongodb",
+        "word_type": "any"
+    },
+    {
+        "word": "debugging",
+        "word_type": "any"
+    },
+    {
+        "word": "CPA",
+        "word_type": "all"
+    },
+    {
+        "word": "Leadership",
+        "word_type": "all"
+    },
+    {
+        "word": "Teamwork",
+        "word_type": "all"
+    },
+    {
+        "word": "Venture Capital",
+        "word_type": "all"
+    },
+    {
+        "word": "Harvard University",
+    },
+    {
+        "word": "Hiking",
+    },
+    {
+        "word": "Painting",
+    },
+    {
+        "word": "Photography",
+    },
+    {
+        "word": "Traveling",
+    },
+    {
+        "word": "Web Search",
+    }
+]
 
   industryList = [
     { key: 'healthcare', name: 'Healthcare' },
@@ -427,7 +514,7 @@ export class FederalJobsComponent implements OnInit {
   get getAddressControls() {
     return this.addressForm.controls;
   }
-  tabChange(index: number): void {  debugger
+  tabChange(index: number): void {
     if (index == 1) {
       if (this.matchAny[0]) {
         this.tabIndex = index;
@@ -519,7 +606,7 @@ export class FederalJobsComponent implements OnInit {
   setDemoData() {
     localStorage.setItem('searchType', 'free');
     this.showPrivateForm = false;
-    // this.setDemoFormData();
+    this.setDemoFormData();
     this.resetKewordsData();
     this.setKewordsData();
     this.showDemoJobIntialData();
@@ -560,6 +647,7 @@ export class FederalJobsComponent implements OnInit {
     this.resetKewordsData();
     this.showPrivateForm = false;
     this.isfileUploading = true;
+    this.excludeList = this.demoDataList
     setTimeout(() => {
       this.setKewordsData();
       this.isfileUploading = false;
@@ -680,7 +768,7 @@ export class FederalJobsComponent implements OnInit {
     this.matchAll = [];
   }
   submitForm() {
-    ;
+debugger;
     this.isStep3Loading = true
 
     // Keyword=Software&PositionTitle=Psychologist&LocationName=Washington, DC&RemunerationMinimumAmount=26000&RemunerationMaximumAmount=85000
@@ -724,9 +812,10 @@ export class FederalJobsComponent implements OnInit {
         this.tabIndex = 3;
       } else if (localStorage.getItem('searchType') == 'free') {
         this.showPrivateForm = false;
-        this.tabIndex = 3;
-        this.showPaymentDiv = true;
-        this.showPayment();
+        this.tabIndex = 4; // 3 when show payment is active;
+        this.showPaymentDiv = false;
+        // this.showPayment(); // show payment is disable
+      
       } else {
         this.getJobData();
       }
@@ -734,19 +823,26 @@ export class FederalJobsComponent implements OnInit {
     // }
   }
 
+  submitNext(){
+    if (localStorage.getItem('searchType') == 'free') {
+      this.tabIndex = 8; // 3 when show payment is active;
+      this.showPaymentDiv = false;
+    }
+  }
+
   setDemoFormData() {
     this.frmDetails.patchValue({
-      industry: 'Software Developer',
+      industry: this.industryList[1].key,
       city_state: 'New york',
-      job_category: 'Development',
+      job_category: this.hiringpathList[0].key,
       radius: 12,
       job_grade: 10,
-      job_department: 'Development',
-      job_title: 'Development',
-      salary_min: '500',
-      salary_max: '5000',
+      job_department: this.deptList[0].key,
+      job_title: this.titleList[0].key,
+      salary_min: this.minimumAmountList[3].key,
+      salary_max: this.maximumAmountList[4].key,
       customTags: 'abc',
-      job_type: 'Development',
+      job_type: this.typeList[0].key,
     });
   }
   getPaidJobIntialData() {
@@ -1301,7 +1397,7 @@ export class FederalJobsComponent implements OnInit {
       this.showJobMatchesSteps = true;
       this.showDemo = true;
       this.showSelectAndPay = false;
-      this.showCompanyMatch = true;
+      this.showCompanyMatch = false;
       this.showPrivateForm = false;
       this.showJobRepComm = false;
       this.showCareerPro = false;
