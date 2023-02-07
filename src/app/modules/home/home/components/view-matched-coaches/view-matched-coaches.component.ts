@@ -22,6 +22,15 @@ export class ViewMatchedCoaches implements OnInit {
   ngOnInit(): void {
   }
 
+  transform(value: any){
+    const splittedText = value.split(",");
+    let htmlString = ""
+    splittedText.forEach((item) => {
+      htmlString = `${htmlString} <div>${item}</div>`
+    });
+    return htmlString;
+  }
+
   // downloadAsPdf() {
   //   this.exportAsPDF(this.rows);
   // }
