@@ -1,3 +1,31 @@
+install_dependencies:
+  image: node:12-alpine
+  stage: dependencies
+  script:
+    - npm install
+  only:
+    - master
+  cache:
+    key:
+      files:
+        - package-lock.json
+    paths:
+      - node_modules
+
+build stage:
+  image: node:12-alpine
+  stage: build
+  script:
+    - npm link @angular/cli@11.2.6
+    - npm run build
+  cache:
+    key:
+      files:
+        - package-lock.json
+    paths:
+      - node_modules
+    policy: pull
+
 deploy to s3:
   stage: deploy
   image: 
