@@ -36,4 +36,4 @@ deploy to s3:
     entrypoint: [""]
   script:
     - aws --version
-    - aws s3 sync dist/ s3://$S3_BUCKET
+    - aws s3 sync dist/curate-match/ s3://$S3_BUCKET
