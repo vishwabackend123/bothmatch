@@ -18,6 +18,9 @@ build stage:
   script:
     - npm link @angular/cli@11.2.6
     - npm run build
+  artifacts:
+    paths:
+      - $CI_PROJECT_DIR/dist
   cache:
     key:
       files:
