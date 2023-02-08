@@ -1,6 +1,6 @@
 install_dependencies:
   image: node:12-alpine
-  stage: pre
+  stage: .pre
   script:
     - npm install
   only:
