@@ -1,0 +1,8 @@
+deploy to s3:
+  stage: deploy
+  image: 
+    name: banst/awscli
+    entrypoint: [""]
+  script:
+    - aws --version
+    - aws s3 sync . s3://$S3_BUCKET
