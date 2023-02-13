@@ -37,4 +37,4 @@ deploy to s3 and invalidate cloudfront cache:
   script:
     - aws --version
     - aws s3 sync dist/curate-match/ s3://$S3_BUCKET
-    - aws cloudfront create-invalidation --distribution-id E330P3UOTZZ3RD --path "/*"
+    - aws cloudfront create-invalidation --distribution-id EP62Y1CM9QEOG --path "/*"
