@@ -29,7 +29,7 @@ build stage:
       - node_modules
     policy: pull
 
-deploy to s3:
+deploy to s3 and invalidate cloudfront cache:
   stage: deploy
   image: 
     name: banst/awscli
@@ -37,3 +37,4 @@ deploy to s3:
   script:
     - aws --version
     - aws s3 sync dist/curate-match/ s3://$S3_BUCKET
+    - aws cloudfront create-invalidation --distribution-id E330P3UOTZZ3RD --path "/*"
