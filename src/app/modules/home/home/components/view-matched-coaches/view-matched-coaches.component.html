@@ -70,7 +70,7 @@
                     <div class="profile-view-cn">
                         <ul>
                             <h3> Specialization </h3>
-                            <p>{{fildata.top3_specialization}}</p>
+                            <div [innerHTML]="transform(fildata.top3_specialization)"></div>
                         </ul>
                     </div>
                     <div class="profile-view-nit">

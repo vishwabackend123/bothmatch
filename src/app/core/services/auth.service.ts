@@ -72,7 +72,7 @@ export class AuthService {
     return new Promise((resolve, rejects) => {
       this.requestService.get("account/getUserData").subscribe(
         (data) => {
-          if(data.code=="401") this.logout()
+          if(data.code=="401" || data.status == false)  return this.logout()
           resolve(data);
         },
         (error) => {

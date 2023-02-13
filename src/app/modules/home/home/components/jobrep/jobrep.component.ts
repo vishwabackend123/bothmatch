@@ -174,7 +174,7 @@ export class JobRepComponent implements OnInit, OnChanges {
         this.fun.userData = res;
       }
     }).catch((err: any) => {
-      console.log(err);
+      console.log("userDAta",err);
     });
   }
 }

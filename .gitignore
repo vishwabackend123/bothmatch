@@ -9,7 +9,8 @@
 
 # production
 /build
-
+/dist
+/dist/curate-match
 
 npm-debug.log*
 yarn-debug.log*
